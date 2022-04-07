@@ -1,0 +1,760 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF1DF10527FB55EB0007B195 /* PhriOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF10427FB55EB0007B195 /* PhriOSApp.swift */; };
+		EF1DF10727FB55EB0007B195 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF10627FB55EB0007B195 /* ContentView.swift */; };
+		EF1DF10927FB55F00007B195 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF1DF10827FB55F00007B195 /* Assets.xcassets */; };
+		EF1DF10C27FB55F00007B195 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF1DF10B27FB55F00007B195 /* Preview Assets.xcassets */; };
+		EF1DF11627FB55F10007B195 /* PhriOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF11527FB55F10007B195 /* PhriOSTests.swift */; };
+		EF1DF12027FB55F10007B195 /* PhriOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF11F27FB55F10007B195 /* PhriOSUITests.swift */; };
+		EF1DF12227FB55F10007B195 /* PhriOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF12127FB55F10007B195 /* PhriOSUITestsLaunchTests.swift */; };
+		EF1DF13527FB56690007B195 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF13427FB56690007B195 /* HomeView.swift */; };
+		EF1DF13727FB56780007B195 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF13627FB56780007B195 /* HomeViewModel.swift */; };
+		EF9AA9AB27FB5A8F00C1DC9F /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9AA27FB5A8F00C1DC9F /* MenuView.swift */; };
+		EF9AA9AF27FB5E3600C1DC9F /* PhrButtonOrange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9AE27FB5E3600C1DC9F /* PhrButtonOrange.swift */; };
+		EF9AA9B127FB60CD00C1DC9F /* PhrButtonPurple.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9B027FB60CD00C1DC9F /* PhrButtonPurple.swift */; };
+		EF9AA9B427FB67FE00C1DC9F /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9B327FB67FE00C1DC9F /* GraphView.swift */; };
+		EF9AA9B627FB680C00C1DC9F /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9B527FB680C00C1DC9F /* GraphViewModel.swift */; };
+		EF9AA9B927FB697D00C1DC9F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = EF9AA9B827FB697D00C1DC9F /* SwiftUICharts */; };
+		EF9AA9BC27FB6CC100C1DC9F /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = EF9AA9BB27FB6CC100C1DC9F /* Charts */; };
+		EF9AA9BF27FB6DC500C1DC9F /* MultiLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9BE27FB6DC500C1DC9F /* MultiLineChartView.swift */; };
+		EF9AA9C127FDCD3000C1DC9F /* Billie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9C027FDCD3000C1DC9F /* Billie.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF1DF11227FB55F10007B195 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF1DF0F927FB55EB0007B195 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF1DF10027FB55EB0007B195;
+			remoteInfo = PhriOS;
+		};
+		EF1DF11C27FB55F10007B195 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF1DF0F927FB55EB0007B195 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF1DF10027FB55EB0007B195;
+			remoteInfo = PhriOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EF1DF10127FB55EB0007B195 /* PhriOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhriOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF1DF10427FB55EB0007B195 /* PhriOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhriOSApp.swift; sourceTree = "<group>"; };
+		EF1DF10627FB55EB0007B195 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EF1DF10827FB55F00007B195 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF1DF10B27FB55F00007B195 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EF1DF11127FB55F10007B195 /* PhriOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhriOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF1DF11527FB55F10007B195 /* PhriOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhriOSTests.swift; sourceTree = "<group>"; };
+		EF1DF11B27FB55F10007B195 /* PhriOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhriOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF1DF11F27FB55F10007B195 /* PhriOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhriOSUITests.swift; sourceTree = "<group>"; };
+		EF1DF12127FB55F10007B195 /* PhriOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhriOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EF1DF13427FB56690007B195 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EF1DF13627FB56780007B195 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EF9AA9AA27FB5A8F00C1DC9F /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		EF9AA9AE27FB5E3600C1DC9F /* PhrButtonOrange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrButtonOrange.swift; sourceTree = "<group>"; };
+		EF9AA9B027FB60CD00C1DC9F /* PhrButtonPurple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrButtonPurple.swift; sourceTree = "<group>"; };
+		EF9AA9B327FB67FE00C1DC9F /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		EF9AA9B527FB680C00C1DC9F /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
+		EF9AA9BE27FB6DC500C1DC9F /* MultiLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineChartView.swift; sourceTree = "<group>"; };
+		EF9AA9C027FDCD3000C1DC9F /* Billie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Billie.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF1DF0FE27FB55EB0007B195 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF9AA9B927FB697D00C1DC9F /* SwiftUICharts in Frameworks */,
+				EF9AA9BC27FB6CC100C1DC9F /* Charts in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1DF10E27FB55F10007B195 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1DF11827FB55F10007B195 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF1DF0F827FB55EB0007B195 = {
+			isa = PBXGroup;
+			children = (
+				EF1DF10327FB55EB0007B195 /* PhriOS */,
+				EF1DF11427FB55F10007B195 /* PhriOSTests */,
+				EF1DF11E27FB55F10007B195 /* PhriOSUITests */,
+				EF1DF10227FB55EB0007B195 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF1DF10227FB55EB0007B195 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF1DF10127FB55EB0007B195 /* PhriOS.app */,
+				EF1DF11127FB55F10007B195 /* PhriOSTests.xctest */,
+				EF1DF11B27FB55F10007B195 /* PhriOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF1DF10327FB55EB0007B195 /* PhriOS */ = {
+			isa = PBXGroup;
+			children = (
+				EF1DF13127FB56390007B195 /* Infrastructure */,
+				EF1DF13027FB56330007B195 /* Models */,
+				EF1DF12F27FB562C0007B195 /* Logic */,
+				EF1DF12E27FB56230007B195 /* Views */,
+				EF1DF10427FB55EB0007B195 /* PhriOSApp.swift */,
+				EF1DF10627FB55EB0007B195 /* ContentView.swift */,
+				EF1DF10827FB55F00007B195 /* Assets.xcassets */,
+				EF1DF10A27FB55F00007B195 /* Preview Content */,
+			);
+			path = PhriOS;
+			sourceTree = "<group>";
+		};
+		EF1DF10A27FB55F00007B195 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EF1DF10B27FB55F00007B195 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EF1DF11427FB55F10007B195 /* PhriOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF1DF11527FB55F10007B195 /* PhriOSTests.swift */,
+			);
+			path = PhriOSTests;
+			sourceTree = "<group>";
+		};
+		EF1DF11E27FB55F10007B195 /* PhriOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EF1DF11F27FB55F10007B195 /* PhriOSUITests.swift */,
+				EF1DF12127FB55F10007B195 /* PhriOSUITestsLaunchTests.swift */,
+			);
+			path = PhriOSUITests;
+			sourceTree = "<group>";
+		};
+		EF1DF12E27FB56230007B195 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9B227FB67EA00C1DC9F /* Graph */,
+				EF9AA9AC27FB5E1C00C1DC9F /* Shared */,
+				EF1DF13327FB564A0007B195 /* Settings */,
+				EF1DF13227FB56440007B195 /* Home */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EF1DF12F27FB562C0007B195 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		EF1DF13027FB56330007B195 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9C027FDCD3000C1DC9F /* Billie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EF1DF13127FB56390007B195 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		EF1DF13227FB56440007B195 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EF1DF13427FB56690007B195 /* HomeView.swift */,
+				EF1DF13627FB56780007B195 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EF1DF13327FB564A0007B195 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		EF9AA9A927FB5A7D00C1DC9F /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9AA27FB5A8F00C1DC9F /* MenuView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		EF9AA9AC27FB5E1C00C1DC9F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9BD27FB6DA700C1DC9F /* GraphView */,
+				EF9AA9AD27FB5E2500C1DC9F /* Buttons */,
+				EF9AA9A927FB5A7D00C1DC9F /* Menu */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		EF9AA9AD27FB5E2500C1DC9F /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9AE27FB5E3600C1DC9F /* PhrButtonOrange.swift */,
+				EF9AA9B027FB60CD00C1DC9F /* PhrButtonPurple.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		EF9AA9B227FB67EA00C1DC9F /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9B327FB67FE00C1DC9F /* GraphView.swift */,
+				EF9AA9B527FB680C00C1DC9F /* GraphViewModel.swift */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
+		EF9AA9BD27FB6DA700C1DC9F /* GraphView */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9BE27FB6DC500C1DC9F /* MultiLineChartView.swift */,
+			);
+			path = GraphView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF1DF10027FB55EB0007B195 /* PhriOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF1DF12527FB55F10007B195 /* Build configuration list for PBXNativeTarget "PhriOS" */;
+			buildPhases = (
+				EF1DF0FD27FB55EB0007B195 /* Sources */,
+				EF1DF0FE27FB55EB0007B195 /* Frameworks */,
+				EF1DF0FF27FB55EB0007B195 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhriOS;
+			packageProductDependencies = (
+				EF9AA9B827FB697D00C1DC9F /* SwiftUICharts */,
+				EF9AA9BB27FB6CC100C1DC9F /* Charts */,
+			);
+			productName = PhriOS;
+			productReference = EF1DF10127FB55EB0007B195 /* PhriOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EF1DF11027FB55F10007B195 /* PhriOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF1DF12827FB55F10007B195 /* Build configuration list for PBXNativeTarget "PhriOSTests" */;
+			buildPhases = (
+				EF1DF10D27FB55F10007B195 /* Sources */,
+				EF1DF10E27FB55F10007B195 /* Frameworks */,
+				EF1DF10F27FB55F10007B195 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF1DF11327FB55F10007B195 /* PBXTargetDependency */,
+			);
+			name = PhriOSTests;
+			productName = PhriOSTests;
+			productReference = EF1DF11127FB55F10007B195 /* PhriOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EF1DF11A27FB55F10007B195 /* PhriOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF1DF12B27FB55F10007B195 /* Build configuration list for PBXNativeTarget "PhriOSUITests" */;
+			buildPhases = (
+				EF1DF11727FB55F10007B195 /* Sources */,
+				EF1DF11827FB55F10007B195 /* Frameworks */,
+				EF1DF11927FB55F10007B195 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF1DF11D27FB55F10007B195 /* PBXTargetDependency */,
+			);
+			name = PhriOSUITests;
+			productName = PhriOSUITests;
+			productReference = EF1DF11B27FB55F10007B195 /* PhriOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF1DF0F927FB55EB0007B195 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					EF1DF10027FB55EB0007B195 = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					EF1DF11027FB55F10007B195 = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = EF1DF10027FB55EB0007B195;
+					};
+					EF1DF11A27FB55F10007B195 = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = EF1DF10027FB55EB0007B195;
+					};
+				};
+			};
+			buildConfigurationList = EF1DF0FC27FB55EB0007B195 /* Build configuration list for PBXProject "PhriOS" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF1DF0F827FB55EB0007B195;
+			packageReferences = (
+				EF9AA9B727FB697D00C1DC9F /* XCRemoteSwiftPackageReference "ChartView" */,
+				EF9AA9BA27FB6CC100C1DC9F /* XCRemoteSwiftPackageReference "Charts" */,
+			);
+			productRefGroup = EF1DF10227FB55EB0007B195 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF1DF10027FB55EB0007B195 /* PhriOS */,
+				EF1DF11027FB55F10007B195 /* PhriOSTests */,
+				EF1DF11A27FB55F10007B195 /* PhriOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF1DF0FF27FB55EB0007B195 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF1DF10C27FB55F00007B195 /* Preview Assets.xcassets in Resources */,
+				EF1DF10927FB55F00007B195 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1DF10F27FB55F10007B195 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1DF11927FB55F10007B195 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF1DF0FD27FB55EB0007B195 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF9AA9AB27FB5A8F00C1DC9F /* MenuView.swift in Sources */,
+				EF1DF13527FB56690007B195 /* HomeView.swift in Sources */,
+				EF9AA9B627FB680C00C1DC9F /* GraphViewModel.swift in Sources */,
+				EF9AA9C127FDCD3000C1DC9F /* Billie.swift in Sources */,
+				EF1DF10727FB55EB0007B195 /* ContentView.swift in Sources */,
+				EF1DF10527FB55EB0007B195 /* PhriOSApp.swift in Sources */,
+				EF9AA9BF27FB6DC500C1DC9F /* MultiLineChartView.swift in Sources */,
+				EF9AA9B127FB60CD00C1DC9F /* PhrButtonPurple.swift in Sources */,
+				EF9AA9AF27FB5E3600C1DC9F /* PhrButtonOrange.swift in Sources */,
+				EF1DF13727FB56780007B195 /* HomeViewModel.swift in Sources */,
+				EF9AA9B427FB67FE00C1DC9F /* GraphView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1DF10D27FB55F10007B195 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF1DF11627FB55F10007B195 /* PhriOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1DF11727FB55F10007B195 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF1DF12027FB55F10007B195 /* PhriOSUITests.swift in Sources */,
+				EF1DF12227FB55F10007B195 /* PhriOSUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF1DF11327FB55F10007B195 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF1DF10027FB55EB0007B195 /* PhriOS */;
+			targetProxy = EF1DF11227FB55F10007B195 /* PBXContainerItemProxy */;
+		};
+		EF1DF11D27FB55F10007B195 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF1DF10027FB55EB0007B195 /* PhriOS */;
+			targetProxy = EF1DF11C27FB55F10007B195 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EF1DF12327FB55F10007B195 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EF1DF12427FB55F10007B195 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF1DF12627FB55F10007B195 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PhriOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 963LK66N4P;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to save the charts to your images";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.Buijsen.PhriOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF1DF12727FB55F10007B195 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PhriOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 963LK66N4P;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to save the charts to your images";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.Buijsen.PhriOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EF1DF12927FB55F10007B195 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 963LK66N4P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.Buijsen.PhriOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhriOS.app/PhriOS";
+			};
+			name = Debug;
+		};
+		EF1DF12A27FB55F10007B195 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 963LK66N4P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.Buijsen.PhriOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhriOS.app/PhriOS";
+			};
+			name = Release;
+		};
+		EF1DF12C27FB55F10007B195 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 963LK66N4P;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.Buijsen.PhriOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PhriOS;
+			};
+			name = Debug;
+		};
+		EF1DF12D27FB55F10007B195 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 963LK66N4P;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.Buijsen.PhriOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PhriOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF1DF0FC27FB55EB0007B195 /* Build configuration list for PBXProject "PhriOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF1DF12327FB55F10007B195 /* Debug */,
+				EF1DF12427FB55F10007B195 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF1DF12527FB55F10007B195 /* Build configuration list for PBXNativeTarget "PhriOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF1DF12627FB55F10007B195 /* Debug */,
+				EF1DF12727FB55F10007B195 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF1DF12827FB55F10007B195 /* Build configuration list for PBXNativeTarget "PhriOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF1DF12927FB55F10007B195 /* Debug */,
+				EF1DF12A27FB55F10007B195 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF1DF12B27FB55F10007B195 /* Build configuration list for PBXNativeTarget "PhriOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF1DF12C27FB55F10007B195 /* Debug */,
+				EF1DF12D27FB55F10007B195 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF9AA9B727FB697D00C1DC9F /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+		EF9AA9BA27FB6CC100C1DC9F /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF9AA9B827FB697D00C1DC9F /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF9AA9B727FB697D00C1DC9F /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+		EF9AA9BB27FB6CC100C1DC9F /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF9AA9BA27FB6CC100C1DC9F /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = EF1DF0F927FB55EB0007B195 /* Project object */;
+}

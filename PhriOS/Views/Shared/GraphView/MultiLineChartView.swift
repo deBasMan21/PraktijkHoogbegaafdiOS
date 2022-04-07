@@ -1,0 +1,102 @@
+//
+//  MultiLineChartView.swift
+//  PhriOS
+//
+//  Created by Bas Buijsen on 04/04/2022.
+//
+
+import SwiftUI
+import Charts
+
+struct MultiLineChartView : UIViewRepresentable {
+    
+    @Binding var lines : [ChartDataEntryWrapper]
+    var days: [String]
+    
+    func makeUIView(context: Context) -> LineChartView {
+        let chart = LineChartView()
+        return createChart(chart: chart)
+    }
+    
+    func updateUIView(_ chart: LineChartView, context: Context) {
+        chart.data = addData()
+    }
+    
+    func createChart(chart: LineChartView) -> LineChartView{
+        chart.chartDescription?.enabled = false
+        chart.xAxis.drawGridLinesEnabled = false
+        chart.xAxis.drawLabelsEnabled = true
+        chart.xAxis.drawAxisLineEnabled = true
+        chart.xAxis.labelPosition = .bottom
+        chart.rightAxis.enabled = false
+        chart.leftAxis.enabled = true
+        chart.drawBordersEnabled = true
+        chart.legend.form = .default
+        chart.xAxis.forceLabelsEnabled = true
+        chart.xAxis.granularityEnabled = true
+        chart.xAxis.granularity = 1
+        chart.xAxis.axisMinimum = 1
+        chart.xAxis.axisMaximum = 7
+        chart.scaleXEnabled = false
+        chart.scaleYEnabled = false
+        chart.leftAxis.axisMinimum = -2.5
+        chart.leftAxis.axisMaximum = 2.5
+        chart.leftAxis.granularity = 1
+        
+        chart.data = addData()
+        return chart
+    }
+    
+    func addData() -> LineChartData{
+        var dataSets : [LineChartDataSet] = []
+        for line in lines{
+            dataSets.append(generateLineChartDataSet(entries: line))
+        }
+        let data = LineChartData(dataSets: dataSets)
+        return data
+    }
+    
+    func filter(billie : Billie) -> LineChartData {
+        var dataSets : [LineChartDataSet] = []
+        for line in lines{
+            dataSets.append(generateLineChartDataSet(entries: line))
+        }
+        let data = LineChartData(dataSets: dataSets)
+        return data
+    }
+    
+    func generateLineChartDataSet(entries : ChartDataEntryWrapper) -> LineChartDataSet{
+        let dataSet = LineChartDataSet(entries: entries.data, label: "")
+        dataSet.colors = [UIColor(entries.color)]
+        dataSet.drawCirclesEnabled = false
+        dataSet.lineWidth = 2
+        dataSet.valueTextColor = .clear
+        dataSet.label = entries.billie.description
+        return dataSet
+    }
+    
+}
+
+//class CustomChartFormatter: NSObject, IAxisValueFormatter {
+//    var days: [String]
+//    
+//    init(days: [String]) {
+//        self.days = days
+//    }
+//    
+//    public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+//        return days[Int(value-1)]
+//    }
+//}
+
+class ChartDataEntryWrapper {
+    var data : [ChartDataEntry]
+    var color : Color
+    var billie : Billie
+    
+    init(data: [ChartDataEntry], color : Color, billie: Billie) {
+        self.data = data
+        self.color = color
+        self.billie = billie
+    }
+}
