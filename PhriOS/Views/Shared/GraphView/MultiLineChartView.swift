@@ -11,7 +11,6 @@ import Charts
 struct MultiLineChartView : UIViewRepresentable {
     
     @Binding var lines : [ChartDataEntryWrapper]
-    var days: [String]
     
     func makeUIView(context: Context) -> LineChartView {
         let chart = LineChartView()
@@ -76,18 +75,6 @@ struct MultiLineChartView : UIViewRepresentable {
     }
     
 }
-
-//class CustomChartFormatter: NSObject, IAxisValueFormatter {
-//    var days: [String]
-//    
-//    init(days: [String]) {
-//        self.days = days
-//    }
-//    
-//    public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-//        return days[Int(value-1)]
-//    }
-//}
 
 class ChartDataEntryWrapper {
     var data : [ChartDataEntry]
