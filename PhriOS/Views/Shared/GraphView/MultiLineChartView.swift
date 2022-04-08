@@ -11,6 +11,7 @@ import Charts
 struct MultiLineChartView : UIViewRepresentable {
     
     @Binding var lines : [ChartDataEntryWrapper]
+    var style : ChartStyle
     
     func makeUIView(context: Context) -> LineChartView {
         let chart = LineChartView()
@@ -34,12 +35,12 @@ struct MultiLineChartView : UIViewRepresentable {
         chart.xAxis.forceLabelsEnabled = true
         chart.xAxis.granularityEnabled = true
         chart.xAxis.granularity = 1
-        chart.xAxis.axisMinimum = 1
-        chart.xAxis.axisMaximum = 7
+        chart.xAxis.axisMinimum = style.minX
+        chart.xAxis.axisMaximum = style.maxX
         chart.scaleXEnabled = false
         chart.scaleYEnabled = false
-        chart.leftAxis.axisMinimum = -2.5
-        chart.leftAxis.axisMaximum = 2.5
+        chart.leftAxis.axisMinimum = style.minY
+        chart.leftAxis.axisMaximum = style.maxY
         chart.leftAxis.granularity = 1
         
         chart.data = addData()
@@ -85,5 +86,19 @@ class ChartDataEntryWrapper {
         self.data = data
         self.color = color
         self.billie = billie
+    }
+}
+
+class ChartStyle {
+    var minX : Double
+    var maxX : Double
+    var minY : Double
+    var maxY : Double
+    
+    init(minX : Double, maxX : Double, minY : Double, maxY : Double) {
+        self.minX = minX
+        self.maxX = maxX
+        self.minY = minY
+        self.maxY = maxY
     }
 }

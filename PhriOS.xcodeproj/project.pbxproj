@@ -27,6 +27,8 @@
 		EF9AA9C127FDCD3000C1DC9F /* Billie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9C027FDCD3000C1DC9F /* Billie.swift */; };
 		EF9AA9CA27FF34F200C1DC9F /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9C927FF34F200C1DC9F /* GraphView.swift */; };
 		EF9AA9CC27FF350200C1DC9F /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9CB27FF350200C1DC9F /* GraphViewModel.swift */; };
+		EF9AA9CE2800253000C1DC9F /* GraphChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9CD2800253000C1DC9F /* GraphChildView.swift */; };
+		EF9AA9D02800254200C1DC9F /* GraphChildViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9CF2800254200C1DC9F /* GraphChildViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		EF9AA9C027FDCD3000C1DC9F /* Billie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Billie.swift; sourceTree = "<group>"; };
 		EF9AA9C927FF34F200C1DC9F /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		EF9AA9CB27FF350200C1DC9F /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
+		EF9AA9CD2800253000C1DC9F /* GraphChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphChildView.swift; sourceTree = "<group>"; };
+		EF9AA9CF2800254200C1DC9F /* GraphChildViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphChildViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +259,8 @@
 		EF9AA9C227FF311000C1DC9F /* GraphChild */ = {
 			isa = PBXGroup;
 			children = (
+				EF9AA9CD2800253000C1DC9F /* GraphChildView.swift */,
+				EF9AA9CF2800254200C1DC9F /* GraphChildViewModel.swift */,
 			);
 			path = GraphChild;
 			sourceTree = "<group>";
@@ -406,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF9AA9D02800254200C1DC9F /* GraphChildViewModel.swift in Sources */,
 				EF9AA9AB27FB5A8F00C1DC9F /* MenuView.swift in Sources */,
 				EF1DF13527FB56690007B195 /* HomeView.swift in Sources */,
 				EF9AA9B627FB680C00C1DC9F /* GraphAdultViewModel.swift in Sources */,
@@ -414,6 +421,7 @@
 				EF1DF10527FB55EB0007B195 /* PhriOSApp.swift in Sources */,
 				EF9AA9BF27FB6DC500C1DC9F /* MultiLineChartView.swift in Sources */,
 				EF9AA9B127FB60CD00C1DC9F /* PhrButtonPurple.swift in Sources */,
+				EF9AA9CE2800253000C1DC9F /* GraphChildView.swift in Sources */,
 				EF9AA9AF27FB5E3600C1DC9F /* PhrButtonOrange.swift in Sources */,
 				EF1DF13727FB56780007B195 /* HomeViewModel.swift in Sources */,
 				EF9AA9B427FB67FE00C1DC9F /* GraphAdultView.swift in Sources */,
