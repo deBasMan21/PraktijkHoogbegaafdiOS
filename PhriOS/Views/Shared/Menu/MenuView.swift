@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MenuView: View {
+    @Binding var selectedMenu : MenuItem
+    
     var body: some View {
         VStack{
             Divider()
@@ -15,15 +17,21 @@ struct MenuView: View {
             HStack{
                 Spacer()
                 
-                Image("home")
+                Image("home").onTapGesture {
+                    selectedMenu = .home
+                }
                 
                 Spacer()
                 
-                Image("graph")
+                Image("graph").onTapGesture {
+                    selectedMenu = .graph
+                }
                 
                 Spacer()
                 
-                Image("settings")
+                Image("settings").onTapGesture {
+                    selectedMenu = .settings
+                }
                 
                 Spacer()
             }.padding()

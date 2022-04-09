@@ -19,16 +19,22 @@
 		EF9AA9AB27FB5A8F00C1DC9F /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9AA27FB5A8F00C1DC9F /* MenuView.swift */; };
 		EF9AA9AF27FB5E3600C1DC9F /* PhrButtonOrange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9AE27FB5E3600C1DC9F /* PhrButtonOrange.swift */; };
 		EF9AA9B127FB60CD00C1DC9F /* PhrButtonPurple.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9B027FB60CD00C1DC9F /* PhrButtonPurple.swift */; };
-		EF9AA9B427FB67FE00C1DC9F /* GraphAdultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9B327FB67FE00C1DC9F /* GraphAdultView.swift */; };
-		EF9AA9B627FB680C00C1DC9F /* GraphAdultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9B527FB680C00C1DC9F /* GraphAdultViewModel.swift */; };
+		EF9AA9B427FB67FE00C1DC9F /* GraphChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9B327FB67FE00C1DC9F /* GraphChildView.swift */; };
+		EF9AA9B627FB680C00C1DC9F /* GraphChildViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9B527FB680C00C1DC9F /* GraphChildViewModel.swift */; };
 		EF9AA9B927FB697D00C1DC9F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = EF9AA9B827FB697D00C1DC9F /* SwiftUICharts */; };
 		EF9AA9BC27FB6CC100C1DC9F /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = EF9AA9BB27FB6CC100C1DC9F /* Charts */; };
 		EF9AA9BF27FB6DC500C1DC9F /* MultiLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9BE27FB6DC500C1DC9F /* MultiLineChartView.swift */; };
 		EF9AA9C127FDCD3000C1DC9F /* Billie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9C027FDCD3000C1DC9F /* Billie.swift */; };
 		EF9AA9CA27FF34F200C1DC9F /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9C927FF34F200C1DC9F /* GraphView.swift */; };
 		EF9AA9CC27FF350200C1DC9F /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9CB27FF350200C1DC9F /* GraphViewModel.swift */; };
-		EF9AA9CE2800253000C1DC9F /* GraphChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9CD2800253000C1DC9F /* GraphChildView.swift */; };
-		EF9AA9D02800254200C1DC9F /* GraphChildViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9CF2800254200C1DC9F /* GraphChildViewModel.swift */; };
+		EF9AA9CE2800253000C1DC9F /* GraphAdultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9CD2800253000C1DC9F /* GraphAdultView.swift */; };
+		EF9AA9D02800254200C1DC9F /* GraphAdultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9CF2800254200C1DC9F /* GraphAdultViewModel.swift */; };
+		EF9AA9D42801836900C1DC9F /* ChildService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9D32801836900C1DC9F /* ChildService.swift */; };
+		EF9AA9D72801842B00C1DC9F /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9D62801842B00C1DC9F /* UIImageExtension.swift */; };
+		EF9AA9DA2801855E00C1DC9F /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9D92801855E00C1DC9F /* MailView.swift */; };
+		EF9AA9DC280188B700C1DC9F /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9DB280188B700C1DC9F /* MenuItem.swift */; };
+		EF9AA9DE28018A7700C1DC9F /* ShareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9DD28018A7700C1DC9F /* ShareType.swift */; };
+		EF9AA9E028018AB400C1DC9F /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9DF28018AB400C1DC9F /* EnumExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,14 +70,20 @@
 		EF9AA9AA27FB5A8F00C1DC9F /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		EF9AA9AE27FB5E3600C1DC9F /* PhrButtonOrange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrButtonOrange.swift; sourceTree = "<group>"; };
 		EF9AA9B027FB60CD00C1DC9F /* PhrButtonPurple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrButtonPurple.swift; sourceTree = "<group>"; };
-		EF9AA9B327FB67FE00C1DC9F /* GraphAdultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphAdultView.swift; sourceTree = "<group>"; };
-		EF9AA9B527FB680C00C1DC9F /* GraphAdultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphAdultViewModel.swift; sourceTree = "<group>"; };
+		EF9AA9B327FB67FE00C1DC9F /* GraphChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphChildView.swift; sourceTree = "<group>"; };
+		EF9AA9B527FB680C00C1DC9F /* GraphChildViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphChildViewModel.swift; sourceTree = "<group>"; };
 		EF9AA9BE27FB6DC500C1DC9F /* MultiLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineChartView.swift; sourceTree = "<group>"; };
 		EF9AA9C027FDCD3000C1DC9F /* Billie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Billie.swift; sourceTree = "<group>"; };
 		EF9AA9C927FF34F200C1DC9F /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		EF9AA9CB27FF350200C1DC9F /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
-		EF9AA9CD2800253000C1DC9F /* GraphChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphChildView.swift; sourceTree = "<group>"; };
-		EF9AA9CF2800254200C1DC9F /* GraphChildViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphChildViewModel.swift; sourceTree = "<group>"; };
+		EF9AA9CD2800253000C1DC9F /* GraphAdultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphAdultView.swift; sourceTree = "<group>"; };
+		EF9AA9CF2800254200C1DC9F /* GraphAdultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphAdultViewModel.swift; sourceTree = "<group>"; };
+		EF9AA9D32801836900C1DC9F /* ChildService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildService.swift; sourceTree = "<group>"; };
+		EF9AA9D62801842B00C1DC9F /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		EF9AA9D92801855E00C1DC9F /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		EF9AA9DB280188B700C1DC9F /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		EF9AA9DD28018A7700C1DC9F /* ShareType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareType.swift; sourceTree = "<group>"; };
+		EF9AA9DF28018AB400C1DC9F /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +187,7 @@
 		EF1DF12F27FB562C0007B195 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				EF9AA9D52801841E00C1DC9F /* Extensions */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -183,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				EF9AA9C027FDCD3000C1DC9F /* Billie.swift */,
+				EF9AA9DB280188B700C1DC9F /* MenuItem.swift */,
+				EF9AA9DD28018A7700C1DC9F /* ShareType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +205,8 @@
 		EF1DF13127FB56390007B195 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				EF9AA9D22801835C00C1DC9F /* Adult */,
+				EF9AA9D12801835600C1DC9F /* Child */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -221,6 +238,7 @@
 		EF9AA9AC27FB5E1C00C1DC9F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				EF9AA9D82801855300C1DC9F /* MailView */,
 				EF9AA9BD27FB6DA700C1DC9F /* GraphView */,
 				EF9AA9AD27FB5E2500C1DC9F /* Buttons */,
 				EF9AA9A927FB5A7D00C1DC9F /* Menu */,
@@ -259,8 +277,8 @@
 		EF9AA9C227FF311000C1DC9F /* GraphChild */ = {
 			isa = PBXGroup;
 			children = (
-				EF9AA9CD2800253000C1DC9F /* GraphChildView.swift */,
-				EF9AA9CF2800254200C1DC9F /* GraphChildViewModel.swift */,
+				EF9AA9CD2800253000C1DC9F /* GraphAdultView.swift */,
+				EF9AA9CF2800254200C1DC9F /* GraphAdultViewModel.swift */,
 			);
 			path = GraphChild;
 			sourceTree = "<group>";
@@ -268,10 +286,42 @@
 		EF9AA9C827FF34DB00C1DC9F /* GraphAdult */ = {
 			isa = PBXGroup;
 			children = (
-				EF9AA9B327FB67FE00C1DC9F /* GraphAdultView.swift */,
-				EF9AA9B527FB680C00C1DC9F /* GraphAdultViewModel.swift */,
+				EF9AA9B327FB67FE00C1DC9F /* GraphChildView.swift */,
+				EF9AA9B527FB680C00C1DC9F /* GraphChildViewModel.swift */,
 			);
 			path = GraphAdult;
+			sourceTree = "<group>";
+		};
+		EF9AA9D12801835600C1DC9F /* Child */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9D32801836900C1DC9F /* ChildService.swift */,
+			);
+			path = Child;
+			sourceTree = "<group>";
+		};
+		EF9AA9D22801835C00C1DC9F /* Adult */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Adult;
+			sourceTree = "<group>";
+		};
+		EF9AA9D52801841E00C1DC9F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9D62801842B00C1DC9F /* UIImageExtension.swift */,
+				EF9AA9DF28018AB400C1DC9F /* EnumExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EF9AA9D82801855300C1DC9F /* MailView */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9D92801855E00C1DC9F /* MailView.swift */,
+			);
+			path = MailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,21 +462,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF9AA9D02800254200C1DC9F /* GraphChildViewModel.swift in Sources */,
+				EF9AA9D02800254200C1DC9F /* GraphAdultViewModel.swift in Sources */,
 				EF9AA9AB27FB5A8F00C1DC9F /* MenuView.swift in Sources */,
+				EF9AA9D42801836900C1DC9F /* ChildService.swift in Sources */,
 				EF1DF13527FB56690007B195 /* HomeView.swift in Sources */,
-				EF9AA9B627FB680C00C1DC9F /* GraphAdultViewModel.swift in Sources */,
+				EF9AA9B627FB680C00C1DC9F /* GraphChildViewModel.swift in Sources */,
 				EF9AA9C127FDCD3000C1DC9F /* Billie.swift in Sources */,
 				EF1DF10727FB55EB0007B195 /* ContentView.swift in Sources */,
+				EF9AA9DE28018A7700C1DC9F /* ShareType.swift in Sources */,
+				EF9AA9DA2801855E00C1DC9F /* MailView.swift in Sources */,
 				EF1DF10527FB55EB0007B195 /* PhriOSApp.swift in Sources */,
+				EF9AA9D72801842B00C1DC9F /* UIImageExtension.swift in Sources */,
 				EF9AA9BF27FB6DC500C1DC9F /* MultiLineChartView.swift in Sources */,
 				EF9AA9B127FB60CD00C1DC9F /* PhrButtonPurple.swift in Sources */,
-				EF9AA9CE2800253000C1DC9F /* GraphChildView.swift in Sources */,
+				EF9AA9CE2800253000C1DC9F /* GraphAdultView.swift in Sources */,
 				EF9AA9AF27FB5E3600C1DC9F /* PhrButtonOrange.swift in Sources */,
+				EF9AA9E028018AB400C1DC9F /* EnumExtension.swift in Sources */,
 				EF1DF13727FB56780007B195 /* HomeViewModel.swift in Sources */,
-				EF9AA9B427FB67FE00C1DC9F /* GraphAdultView.swift in Sources */,
+				EF9AA9B427FB67FE00C1DC9F /* GraphChildView.swift in Sources */,
 				EF9AA9CA27FF34F200C1DC9F /* GraphView.swift in Sources */,
 				EF9AA9CC27FF350200C1DC9F /* GraphViewModel.swift in Sources */,
+				EF9AA9DC280188B700C1DC9F /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

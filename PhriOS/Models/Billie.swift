@@ -15,9 +15,3 @@ enum Billie : String, CustomStringConvertible, CaseIterable {
     case Senzo
     case Intellecto
 }
-
-extension RawRepresentable where RawValue: CustomStringConvertible {
-    var description: String {
-        return rawValue.description
-    }
-}

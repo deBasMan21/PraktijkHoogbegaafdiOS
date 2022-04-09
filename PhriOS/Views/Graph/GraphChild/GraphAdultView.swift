@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GraphChildView: View {
+struct GraphAdultView: View {
     @StateObject var viewModel = ViewModel()
     
     var body: some View {

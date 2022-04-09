@@ -11,6 +11,6 @@ struct GraphView: View {
     @StateObject var viewModel = ViewModel()
     
     var body: some View {
-        GraphAdultView()
+        GraphChildView()
     }
 }

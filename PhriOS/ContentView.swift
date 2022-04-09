@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selectedMenu : MenuItem = .home
+    
     var body: some View {
         VStack{
-            GraphView()
+            if selectedMenu == .home {
+                HomeView()
+            } else if selectedMenu == .graph {
+                GraphView()
+            } else if selectedMenu == .settings {
+                Text("Settings not yet")
+            }
             
             Spacer()
             
-            MenuView()
+            MenuView(selectedMenu: $selectedMenu)
         }
     }
 }

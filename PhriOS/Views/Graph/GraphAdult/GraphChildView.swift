@@ -8,7 +8,7 @@
 import SwiftUI
 import Charts
  
-struct GraphAdultView: View {
+struct GraphChildView: View {
     @StateObject var viewModel = ViewModel()
     
     var body: some View {
@@ -24,6 +24,8 @@ struct GraphAdultView: View {
                     .padding()
                 
                 VStack{
+                    graphView
+                    
                     HStack{
                         Text("Categorie:")
                             .padding(.horizontal)
@@ -36,8 +38,6 @@ struct GraphAdultView: View {
                             viewModel.filter()
                         }.pickerStyle(MenuPickerStyle())
                     }
-                    
-                    graphView
 
                     VStack{
                         DatePicker("Begin moment", selection: $viewModel.beginDate, in: ...viewModel.beginDate, displayedComponents: [.date])
@@ -86,19 +86,19 @@ struct GraphAdultView: View {
                         }
                     }
                 }
-                
-                ForEach(viewModel.images, id: \.self){
-                    Image(uiImage: $0).resizable().aspectRatio(contentMode: .fit).padding(.horizontal, 50)
-                }
             }
             
             Spacer()
             
             PhrButtonOrange(text: "Delen", onClick: {
                     Task{
-                        await viewModel.switchBot()
+                        await viewModel.share()
                     }
             }).padding(.horizontal, 50)
+        }.sheet(isPresented: $viewModel.showMail) {
+            MailView(data: $viewModel.mailData){ result in
+                print(result)
+            }
         }
     }
     

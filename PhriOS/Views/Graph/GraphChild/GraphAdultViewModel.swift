@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension GraphChildView {
+extension GraphAdultView {
     class ViewModel : ObservableObject {
         
     }
