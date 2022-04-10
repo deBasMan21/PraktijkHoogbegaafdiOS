@@ -109,3 +109,39 @@ func getParentData(from: Date, to: Date) -> [ChartDataEntryWrapper] {
                ChartDataEntry(x: 7.5, y: 1)]
                                  , color: .blue, billie: .Psymo)]
 }
+
+func getDayStats(of: Date, child : Bool) -> [Billie : Double] {
+    let entries = child ? getParentData(from: of, to: of) : getParentData(from: of, to: of)
+    var stats : [Billie: Double] = [:]
+    
+    for entry in entries {
+        var totalValue : Double = 0
+        var count : Double = 0
+        for data in entry.data {
+            if Int(data.x) == 7 {
+                count += 1
+                totalValue += data.y
+            }
+        }
+        stats[entry.billie] = round(totalValue / count * 10) / 10
+    }
+    
+    return stats
+}
+
+func getWeekStats(from: Date, to: Date, child : Bool) -> [Billie : Double] {
+    let entries = child ? getChildData(from: from, to: to) : getParentData(from: from, to: to)
+    var stats : [Billie : Double] = [:]
+    
+    for entry in entries {
+        var totalValue : Double = 0
+        var count : Double = 0
+        for data in entry.data {
+            count += 1
+            totalValue += data.y
+        }
+        stats[entry.billie] = round(totalValue / count * 10) / 10
+    }
+    
+    return stats
+}

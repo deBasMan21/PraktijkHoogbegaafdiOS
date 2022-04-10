@@ -28,7 +28,7 @@ extension GraphChildView {
         @Published var images : [UIImage] = []
         
         @Published var showMail = false
-        @Published var mailData = ComposeMailData(subject: "test", recipients: ["bbuijsen@gmail.com"], message: "test", attachments: [])
+        @Published var mailData = ComposeMailData(subject: "Verslag uit de app", recipients: ["bbuijsen@gmail.com"], message: "In de bijlage zit het verslag van de intensiteiten. Dit is van .. tot en met ...", attachments: [])
         
         @Published var showShareOptions = false
         
@@ -38,11 +38,7 @@ extension GraphChildView {
         
         func loadData() {
             selectedGraph = .All
-            if showChild {
-                entries = getChildData(from: beginDate, to: endDate)
-            } else {
-                entries = getParentData(from: beginDate, to: endDate)
-            }
+            entries = showChild ? getChildData(from: beginDate, to: endDate) : getParentData(from: beginDate, to: endDate)
             filteredEntries = entries
             loadStats()
         }
@@ -58,27 +54,8 @@ extension GraphChildView {
         }
         
         func loadStats() {
-            for entry in entries {
-                var totalValue : Double = 0
-                var count : Double = 0
-                for data in entry.data {
-                    count += 1
-                    totalValue += data.y
-                }
-                weekStats[entry.billie] = round(totalValue / count * 10) / 10
-            }
-            
-            for entry in entries {
-                var totalValue : Double = 0
-                var count : Double = 0
-                for data in entry.data {
-                    if Int(data.x) == 7 {
-                        count += 1
-                        totalValue += data.y
-                    }
-                }
-                dayStats[entry.billie] = round(totalValue / count * 10) / 10
-            }
+            weekStats = getWeekStats(from: beginDate, to: endDate, child: showChild)
+            dayStats = getDayStats(of: endDate, child: showChild)
         }
         
         func share(shareOptions : ShareType) async {
@@ -93,35 +70,29 @@ extension GraphChildView {
                     }
                 }
             } else if shareOptions == .childOnly {
-                await MainActor.run{
-                    showChild = true
-                }
+                showChild = true
                 await createScreenshots()
             } else if shareOptions == .parentOnly {
-                await MainActor.run{
-                    showChild = false
-                }
+                showChild = false
                 await createScreenshots()
             }
             
-            await createMail()
+            await createMail(shareOptions: shareOptions)
         }
         
-        func createMail() async {
+        func createMail(shareOptions : ShareType) async {
             await MainActor.run{
                 selectedGraph = .All
                 mailData.attachments = []
                 
-                showChild = false
-                loadData()
-                let parentStats = weekStats
+                mailData.message = mailData.message.replacingOccurrences(of: "...", with: "\(endDate.toString())")
+                mailData.message = mailData.message.replacingOccurrences(of: "..", with: "\(beginDate.toString())")
                 
-                showChild = true
-                loadData()
-                let childStats = weekStats
+                let parentStats = shareOptions == .both || shareOptions == .parentOnly ? getWeekStats(from: beginDate, to: endDate, child: false) : nil
+                let childStats = shareOptions == .both || shareOptions == .childOnly ? getWeekStats(from: beginDate, to: endDate, child: true) : nil
                 
                 let pdf = createPDF(images: images, weekStatsParent: parentStats, weekStatsChild: childStats)
-                mailData.attachments?.append(AttachmentData(data: pdf, mimeType: "application/pdf", fileName: "totalPDF.pdf"))
+                mailData.attachments?.append(AttachmentData(data: pdf, mimeType: "application/pdf", fileName: "verslag.pdf"))
                 
                 showMail = true
             }
@@ -145,23 +116,23 @@ extension GraphChildView {
         }
         
         func takeScreenshot() -> UIImage? {
-          guard let window = UIApplication.shared.windows.first else {
-            print("View.takeScreenshot: No main window found")
-            return nil
-          }
+            guard let window = UIApplication.shared.windows.first else {
+                print("View.takeScreenshot: No main window found")
+                return nil
+            }
 
-          UIGraphicsBeginImageContextWithOptions(window.bounds.size, false, 0.0)
-          let renderer = UIGraphicsImageRenderer(bounds: window.bounds, format: UIGraphicsImageRendererFormat())
-          let image = renderer.image { (context) in
+            UIGraphicsBeginImageContextWithOptions(window.bounds.size, false, 0.0)
+            let renderer = UIGraphicsImageRenderer(bounds: window.bounds, format: UIGraphicsImageRendererFormat())
+            let image = renderer.image { (context) in
             window.drawHierarchy(in: window.bounds, afterScreenUpdates: true)
-          }
-          UIGraphicsEndImageContext()
+            }
+            UIGraphicsEndImageContext()
 
-          let scale = UIScreen.main.scale
-          let rect = CGRect(x: geo!.frame(in: .global).origin.x, y: geo!.frame(in: .global).origin.y, width: geo!.size.width, height: geo!.size.height)
-          let croppedImage = image.cropped(boundingBox: rect, scale: scale)
+            let scale = UIScreen.main.scale
+            let rect = CGRect(x: geo!.frame(in: .global).origin.x, y: geo!.frame(in: .global).origin.y, width: geo!.size.width, height: geo!.size.height)
+            let croppedImage = image.cropped(boundingBox: rect, scale: scale)
 
-          return croppedImage
+            return croppedImage
         }
     }
 }

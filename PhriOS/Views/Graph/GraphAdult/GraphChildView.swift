@@ -40,47 +40,64 @@ struct GraphChildView: View {
                     }
 
                     VStack{
-                        DatePicker("Begin moment", selection: $viewModel.beginDate, in: ...viewModel.beginDate, displayedComponents: [.date])
+                        DatePicker("Begin moment", selection: $viewModel.beginDate, in: ...viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 6), displayedComponents: [.date])
                         
                         DatePicker("Eind moment", selection: $viewModel.endDate, in: ...Date.now, displayedComponents: [.date])
                     }.padding(.horizontal, 50)
                         .padding(.bottom)
-                
-                    HStack{
+                    
+                    HStack(alignment: .bottom, spacing: 25){
                         VStack{
-                            ForEach(Billie.allCases, id: \.self) {
-                                if $0 != .All{
-                                    Text($0.description + ":")
+                            Text("Periodegemiddelde:")
+                                .foregroundColor(Color("PhrPurple"))
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
+                            
+                            HStack{
+                                VStack{
+                                    ForEach(Billie.allCases, id: \.self) {
+                                        if $0 != .All{
+                                            Text($0.description + ":")
+                                        }
+                                    }
                                 }
+                                
+                                VStack{
+                                    ForEach(Billie.allCases, id: \.self) {
+                                        if $0 != .All{
+                                            Text(String(viewModel.weekStats[$0] ?? 0.0))
+                                                .foregroundColor(Color("PhrOrange"))
+                                                .fontWeight(.bold)
+                                        }
+                                    }
+                                }
+                                .padding(.trailing, 50)
                             }
                         }
-                        
                         VStack{
-                            ForEach(Billie.allCases, id: \.self) {
-                                if $0 != .All{
-                                    Text(String(viewModel.weekStats[$0] ?? 0.0))
-                                        .foregroundColor(Color("PhrOrange"))
-                                        .fontWeight(.bold)
-                                }
-                            }
-                        }
-                        .padding(.trailing, 50)
-                        
-                        VStack{
-                            ForEach(Billie.allCases, id: \.self) {
-                                if $0 != .All{
-                                    Text($0.description + ":")
-                                }
-                            }
+                            Text("Daggemiddelde van \(viewModel.endDate.toString()):")
+                                .foregroundColor(Color("PhrPurple"))
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
+                            
+                            HStack{
+                                VStack{
+                                    ForEach(Billie.allCases, id: \.self) {
+                                        if $0 != .All{
+                                            Text($0.description + ":")
+                                        }
+                                    }
 
-                        }
-                        
-                        VStack{
-                            ForEach(Billie.allCases, id: \.self) {
-                                if $0 != .All{
-                                    Text(String(viewModel.dayStats[$0] ?? 0.0))
-                                        .foregroundColor(Color("PhrOrange"))
-                                        .fontWeight(.bold)
+                                }
+                                
+                                VStack{
+                                    ForEach(Billie.allCases, id: \.self) {
+                                        if $0 != .All{
+                                            Text(String(viewModel.dayStats[$0] ?? 0.0))
+                                                .foregroundColor(Color("PhrOrange"))
+                                                .fontWeight(.bold)
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -98,7 +115,7 @@ struct GraphChildView: View {
             MailView(data: $viewModel.mailData){ result in
                 print(result)
             }
-        }.alert("Kies hieronder wat je wilt delen met je begeleider", isPresented: $viewModel.showShareOptions){
+        }.alert("Kies hieronder wat je wilt delen met je begeleider. \n\nEr wordt een mail klaargezet die alleen nog verzonden moet worden.", isPresented: $viewModel.showShareOptions){
             Button("Alleen ouder", action: {
                 Task{
                     await viewModel.share(shareOptions: .parentOnly)

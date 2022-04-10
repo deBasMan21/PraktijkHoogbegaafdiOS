@@ -17,20 +17,44 @@ struct MenuView: View {
             HStack{
                 Spacer()
                 
-                Image("home").onTapGesture {
-                    selectedMenu = .home
+                VStack{
+                    Image("home").onTapGesture {
+                        withAnimation{
+                            selectedMenu = .home
+                        }
+                    }
+                    
+                    if selectedMenu == .home    {
+                        Divider().frame(width: 44)
+                    }
                 }
                 
                 Spacer()
                 
-                Image("graph").onTapGesture {
-                    selectedMenu = .graph
+                VStack{
+                    Image("graph").onTapGesture {
+                        withAnimation{
+                            selectedMenu = .graph
+                        }
+                    }
+                    
+                    if selectedMenu == .graph    {
+                        Divider().frame(width: 44)
+                    }
                 }
                 
                 Spacer()
                 
-                Image("settings").onTapGesture {
-                    selectedMenu = .settings
+                VStack{
+                    Image("settings").onTapGesture {
+                        withAnimation{
+                            selectedMenu = .settings
+                        }
+                    }
+                    
+                    if selectedMenu == .settings    {
+                        Divider().frame(width: 44)
+                    }
                 }
                 
                 Spacer()

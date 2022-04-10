@@ -10,7 +10,9 @@ import SwiftUI
 import Charts
 import PDFKit
 
-func createPDF(images : [UIImage], weekStatsParent : [Billie : Double], weekStatsChild : [Billie : Double]) -> Data {
+func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekStatsChild : [Billie : Double]?) -> Data {
+    let logo = UIImage(named: "Logo")!
+    
     let pdfMetaData = [
       kCGPDFContextCreator: "Praktijk Hoogbegaafd",
       kCGPDFContextAuthor: "praktijkhoogbegaafd.nl"
@@ -20,7 +22,7 @@ func createPDF(images : [UIImage], weekStatsParent : [Billie : Double], weekStat
     format.documentInfo = pdfMetaData as [String: Any]
 
     let pageWidth = images[0].size.width * 3
-    let pageHeight = images[0].size.height * 6
+    let pageHeight = (images[0].size.height * (CGFloat(images.count) / 3)) + 600 + logo.size.height
     let pageRect = CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight)
 
 
@@ -44,8 +46,6 @@ func createPDF(images : [UIImage], weekStatsParent : [Billie : Double], weekStat
         NSAttributedString.Key.foregroundColor : UIColor(named: "PhrPurple")!
         ]
         
-        let logo = UIImage(named: "Logo")!
-        
         logo.draw(at: CGPoint(x: (pageWidth - logo.size.width) / 2, y: 0))
 
         var rowCount = 0
@@ -65,22 +65,28 @@ func createPDF(images : [UIImage], weekStatsParent : [Billie : Double], weekStat
         let weekChildTitle = "Weekstatistieken kind:"
         
         let statsY = (images[0].size.height * CGFloat(images.count / 3)) + logo.size.height + 50
-        let statsChildX = (pageWidth - logo.size.width) / 2
+        let statsChildX = weekStatsParent != nil ? (pageWidth - logo.size.width) / 2 : 50
         
-        weekParentTitle.draw(at: CGPoint(x: 0, y: statsY), withAttributes: attributesPurple)
-        var index = 0
-        for stat in weekStatsParent {
-            index += 1
-            stat.key.description.draw(at: CGPoint(x: 0, y: statsY + (CGFloat(index) * 76)), withAttributes: attributes)
-            stat.value.description.draw(at: CGPoint(x: 400, y: statsY + (CGFloat(index) * 76)), withAttributes: attributesOrange)
+        if weekStatsParent != nil {
+            weekParentTitle.draw(at: CGPoint(x: 50, y: statsY), withAttributes: attributesPurple)
+            var index = 0
+            for stat in weekStatsParent! {
+                index += 1
+                let key = "\(stat.key.description):"
+                key.draw(at: CGPoint(x: 50, y: statsY + (CGFloat(index) * 76)), withAttributes: attributes)
+                stat.value.description.draw(at: CGPoint(x: 400, y: statsY + (CGFloat(index) * 76)), withAttributes: attributesOrange)
+            }
         }
         
-        weekChildTitle.draw(at: CGPoint(x: statsChildX, y: statsY), withAttributes: attributesPurple)
-        index = 0
-        for stat in weekStatsChild {
-            index += 1
-            stat.key.description.draw(at: CGPoint(x: statsChildX, y: statsY + (CGFloat(index) * 76)), withAttributes: attributes)
-            stat.value.description.draw(at: CGPoint(x: statsChildX + 400, y: statsY + (CGFloat(index) * 76)), withAttributes: attributesOrange)
+        if weekStatsChild != nil {
+            weekChildTitle.draw(at: CGPoint(x: statsChildX, y: statsY), withAttributes: attributesPurple)
+            var index = 0
+            for stat in weekStatsChild! {
+                index += 1
+                let key = "\(stat.key.description):"
+                key.draw(at: CGPoint(x: statsChildX, y: statsY + (CGFloat(index) * 76)), withAttributes: attributes)
+                stat.value.description.draw(at: CGPoint(x: statsChildX + 400, y: statsY + (CGFloat(index) * 76)), withAttributes: attributesOrange)
+            }
         }
         
     }

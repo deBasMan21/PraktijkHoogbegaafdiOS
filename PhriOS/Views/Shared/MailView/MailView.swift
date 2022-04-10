@@ -69,14 +69,14 @@ struct MailView: UIViewControllerRepresentable {
 
 
 struct ComposeMailData {
-  let subject: String
-  let recipients: [String]?
-  let message: String
+  var subject: String
+  var recipients: [String]?
+  var message: String
   var attachments: [AttachmentData]?
 }
 
 struct AttachmentData {
-  let data: Data
-  let mimeType: String
-  let fileName: String
+  var data: Data
+  var mimeType: String
+  var fileName: String
 }
