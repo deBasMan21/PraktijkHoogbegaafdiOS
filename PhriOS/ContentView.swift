@@ -17,7 +17,7 @@ struct ContentView: View {
             } else if selectedMenu == .graph {
                 GraphView()
             } else if selectedMenu == .settings {
-                Text("Settings not yet")
+                SettingsView()
             }
             
             Spacer()

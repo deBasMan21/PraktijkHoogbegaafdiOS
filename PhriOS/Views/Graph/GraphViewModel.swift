@@ -29,13 +29,13 @@ extension GraphView {
         @Published var images : [UIImage] = []
         
         @Published var showMail = false
-        @Published var mailData = ComposeMailData(subject: "Verslag uit de app", recipients: ["bbuijsen@gmail.com"], message: "In de bijlage zit het verslag van de intensiteiten. Dit is van .. tot en met ...", attachments: [])
+        @Published var mailData = ComposeMailData(subject: EMAIL_SUBJECT, recipients: [], message: EMAIL_BODY, attachments: [])
         
         @Published var showShareOptions = false
         
+        let defs = UserDefaults()
+        
         init() {
-            let defs = UserDefaults()
-            defs.set(true, forKey: "adultMode")
             adultMode = defs.bool(forKey: "adultMode")
             if adultMode {
                 showChild = false
@@ -92,6 +92,9 @@ extension GraphView {
             await MainActor.run{
                 selectedGraph = .All
                 mailData.attachments = []
+                
+                let emailRecipient = BEGELEIDSTERS[defs.string(forKey: DEFS_BEGELEIDSTER) ?? ""] ?? EMAIL_DEFAULT_ADRESS
+                mailData.recipients = [emailRecipient]
                 
                 mailData.message = mailData.message.replacingOccurrences(of: "...", with: "\(endDate.toString())")
                 mailData.message = mailData.message.replacingOccurrences(of: "..", with: "\(beginDate.toString())")

@@ -34,6 +34,8 @@
 		EF9AA9E72803477C00C1DC9F /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9E62803477C00C1DC9F /* Strings.swift */; };
 		EF9AA9EA280348DB00C1DC9F /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9E8280348DB00C1DC9F /* GraphViewModel.swift */; };
 		EF9AA9EB280348DB00C1DC9F /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9E9280348DB00C1DC9F /* GraphView.swift */; };
+		EF9AA9ED2803496C00C1DC9F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9EC2803496C00C1DC9F /* SettingsView.swift */; };
+		EF9AA9EF2803497700C1DC9F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9EE2803497700C1DC9F /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		EF9AA9E62803477C00C1DC9F /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		EF9AA9E8280348DB00C1DC9F /* GraphViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
 		EF9AA9E9280348DB00C1DC9F /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		EF9AA9EC2803496C00C1DC9F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EF9AA9EE2803497700C1DC9F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +227,8 @@
 		EF1DF13327FB564A0007B195 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				EF9AA9EC2803496C00C1DC9F /* SettingsView.swift */,
+				EF9AA9EE2803497700C1DC9F /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -451,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF9AA9ED2803496C00C1DC9F /* SettingsView.swift in Sources */,
 				EF9AA9EA280348DB00C1DC9F /* GraphViewModel.swift in Sources */,
 				EF9AA9AB27FB5A8F00C1DC9F /* MenuView.swift in Sources */,
 				EF9AA9D42801836900C1DC9F /* ChildService.swift in Sources */,
@@ -469,6 +476,7 @@
 				EF9AA9AF27FB5E3600C1DC9F /* PhrButtonOrange.swift in Sources */,
 				EF9AA9E028018AB400C1DC9F /* EnumExtension.swift in Sources */,
 				EF1DF13727FB56780007B195 /* HomeViewModel.swift in Sources */,
+				EF9AA9EF2803497700C1DC9F /* SettingsViewModel.swift in Sources */,
 				EF9AA9E32802EA4100C1DC9F /* PdfLogic.swift in Sources */,
 				EF9AA9DC280188B700C1DC9F /* MenuItem.swift in Sources */,
 			);

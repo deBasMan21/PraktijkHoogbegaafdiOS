@@ -117,7 +117,7 @@ struct GraphView: View {
             MailView(data: $viewModel.mailData){ result in
                 print(result)
             }
-        }.alert(viewModel.adultMode ? shareStringAdult : shareStringParent, isPresented: $viewModel.showShareOptions){
+        }.alert(viewModel.adultMode ? SHARE_STRING_ADULT : SHARE_STRING_PARENT, isPresented: $viewModel.showShareOptions){
             if !viewModel.adultMode {
                 Button("Alleen ouder", action: {
                     Task{
