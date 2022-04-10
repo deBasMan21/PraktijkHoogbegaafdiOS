@@ -91,14 +91,30 @@ struct GraphChildView: View {
             Spacer()
             
             PhrButtonOrange(text: "Delen", onClick: {
-                    Task{
-                        await viewModel.share()
-                    }
+                viewModel.showShareOptions = true
             }).padding(.horizontal, 50)
+            
         }.sheet(isPresented: $viewModel.showMail) {
             MailView(data: $viewModel.mailData){ result in
                 print(result)
             }
+        }.alert("Kies hieronder wat je wilt delen met je begeleider", isPresented: $viewModel.showShareOptions){
+            Button("Alleen ouder", action: {
+                Task{
+                    await viewModel.share(shareOptions: .parentOnly)
+                }
+            })
+            Button("Alleen kind", action: {
+                Task{
+                    await viewModel.share(shareOptions: .childOnly)
+                }
+            })
+            Button("Beide",  action: {
+                Task{
+                    await viewModel.share(shareOptions: .both)
+                }
+            }).keyboardShortcut(.defaultAction)
+            Button("Annuleren", role: .cancel, action: {})
         }
     }
     
@@ -115,6 +131,6 @@ struct GraphChildView: View {
             }.onAppear{
                 viewModel.geo = geo
             }
-        }.frame(width: 400, height: 220)
+        }.frame(height: 220)
     }
 }

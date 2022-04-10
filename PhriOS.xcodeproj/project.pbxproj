@@ -35,6 +35,7 @@
 		EF9AA9DC280188B700C1DC9F /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9DB280188B700C1DC9F /* MenuItem.swift */; };
 		EF9AA9DE28018A7700C1DC9F /* ShareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9DD28018A7700C1DC9F /* ShareType.swift */; };
 		EF9AA9E028018AB400C1DC9F /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9DF28018AB400C1DC9F /* EnumExtension.swift */; };
+		EF9AA9E32802EA4100C1DC9F /* PdfLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9E22802EA4100C1DC9F /* PdfLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		EF9AA9DB280188B700C1DC9F /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		EF9AA9DD28018A7700C1DC9F /* ShareType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareType.swift; sourceTree = "<group>"; };
 		EF9AA9DF28018AB400C1DC9F /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
+		EF9AA9E22802EA4100C1DC9F /* PdfLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 		EF1DF12F27FB562C0007B195 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				EF9AA9E12802EA3400C1DC9F /* PDF */,
 				EF9AA9D52801841E00C1DC9F /* Extensions */,
 			);
 			path = Logic;
@@ -322,6 +325,14 @@
 				EF9AA9D92801855E00C1DC9F /* MailView.swift */,
 			);
 			path = MailView;
+			sourceTree = "<group>";
+		};
+		EF9AA9E12802EA3400C1DC9F /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9E22802EA4100C1DC9F /* PdfLogic.swift */,
+			);
+			path = PDF;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,6 +490,7 @@
 				EF9AA9AF27FB5E3600C1DC9F /* PhrButtonOrange.swift in Sources */,
 				EF9AA9E028018AB400C1DC9F /* EnumExtension.swift in Sources */,
 				EF1DF13727FB56780007B195 /* HomeViewModel.swift in Sources */,
+				EF9AA9E32802EA4100C1DC9F /* PdfLogic.swift in Sources */,
 				EF9AA9B427FB67FE00C1DC9F /* GraphChildView.swift in Sources */,
 				EF9AA9CA27FF34F200C1DC9F /* GraphView.swift in Sources */,
 				EF9AA9CC27FF350200C1DC9F /* GraphViewModel.swift in Sources */,
