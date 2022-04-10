@@ -24,13 +24,21 @@ struct HomeView: View {
             
             Spacer()
             
-            PhrButtonOrange(text: "Vul je X-Citabillies in", onClick: {
-                print("hi")
-            }).padding(.horizontal)
+            if !viewModel.adultMode {
+                PhrButtonOrange(text: "Vul je X-Citabillies in", onClick: {
+                    print("hi")
+                }).padding(.horizontal)
+                
+                PhrButtonPurple(text: START_INTENSITEITEN_PARENT, onClick: {
+                    print("hi")
+                }).padding()
+            } else {
+                PhrButtonOrange(text: START_INTENSITEITEN_ADULT, onClick: {
+                    print("hi")
+                }).padding()
+            }
             
-            PhrButtonPurple(text: "Vul de intensiteiten van je kind in", onClick: {
-                print("hi")
-            }).padding()
+
         }
     }
 }

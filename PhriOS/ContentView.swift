@@ -12,17 +12,26 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-            if selectedMenu == .home {
-                HomeView()
-            } else if selectedMenu == .graph {
-                GraphView()
-            } else if selectedMenu == .settings {
-                SettingsView()
+            if isNew() {
+                Text("New")
+            } else {
+                if selectedMenu == .home {
+                    HomeView()
+                } else if selectedMenu == .graph {
+                    GraphView()
+                } else if selectedMenu == .settings {
+                    SettingsView()
+                }
+                
+                Spacer()
+                
+                MenuView(selectedMenu: $selectedMenu)
             }
-            
-            Spacer()
-            
-            MenuView(selectedMenu: $selectedMenu)
         }
+    }
+    
+    func isNew() -> Bool {
+        let defs = UserDefaults()
+        return defs.string(forKey: DEFS_BEGELEIDSTER) == nil
     }
 }

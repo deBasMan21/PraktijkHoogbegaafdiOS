@@ -9,10 +9,12 @@ import Foundation
 
 extension HomeView {
     class ViewModel : ObservableObject {
-        @Published var name : String
+        @Published var adultMode  = false
+        
+        let defs = UserDefaults()
         
         init(){
-            name = "hallo"
+            adultMode = defs.bool(forKey: DEFS_ADULT_MODE)
         }
     }
 }

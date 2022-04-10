@@ -32,7 +32,9 @@ struct SettingsView: View {
                         viewModel.saveSettings()
                 }.padding(.horizontal, 50)
                 
-                Text("Versie \(VERSION)")
+                Text("Versie \(VERSION)").onTapGesture{
+                    viewModel.reset()
+                }
             }.navigationTitle("Instellingen")
         }
 

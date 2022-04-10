@@ -24,5 +24,9 @@ extension SettingsView {
             defs.set(adultMode, forKey: DEFS_ADULT_MODE)
             defs.set(begeleidster, forKey: DEFS_BEGELEIDSTER)
         }
+        
+        func reset() {
+            defs.removeObject(forKey: DEFS_BEGELEIDSTER)
+        }
     }
 }

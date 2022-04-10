@@ -8,8 +8,12 @@
 import Foundation
 
 //TEXTS FOR DISPLAY
+//      GRAPHVIEW
 let SHARE_STRING_ADULT = "Klik op delen en dan wordt er een mail klaargezet die alleen nog verzonden moet worden."
 let SHARE_STRING_PARENT = "Kies hieronder wat je wilt delen met je begeleider. \n\nEr wordt een mail klaargezet die alleen nog verzonden moet worden."
+//      HOMEVIEW
+let START_INTENSITEITEN_ADULT = "Vul je intensiteiten in"
+let START_INTENSITEITEN_PARENT = "Vul de intensiteiten van je kind in"
 
 //STATIC INFORMATION
 let BEGELEIDSTERS : [String : String] = [

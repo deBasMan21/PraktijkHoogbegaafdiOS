@@ -127,7 +127,7 @@ extension GraphView {
         }
         
         func takeScreenshot() -> UIImage? {
-            guard let window = UIApplication.shared.windows.first else {
+            guard let window = UIApplication.shared.keyWindow else {
                 print("View.takeScreenshot: No main window found")
                 return nil
             }
