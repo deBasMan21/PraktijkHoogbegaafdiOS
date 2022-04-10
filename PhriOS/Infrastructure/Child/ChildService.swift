@@ -111,7 +111,7 @@ func getParentData(from: Date, to: Date) -> [ChartDataEntryWrapper] {
 }
 
 func getDayStats(of: Date, child : Bool) -> [Billie : Double] {
-    let entries = child ? getParentData(from: of, to: of) : getParentData(from: of, to: of)
+    let entries = child ? getChildData(from: of, to: of) : getParentData(from: of, to: of)
     var stats : [Billie: Double] = [:]
     
     for entry in entries {

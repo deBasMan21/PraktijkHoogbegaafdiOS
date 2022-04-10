@@ -14,4 +14,21 @@ enum Billie : String, CustomStringConvertible, CaseIterable {
     case Fanti
     case Senzo
     case Intellecto
+    
+    func toString(child : Bool) -> String {
+        switch self{
+        case .All:
+            return "Alles"
+        case .Emoto:
+            return !child ? "Emotioneel" : "Emoto"
+        case .Psymo:
+            return !child ? "Psychomotorisch" : "Psymo"
+        case .Fanti:
+            return !child ? "Beeldend" : "Fanti"
+        case .Senzo:
+            return !child ? "Sensorisch" : "Senzo"
+        case .Intellecto:
+            return !child ? "Intellectueel" : "Intellecto"
+        }
+    }
 }

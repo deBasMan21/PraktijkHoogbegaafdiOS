@@ -12,6 +12,7 @@ struct MultiLineChartView : UIViewRepresentable {
     
     @Binding var lines : [ChartDataEntryWrapper]
     var style : ChartStyle
+    var child : Bool
     
     func makeUIView(context: Context) -> LineChartView {
         let chart = LineChartView()
@@ -71,7 +72,7 @@ struct MultiLineChartView : UIViewRepresentable {
         dataSet.drawCirclesEnabled = false
         dataSet.lineWidth = 2
         dataSet.valueTextColor = .clear
-        dataSet.label = entries.billie.description
+        dataSet.label = entries.billie.toString(child: child)
         return dataSet
     }
     

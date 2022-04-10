@@ -12,6 +12,8 @@ import PDFKit
 
 func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekStatsChild : [Billie : Double]?) -> Data {
     let logo = UIImage(named: "Logo")!
+    let defs = UserDefaults()
+    let adultMode = defs.bool(forKey: "adultMode")
     
     let pdfMetaData = [
       kCGPDFContextCreator: "Praktijk Hoogbegaafd",
@@ -61,7 +63,7 @@ func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekSta
             }
         }
         
-        let weekParentTitle = "Weekstatistieken ouder:"
+        let weekParentTitle = adultMode ? "Weekstatistieken ouder:" : "Weekstatistieken:"
         let weekChildTitle = "Weekstatistieken kind:"
         
         let statsY = (images[0].size.height * CGFloat(images.count / 3)) + logo.size.height + 50
@@ -72,9 +74,9 @@ func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekSta
             var index = 0
             for stat in weekStatsParent! {
                 index += 1
-                let key = "\(stat.key.description):"
+                let key = "\(stat.key.toString(child: false)):"
                 key.draw(at: CGPoint(x: 50, y: statsY + (CGFloat(index) * 76)), withAttributes: attributes)
-                stat.value.description.draw(at: CGPoint(x: 400, y: statsY + (CGFloat(index) * 76)), withAttributes: attributesOrange)
+                stat.value.description.draw(at: CGPoint(x: 800, y: statsY + (CGFloat(index) * 76)), withAttributes: attributesOrange)
             }
         }
         
@@ -83,9 +85,9 @@ func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekSta
             var index = 0
             for stat in weekStatsChild! {
                 index += 1
-                let key = "\(stat.key.description):"
+                let key = "\(stat.key.toString(child: false)):"
                 key.draw(at: CGPoint(x: statsChildX, y: statsY + (CGFloat(index) * 76)), withAttributes: attributes)
-                stat.value.description.draw(at: CGPoint(x: statsChildX + 400, y: statsY + (CGFloat(index) * 76)), withAttributes: attributesOrange)
+                stat.value.description.draw(at: CGPoint(x: statsChildX + 800, y: statsY + (CGFloat(index) * 76)), withAttributes: attributesOrange)
             }
         }
         
