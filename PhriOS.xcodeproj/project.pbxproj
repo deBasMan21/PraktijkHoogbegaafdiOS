@@ -37,6 +37,9 @@
 		EF9AA9ED2803496C00C1DC9F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9EC2803496C00C1DC9F /* SettingsView.swift */; };
 		EF9AA9EF2803497700C1DC9F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9EE2803497700C1DC9F /* SettingsViewModel.swift */; };
 		EF9AA9F12803555500C1DC9F /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9F02803555500C1DC9F /* UIApplicationExtension.swift */; };
+		EF9AA9F428040B2C00C1DC9F /* NewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9F328040B2C00C1DC9F /* NewUserView.swift */; };
+		EF9AA9F628040B3B00C1DC9F /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9F528040B3B00C1DC9F /* NewUserViewModel.swift */; };
+		EF9AA9F828040E3900C1DC9F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9F728040E3900C1DC9F /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		EF9AA9EC2803496C00C1DC9F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EF9AA9EE2803497700C1DC9F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		EF9AA9F02803555500C1DC9F /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		EF9AA9F328040B2C00C1DC9F /* NewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserView.swift; sourceTree = "<group>"; };
+		EF9AA9F528040B3B00C1DC9F /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
+		EF9AA9F728040E3900C1DC9F /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,7 @@
 				EF1DF10827FB55F00007B195 /* Assets.xcassets */,
 				EF1DF10A27FB55F00007B195 /* Preview Content */,
 				EF9AA9E62803477C00C1DC9F /* Strings.swift */,
+				EF9AA9F728040E3900C1DC9F /* ContentViewModel.swift */,
 			);
 			path = PhriOS;
 			sourceTree = "<group>";
@@ -181,6 +188,7 @@
 		EF1DF12E27FB56230007B195 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EF9AA9F228040B1300C1DC9F /* NewUser */,
 				EF9AA9B227FB67EA00C1DC9F /* Graph */,
 				EF9AA9AC27FB5E1C00C1DC9F /* Shared */,
 				EF1DF13327FB564A0007B195 /* Settings */,
@@ -247,7 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				EF9AA9D82801855300C1DC9F /* MailView */,
-				EF9AA9BD27FB6DA700C1DC9F /* GraphView */,
+				EF9AA9BD27FB6DA700C1DC9F /* ChartView */,
 				EF9AA9AD27FB5E2500C1DC9F /* Buttons */,
 				EF9AA9A927FB5A7D00C1DC9F /* Menu */,
 			);
@@ -272,12 +280,12 @@
 			path = Graph;
 			sourceTree = "<group>";
 		};
-		EF9AA9BD27FB6DA700C1DC9F /* GraphView */ = {
+		EF9AA9BD27FB6DA700C1DC9F /* ChartView */ = {
 			isa = PBXGroup;
 			children = (
 				EF9AA9BE27FB6DC500C1DC9F /* MultiLineChartView.swift */,
 			);
-			path = GraphView;
+			path = ChartView;
 			sourceTree = "<group>";
 		};
 		EF9AA9D12801835600C1DC9F /* Child */ = {
@@ -320,6 +328,15 @@
 				EF9AA9E22802EA4100C1DC9F /* PdfLogic.swift */,
 			);
 			path = PDF;
+			sourceTree = "<group>";
+		};
+		EF9AA9F228040B1300C1DC9F /* NewUser */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9F328040B2C00C1DC9F /* NewUserView.swift */,
+				EF9AA9F528040B3B00C1DC9F /* NewUserViewModel.swift */,
+			);
+			path = NewUser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,13 +486,16 @@
 				EF9AA9C127FDCD3000C1DC9F /* Billie.swift in Sources */,
 				EF1DF10727FB55EB0007B195 /* ContentView.swift in Sources */,
 				EF9AA9DE28018A7700C1DC9F /* ShareType.swift in Sources */,
+				EF9AA9F628040B3B00C1DC9F /* NewUserViewModel.swift in Sources */,
 				EF9AA9DA2801855E00C1DC9F /* MailView.swift in Sources */,
 				EF1DF10527FB55EB0007B195 /* PhriOSApp.swift in Sources */,
 				EF9AA9E72803477C00C1DC9F /* Strings.swift in Sources */,
 				EF9AA9D72801842B00C1DC9F /* UIImageExtension.swift in Sources */,
+				EF9AA9F828040E3900C1DC9F /* ContentViewModel.swift in Sources */,
 				EF9AA9EB280348DB00C1DC9F /* GraphView.swift in Sources */,
 				EF9AA9BF27FB6DC500C1DC9F /* MultiLineChartView.swift in Sources */,
 				EF9AA9B127FB60CD00C1DC9F /* PhrButtonPurple.swift in Sources */,
+				EF9AA9F428040B2C00C1DC9F /* NewUserView.swift in Sources */,
 				EF9AA9E528031E3400C1DC9F /* DateExtension.swift in Sources */,
 				EF9AA9AF27FB5E3600C1DC9F /* PhrButtonOrange.swift in Sources */,
 				EF9AA9E028018AB400C1DC9F /* EnumExtension.swift in Sources */,

@@ -16,7 +16,6 @@ struct HomeView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .padding(.horizontal, 50)
-                .padding(.top, 50)
             
             Text("Welkom terug in de app! Klik hieronder om je intensiteiten in te vullen. Dit kan tot 3 keer per dag.")
                 .padding()
@@ -39,6 +38,6 @@ struct HomeView: View {
             }
             
 
-        }
+        }.navigationTitle("Home")
     }
 }

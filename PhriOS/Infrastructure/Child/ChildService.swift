@@ -16,7 +16,8 @@ func getChildData(from: Date, to: Date) -> [ChartDataEntryWrapper] {
             ChartDataEntry(x: 4, y: 3),
             ChartDataEntry(x: 5, y: 5),
             ChartDataEntry(x: 6, y: 3),
-            ChartDataEntry(x: 7, y: 1)]
+            ChartDataEntry(x: 7, y: 1),
+            ChartDataEntry(x: 31, y: 1)]
             , color: .red, billie: .Emoto),
         ChartDataEntryWrapper(data: [
             ChartDataEntry(x: 1, y: 2),

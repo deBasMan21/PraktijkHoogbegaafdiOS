@@ -42,7 +42,7 @@ struct GraphView: View {
                     }
 
                     VStack{
-                        DatePicker("Begin moment", selection: $viewModel.beginDate, in: ...viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 6), displayedComponents: [.date])
+                        DatePicker("Begin moment", selection: $viewModel.beginDate, in: viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 31)...viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 6), displayedComponents: [.date])
                         
                         DatePicker("Eind moment", selection: $viewModel.endDate, in: ...Date.now, displayedComponents: [.date])
                     }.padding(.horizontal, 50)
@@ -51,7 +51,7 @@ struct GraphView: View {
 
                     VStack{
                         Text("Periodegemiddelde van \n\(viewModel.beginDate.toString()) t/m \(viewModel.endDate.toString()):")
-                            .foregroundColor(Color("PhrPurple"))
+                            .foregroundColor(Color(PHR_PURPLE))
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
                         
@@ -68,7 +68,7 @@ struct GraphView: View {
                                 ForEach(Billie.allCases, id: \.self) {
                                     if $0 != .All{
                                         Text(String(viewModel.weekStats[$0] ?? 0.0))
-                                            .foregroundColor(Color("PhrOrange"))
+                                            .foregroundColor(Color(PHR_ORANGE))
                                             .fontWeight(.bold)
                                     }
                                 }
@@ -78,7 +78,7 @@ struct GraphView: View {
                     
                     VStack{
                         Text("Daggemiddelde van \(viewModel.endDate.toString()):")
-                            .foregroundColor(Color("PhrPurple"))
+                            .foregroundColor(Color(PHR_PURPLE))
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
                         
@@ -96,7 +96,7 @@ struct GraphView: View {
                                 ForEach(Billie.allCases, id: \.self) {
                                     if $0 != .All{
                                         Text(String(viewModel.dayStats[$0] ?? 0.0))
-                                            .foregroundColor(Color("PhrOrange"))
+                                            .foregroundColor(Color(PHR_ORANGE))
                                             .fontWeight(.bold)
                                     }
                                 }
@@ -143,17 +143,17 @@ struct GraphView: View {
             }
             
             Button("Annuleren", role: .cancel, action: {})
-        }
+        }.navigationTitle("Grafieken")
     }
     
     var graphView : some View {
         GeometryReader{ geo in
             VStack{
                 if viewModel.showChild {
-                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: 7.0, minY: 1.0, maxY: 10.0), child: viewModel.showChild)
+                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: viewModel.getHighestX(), minY: 1.0, maxY: 10.0), child: viewModel.showChild)
                         .frame(height: 220)
                 } else {
-                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: 7.0, minY: -2.5, maxY: 2.5), child: viewModel.showChild)
+                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: viewModel.getHighestX(), minY: -2.5, maxY: 2.5), child: viewModel.showChild)
                         .frame(height: 220)
                 }
             }.onAppear{

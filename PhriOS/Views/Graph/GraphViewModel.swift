@@ -51,6 +51,10 @@ extension GraphView {
             loadStats()
         }
         
+        func getHighestX() -> Double {
+            return entries[0].data[entries[0].data.count - 1].x
+        }
+        
         func filter(){
             var filtered : [ChartDataEntryWrapper] = []
             for entry in entries {

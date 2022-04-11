@@ -40,12 +40,12 @@ func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekSta
         
         let attributesOrange = [
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 72),
-            NSAttributedString.Key.foregroundColor : UIColor(named: "PhrOrange")!
+            NSAttributedString.Key.foregroundColor : UIColor(named: PHR_ORANGE)!
         ]
         
         let attributesPurple = [
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 72),
-        NSAttributedString.Key.foregroundColor : UIColor(named: "PhrPurple")!
+        NSAttributedString.Key.foregroundColor : UIColor(named: PHR_PURPLE)!
         ]
         
         logo.draw(at: CGPoint(x: (pageWidth - logo.size.width) / 2, y: 0))

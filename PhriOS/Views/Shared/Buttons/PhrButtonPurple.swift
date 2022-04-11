@@ -23,7 +23,7 @@ struct PhrButtonPurple: View {
                             .stroke(Color.white, lineWidth: 2)
                 )
             }
-            .background(Color("PhrPurple"))
+            .background(Color(PHR_PURPLE))
             .cornerRadius(25)
     }
 }

@@ -8,30 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var selectedMenu : MenuItem = .home
+    @StateObject var viewModel = ViewModel()
     
-    var body: some View {
-        VStack{
-            if isNew() {
-                Text("New")
-            } else {
-                if selectedMenu == .home {
-                    HomeView()
-                } else if selectedMenu == .graph {
-                    GraphView()
-                } else if selectedMenu == .settings {
-                    SettingsView()
-                }
-                
-                Spacer()
-                
-                MenuView(selectedMenu: $selectedMenu)
-            }
-        }
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: PHR_PURPLE)!]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: PHR_PURPLE)!]
     }
     
-    func isNew() -> Bool {
-        let defs = UserDefaults()
-        return defs.string(forKey: DEFS_BEGELEIDSTER) == nil
+    var body: some View {
+        NavigationView{
+            VStack{
+                if viewModel.isNew {
+                    NewUserView(isNew : $viewModel.isNew).onAppear{
+                        viewModel.selectedMenu = .home
+                    }.onAppear{
+                        viewModel.showNavBar = false
+                    }
+                } else {
+                    VStack{
+                        if viewModel.selectedMenu == .home {
+                            HomeView()
+                        } else if viewModel.selectedMenu == .graph {
+                            GraphView()
+                        } else if viewModel.selectedMenu == .settings {
+                            SettingsView(isNew: $viewModel.isNew)
+                        }
+                        
+                        Spacer()
+                        
+                        MenuView(selectedMenu: $viewModel.selectedMenu)
+                    }.onAppear{
+                        viewModel.showNavBar = true
+                    }
+                }
+            }.navigationBarHidden(!viewModel.showNavBar)
+        }
     }
 }
