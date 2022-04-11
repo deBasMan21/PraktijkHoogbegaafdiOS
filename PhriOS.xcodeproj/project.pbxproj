@@ -40,6 +40,13 @@
 		EF9AA9F428040B2C00C1DC9F /* NewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9F328040B2C00C1DC9F /* NewUserView.swift */; };
 		EF9AA9F628040B3B00C1DC9F /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9F528040B3B00C1DC9F /* NewUserViewModel.swift */; };
 		EF9AA9F828040E3900C1DC9F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9F728040E3900C1DC9F /* ContentViewModel.swift */; };
+		EF9AA9FB28042C3600C1DC9F /* NotificationSendLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9FA28042C3600C1DC9F /* NotificationSendLogic.swift */; };
+		EF9AA9FE28045D9500C1DC9F /* BillieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9FD28045D9500C1DC9F /* BillieView.swift */; };
+		EF9AAA0128045DB200C1DC9F /* BillieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AAA0028045DB200C1DC9F /* BillieViewModel.swift */; };
+		EF9AAA0328045EA300C1DC9F /* BillieMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AAA0228045EA300C1DC9F /* BillieMode.swift */; };
+		EF9AAA052804712400C1DC9F /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AAA042804712400C1DC9F /* SummaryView.swift */; };
+		EF9AAA092804714A00C1DC9F /* SummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AAA082804714A00C1DC9F /* SummaryViewModel.swift */; };
+		EF9AAA0C280477E100C1DC9F /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AAA0B280477E100C1DC9F /* NavigationUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +101,14 @@
 		EF9AA9F328040B2C00C1DC9F /* NewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserView.swift; sourceTree = "<group>"; };
 		EF9AA9F528040B3B00C1DC9F /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
 		EF9AA9F728040E3900C1DC9F /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		EF9AA9FA28042C3600C1DC9F /* NotificationSendLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSendLogic.swift; sourceTree = "<group>"; };
+		EF9AA9FC2804310A00C1DC9F /* PhriOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhriOS.entitlements; sourceTree = "<group>"; };
+		EF9AA9FD28045D9500C1DC9F /* BillieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillieView.swift; sourceTree = "<group>"; };
+		EF9AAA0028045DB200C1DC9F /* BillieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillieViewModel.swift; sourceTree = "<group>"; };
+		EF9AAA0228045EA300C1DC9F /* BillieMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillieMode.swift; sourceTree = "<group>"; };
+		EF9AAA042804712400C1DC9F /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		EF9AAA082804714A00C1DC9F /* SummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewModel.swift; sourceTree = "<group>"; };
+		EF9AAA0B280477E100C1DC9F /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +161,7 @@
 		EF1DF10327FB55EB0007B195 /* PhriOS */ = {
 			isa = PBXGroup;
 			children = (
+				EF9AA9FC2804310A00C1DC9F /* PhriOS.entitlements */,
 				EF1DF13127FB56390007B195 /* Infrastructure */,
 				EF1DF13027FB56330007B195 /* Models */,
 				EF1DF12F27FB562C0007B195 /* Logic */,
@@ -188,6 +204,7 @@
 		EF1DF12E27FB56230007B195 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EF9AA9FF28045D9C00C1DC9F /* Billies */,
 				EF9AA9F228040B1300C1DC9F /* NewUser */,
 				EF9AA9B227FB67EA00C1DC9F /* Graph */,
 				EF9AA9AC27FB5E1C00C1DC9F /* Shared */,
@@ -200,6 +217,8 @@
 		EF1DF12F27FB562C0007B195 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				EF9AAA0A280477D300C1DC9F /* NavigationHelper */,
+				EF9AA9F928042C2A00C1DC9F /* Notifications */,
 				EF9AA9E12802EA3400C1DC9F /* PDF */,
 				EF9AA9D52801841E00C1DC9F /* Extensions */,
 			);
@@ -212,6 +231,7 @@
 				EF9AA9C027FDCD3000C1DC9F /* Billie.swift */,
 				EF9AA9DB280188B700C1DC9F /* MenuItem.swift */,
 				EF9AA9DD28018A7700C1DC9F /* ShareType.swift */,
+				EF9AAA0228045EA300C1DC9F /* BillieMode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,6 +357,49 @@
 				EF9AA9F528040B3B00C1DC9F /* NewUserViewModel.swift */,
 			);
 			path = NewUser;
+			sourceTree = "<group>";
+		};
+		EF9AA9F928042C2A00C1DC9F /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9FA28042C3600C1DC9F /* NotificationSendLogic.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		EF9AA9FF28045D9C00C1DC9F /* Billies */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AAA072804713A00C1DC9F /* Summary */,
+				EF9AAA062804712A00C1DC9F /* EnterValues */,
+			);
+			path = Billies;
+			sourceTree = "<group>";
+		};
+		EF9AAA062804712A00C1DC9F /* EnterValues */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AA9FD28045D9500C1DC9F /* BillieView.swift */,
+				EF9AAA0028045DB200C1DC9F /* BillieViewModel.swift */,
+			);
+			path = EnterValues;
+			sourceTree = "<group>";
+		};
+		EF9AAA072804713A00C1DC9F /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AAA042804712400C1DC9F /* SummaryView.swift */,
+				EF9AAA082804714A00C1DC9F /* SummaryViewModel.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		EF9AAA0A280477D300C1DC9F /* NavigationHelper */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AAA0B280477E100C1DC9F /* NavigationUtil.swift */,
+			);
+			path = NavigationHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,25 +541,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF9AA9ED2803496C00C1DC9F /* SettingsView.swift in Sources */,
+				EF9AA9FB28042C3600C1DC9F /* NotificationSendLogic.swift in Sources */,
 				EF9AA9EA280348DB00C1DC9F /* GraphViewModel.swift in Sources */,
 				EF9AA9F12803555500C1DC9F /* UIApplicationExtension.swift in Sources */,
 				EF9AA9AB27FB5A8F00C1DC9F /* MenuView.swift in Sources */,
 				EF9AA9D42801836900C1DC9F /* ChildService.swift in Sources */,
 				EF1DF13527FB56690007B195 /* HomeView.swift in Sources */,
+				EF9AAA0C280477E100C1DC9F /* NavigationUtil.swift in Sources */,
 				EF9AA9C127FDCD3000C1DC9F /* Billie.swift in Sources */,
 				EF1DF10727FB55EB0007B195 /* ContentView.swift in Sources */,
 				EF9AA9DE28018A7700C1DC9F /* ShareType.swift in Sources */,
 				EF9AA9F628040B3B00C1DC9F /* NewUserViewModel.swift in Sources */,
+				EF9AAA092804714A00C1DC9F /* SummaryViewModel.swift in Sources */,
 				EF9AA9DA2801855E00C1DC9F /* MailView.swift in Sources */,
+				EF9AAA0128045DB200C1DC9F /* BillieViewModel.swift in Sources */,
 				EF1DF10527FB55EB0007B195 /* PhriOSApp.swift in Sources */,
 				EF9AA9E72803477C00C1DC9F /* Strings.swift in Sources */,
+				EF9AAA052804712400C1DC9F /* SummaryView.swift in Sources */,
 				EF9AA9D72801842B00C1DC9F /* UIImageExtension.swift in Sources */,
+				EF9AA9FE28045D9500C1DC9F /* BillieView.swift in Sources */,
 				EF9AA9F828040E3900C1DC9F /* ContentViewModel.swift in Sources */,
 				EF9AA9EB280348DB00C1DC9F /* GraphView.swift in Sources */,
 				EF9AA9BF27FB6DC500C1DC9F /* MultiLineChartView.swift in Sources */,
 				EF9AA9B127FB60CD00C1DC9F /* PhrButtonPurple.swift in Sources */,
 				EF9AA9F428040B2C00C1DC9F /* NewUserView.swift in Sources */,
 				EF9AA9E528031E3400C1DC9F /* DateExtension.swift in Sources */,
+				EF9AAA0328045EA300C1DC9F /* BillieMode.swift in Sources */,
 				EF9AA9AF27FB5E3600C1DC9F /* PhrButtonOrange.swift in Sources */,
 				EF9AA9E028018AB400C1DC9F /* EnumExtension.swift in Sources */,
 				EF1DF13727FB56780007B195 /* HomeViewModel.swift in Sources */,
@@ -658,6 +728,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PhriOS/PhriOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PhriOS/Preview Content\"";
@@ -689,6 +760,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PhriOS/PhriOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PhriOS/Preview Content\"";

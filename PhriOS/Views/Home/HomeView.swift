@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct HomeView: View {
     @StateObject var viewModel = ViewModel()
@@ -20,21 +21,28 @@ struct HomeView: View {
             Text("Welkom terug in de app! Klik hieronder om je intensiteiten in te vullen. Dit kan tot 3 keer per dag.")
                 .padding()
                 .multilineTextAlignment(.center)
+
             
             Spacer()
             
             if !viewModel.adultMode {
-                PhrButtonOrange(text: "Vul je X-Citabillies in", onClick: {
-                    print("hi")
-                }).padding(.horizontal)
+                NavigationLink(destination: BillieView(mode: .child), tag: 1, selection: $viewModel.action){
+                    PhrButtonOrange(text: "Vul je X-Citabillies in", onClick: {
+                        viewModel.action = 1
+                    }).padding(.horizontal)
+                }
                 
-                PhrButtonPurple(text: START_INTENSITEITEN_PARENT, onClick: {
-                    print("hi")
-                }).padding()
+                NavigationLink(destination: BillieView(mode: .parent), tag: 2, selection: $viewModel.action){
+                    PhrButtonPurple(text: START_INTENSITEITEN_PARENT, onClick: {
+                        viewModel.action = 2
+                    }).padding()
+                }
             } else {
-                PhrButtonOrange(text: START_INTENSITEITEN_ADULT, onClick: {
-                    print("hi")
-                }).padding()
+                NavigationLink(destination: BillieView(mode: .adult), tag: 3, selection: $viewModel.action){
+                    PhrButtonOrange(text: START_INTENSITEITEN_ADULT, onClick: {
+                        viewModel.action = 3
+                    }).padding()
+                }
             }
             
 

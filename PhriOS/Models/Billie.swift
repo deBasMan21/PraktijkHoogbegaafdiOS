@@ -7,7 +7,11 @@
 
 import Foundation
 
-enum Billie : String, CustomStringConvertible, CaseIterable {
+enum Billie : String, CustomStringConvertible, CaseIterable, Comparable {
+    static func < (lhs: Billie, rhs: Billie) -> Bool {
+        return lhs.getIntKey() < rhs.getIntKey()
+    }
+    
     case All
     case Emoto
     case Psymo
@@ -29,6 +33,23 @@ enum Billie : String, CustomStringConvertible, CaseIterable {
             return !child ? "Sensorisch" : "Senzo"
         case .Intellecto:
             return !child ? "Intellectueel" : "Intellecto"
+        }
+    }
+    
+    func getIntKey() -> Int {
+        switch self{
+        case .All:
+            return 0
+        case .Emoto:
+            return 1
+        case .Psymo:
+            return 2
+        case .Fanti:
+            return 3
+        case .Senzo:
+            return 4
+        case .Intellecto:
+            return 5
         }
     }
 }

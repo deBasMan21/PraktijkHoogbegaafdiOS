@@ -54,3 +54,14 @@ struct PhrButtonOrangeWithOptions: View {
         return active() ? Color(PHR_ORANGE) : .gray
     }
 }
+
+struct OrangeButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.system(size: 18))
+            .padding()
+            .background(Color(PHR_ORANGE))
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+    }
+}

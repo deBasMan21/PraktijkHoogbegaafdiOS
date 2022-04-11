@@ -58,7 +58,7 @@ struct NewUserView: View {
             PhrButtonOrangeWithOptions(text: "Beginnen", onClick: save, active: viewModel.isValid)
         }.padding(.horizontal, 50)
             .alert(DISCLAIMER_MESSAGE, isPresented: $viewModel.showDisclaimer){
-                Button("Doorgaan", action: {})
+                Button("Doorgaan", action: requestPermission)
             }
             .navigationTitle("Start")
             .navigationBarHidden(true)

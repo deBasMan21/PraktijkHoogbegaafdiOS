@@ -27,3 +27,15 @@ struct PhrButtonPurple: View {
             .cornerRadius(25)
     }
 }
+
+
+struct PurpleButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.system(size: 18))
+            .padding()
+            .background(Color(PHR_PURPLE))
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+    }
+}

@@ -10,6 +10,7 @@ import Foundation
 extension HomeView {
     class ViewModel : ObservableObject {
         @Published var adultMode  = false
+        @Published var action: Int? = 0
         
         let defs = UserDefaults()
         
