@@ -47,9 +47,12 @@ struct HomeView: View {
                 }
             } else {
                 NavigationLink(destination: BillieView(mode: .adult), tag: 3, selection: $viewModel.action){
-                    Button(START_INTENSITEITEN_ADULT, action: {
+                    Button(action: {
                         viewModel.action = 3
-                    }).buttonStyle(OrangeButton())
+                    }){
+                        Text(START_INTENSITEITEN_ADULT)
+                            .frame(maxWidth: .infinity)
+                    }.buttonStyle(OrangeButton())
                     .padding()
                 }
             }
