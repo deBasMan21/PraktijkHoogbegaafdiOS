@@ -23,6 +23,12 @@ let WELCOME_MESSAGE = "Vul de velden hieronder in en klik op beginnen om aan de 
 let BILLIE_CHILD = "Hoeveel ...'s heb je?"
 let BILLIE_PARENT = "Hoe erg is de ... intensiteit aanwezig bij je kind?"
 let BILLIE_ADULT = "Hoe erg is de ... intensiteit aanwezig bij jezelf?"
+let BILLIE_EMOTO = "De emotionele intensiteit kan het best worden omschreven als een versterkte beleving van emoties bij jezelf, maar ook het versterk waarnemen van emoties bij anderen. Dit zorgt voor het ervaren van diepte in emoties en een sterk empathisch vermogen. Je hebt meer behoefte aan diepe emotionele verbinding met anderen, toont compassie en sensitiviteit in relaties en bent sterker gehecht aan plekken, mensen, spullen of dieren."
+let BILLIE_PSYMO = "De psychomotorische intensiteit kan het best omschreven worden door een constante psychomotorische activiteit, hoge energielevels, snel en veel praten, veel beweging nodig hebben en een drang naar actie. Dit kan naar voren komen in het niet goed stil kunnen zitten, het repetitief friemelen aan voorwerpen of last hebben van motorische of verbale impulsiviteit."
+let BILLIE_SENZO = "De sensorische intensiteit kan het best omschreven worden als een versterkte beleving van sensorische input, zoals dingen die je hoort, ziet, voelt, proeft en ruikt als duidelijk prettig of onprettig ervaren worden. Dit kan er toe leiden dat je sterk wordt aangetrokken tot sommige zintuigelijke belevingen of juist een aversie ontwikkelt voor bepaalde zintuigelijke belevingen en daarom deze uit de weg gaat."
+let BILLIE_INTELLECTO = "De intellectuele intensiteit kan het best omschreven worden als een drang naar het verkrijgen van informatie, het zoeken naar en begrijpen van de waarheid en het analyseren en synthetiseren van informatie om zo antwoord te krijgen op vragen. Kritisch nadenken, perfectionisme en een sterk rechtvaardigheidsgevoel zijn daarin tevens kenmerken die vaker naar voren komen. "
+let BILLIE_FANTI = "De beeldende intensiteit kan het best omschreven worden als een versterkt vermogen tot verbeelding die naar voren kan komen als een sterke fantasie, het uit verband trekken van situaties, het hebben van intense dromen of nachtmerries en het bedenken van en het opgaan in levendige innerlijke werelden."
+let BILLIES_DESCRIPTION : [Billie : String] = [.Emoto : BILLIE_EMOTO, .Fanti : BILLIE_FANTI, .Intellecto : BILLIE_INTELLECTO, .Psymo : BILLIE_PSYMO, .Senzo : BILLIE_SENZO]
 
 //STATIC INFORMATION
 let BEGELEIDSTERS : [String : String] = [

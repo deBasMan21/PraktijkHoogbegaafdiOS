@@ -108,10 +108,13 @@ struct GraphView: View {
             
             Spacer()
             
-            PhrButtonOrange(text: "Delen", onClick: {
-                
+            Button(action: {
                 viewModel.showShareOptions = true
-            }).padding(.horizontal, 50)
+            }){
+                Text("Delen")
+                    .frame(maxWidth: .infinity)
+            }.buttonStyle(OrangeButton())
+            .padding(.horizontal, 50)
             
         }.sheet(isPresented: $viewModel.showMail) {
             MailView(data: $viewModel.mailData){ result in

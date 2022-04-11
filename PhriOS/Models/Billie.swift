@@ -36,6 +36,23 @@ enum Billie : String, CustomStringConvertible, CaseIterable, Comparable {
         }
     }
     
+    func toIntensityString() -> String{
+        switch self{
+        case .All:
+            return "Alles"
+        case .Emoto:
+            return "Emotionele intensiteit"
+        case .Psymo:
+            return "Psychomotorische intensiteit"
+        case .Fanti:
+            return "Beeldende intensiteit"
+        case .Senzo:
+            return "Sensorische intensiteit"
+        case .Intellecto:
+            return "Intellectuele intensiteit"
+        }
+    }
+    
     func getIntKey() -> Int {
         switch self{
         case .All:

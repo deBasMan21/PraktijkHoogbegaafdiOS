@@ -16,58 +16,61 @@ struct SummaryView: View {
     
     var body: some View {
         VStack{
-            Divider().padding()
-            
-            ForEach(viewModel.values.sorted(by: <), id: \.key){ pair in
-                if viewModel.mode == .child {
-                    HStack{
-                        Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(width: 60)
-                        
-                        Spacer()
-                        
-                        Text("\(pair.key.toString(child: viewModel.mode.childNames()))")
-                        
-                        Spacer()
-                        
-                        Text("\(Int(pair.value))")
-                            .foregroundColor(Color(PHR_ORANGE))
-                            .bold()
-                    }
-                    
-                    Divider().padding()
-                } else {
-                    VStack{
-                        Text("\(pair.key.toString(child: viewModel.mode.childNames()))")
-                        
-                        Text("\(Int(pair.value))")
-                            .foregroundColor(Color(PHR_ORANGE))
-                            .bold()
+            ScrollView{
+                Divider().padding()
+                
+                ForEach(viewModel.values.sorted(by: <), id: \.key){ pair in
+                    if viewModel.mode == .child {
+                        HStack{
+                            Image("\(pair.key.description)").resizable().aspectRatio(contentMode: .fit).frame(width: 60)
+                            
+                            Spacer()
+                            
+                            Text("\(pair.key.toString(child: viewModel.mode.childNames()))")
+                            
+                            Spacer()
+                            
+                            Text("\(Int(pair.value))")
+                                .foregroundColor(Color(PHR_ORANGE))
+                                .bold()
+                        }
                         
                         Divider().padding()
+                    } else {
+                        VStack{
+                            Text("\(pair.key.toIntensityString())")
+                            
+                            Text("\(Int(pair.value))")
+                                .foregroundColor(Color(PHR_ORANGE))
+                                .bold()
+                            
+                            Divider().padding()
+                        }
                     }
-                }
+                }.padding(.horizontal, 50)
             }
             
             Spacer()
             
-            Button(action: {
-                NavigationUtil.popToRootView()
-            }){
-                Text("Annuleren")
-                    .frame(maxWidth: .infinity)
-            }.buttonStyle(PurpleButton())
-
-            Button(action: {
-                viewModel.saveStats()
-                NavigationUtil.popToRootView()
-            }){
-                Text("Klaar")
-                    .frame(maxWidth: .infinity)
-            }.buttonStyle(OrangeButton())
+            VStack{
+                Button(action: {
+                    viewModel.saveStats()
+                    NavigationUtil.popToRootView()
+                }){
+                    Text("Klaar")
+                        .frame(maxWidth: .infinity)
+                }.buttonStyle(OrangeButton())
+                
+                Button(action: {
+                    NavigationUtil.popToRootView()
+                }){
+                    Text("Annuleren")
+                        .frame(maxWidth: .infinity)
+                }.buttonStyle(PurpleButton())
+            }.padding(.horizontal, 50)
                 
         }.navigationBarBackButtonHidden(true)
             .navigationTitle("Samenvatting")
-            .padding(.horizontal, 50)
     }
 }
 

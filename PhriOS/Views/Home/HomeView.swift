@@ -27,21 +27,30 @@ struct HomeView: View {
             
             if !viewModel.adultMode {
                 NavigationLink(destination: BillieView(mode: .child), tag: 1, selection: $viewModel.action){
-                    PhrButtonOrange(text: "Vul je X-Citabillies in", onClick: {
+                    Button(action: {
                         viewModel.action = 1
-                    }).padding(.horizontal)
+                    }){
+                        Text("Vul je X-Citabillies in")
+                            .frame(maxWidth: .infinity)
+                    }.buttonStyle(OrangeButton())
+                        .padding(.horizontal)
                 }
                 
                 NavigationLink(destination: BillieView(mode: .parent), tag: 2, selection: $viewModel.action){
-                    PhrButtonPurple(text: START_INTENSITEITEN_PARENT, onClick: {
+                    Button(action: {
                         viewModel.action = 2
-                    }).padding()
+                    }){
+                        Text(START_INTENSITEITEN_PARENT)
+                            .frame(maxWidth: .infinity)
+                    }.buttonStyle(PurpleButton())
+                        .padding()
                 }
             } else {
                 NavigationLink(destination: BillieView(mode: .adult), tag: 3, selection: $viewModel.action){
-                    PhrButtonOrange(text: START_INTENSITEITEN_ADULT, onClick: {
+                    Button(START_INTENSITEITEN_ADULT, action: {
                         viewModel.action = 3
-                    }).padding()
+                    }).buttonStyle(OrangeButton())
+                    .padding()
                 }
             }
             

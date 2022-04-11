@@ -30,18 +30,14 @@ extension BillieView {
                 self.currentBillie = Billie.allCases[billieIndex]
             } else {
                 self.currentBillie = .All
-                for pair in values {
-                    print("\(pair.key.toString(child: false)) - \(pair.value)")
-                }
                 action = 4
-                
             }
             
             currentValue = mode.childNames() ? 5.0 : 0.0
         }
         
         func getTextForEnvironment() -> String {
-            let billieName = currentBillie.toString(child: mode.childNames())
+            let billieName = mode.childNames() ? currentBillie.toString(child: mode.childNames()) : currentBillie.toIntensityString()
             var text = ""
             
             switch mode{

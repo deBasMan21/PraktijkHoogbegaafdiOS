@@ -55,7 +55,11 @@ struct NewUserView: View {
             
             Spacer()
             
-            PhrButtonOrangeWithOptions(text: "Beginnen", onClick: save, active: viewModel.isValid)
+            Button(action: save){
+                Text("Beginnen")
+                    .frame(maxWidth: .infinity)
+            }.buttonStyle(OrangeButton(disabled: !viewModel.isValid()))
+            
         }.padding(.horizontal, 50)
             .alert(DISCLAIMER_MESSAGE, isPresented: $viewModel.showDisclaimer){
                 Button("Doorgaan", action: requestPermission)
