@@ -5,13 +5,13 @@ Dit project is in opdracht van [Praktijk Hoogbegaafd](https://www.praktijkhoogbe
 
 ## Inhoud
 
-- Project
+- [Project](#project)
 - Techniek
 - Veiligheid
 - Deployment
 - Project management
 
-## Project
+## <a name="project">Project</a>
 
 Het doel van de app is het bijhouden van intensiteiten. Er zijn 5 verschillende intensiteiten: Emotionele, Beeldende, Psychomotorische, Intellectuele en Sensorische intensiteit.
 Deze intensiteiten moeten tot 3 keer per dag bijgehouden kunnen worden. Bij een volwassene is de waarde tussen de -2 en 2 en bij een kind is dit tussen de 0 en de 10.
