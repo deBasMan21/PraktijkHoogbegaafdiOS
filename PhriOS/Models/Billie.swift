@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Billie : String, CustomStringConvertible, CaseIterable, Comparable {
     static func < (lhs: Billie, rhs: Billie) -> Bool {
@@ -18,6 +19,23 @@ enum Billie : String, CustomStringConvertible, CaseIterable, Comparable {
     case Fanti
     case Senzo
     case Intellecto
+    
+    func getColor() -> Color {
+        switch self{
+        case .Emoto:
+            return .red
+        case .Psymo:
+            return .blue
+        case .Fanti:
+            return .green
+        case .Senzo:
+            return .orange
+        case .Intellecto:
+            return .purple
+        default:
+            return .gray
+        }
+    }
     
     func toString(child : Bool) -> String {
         switch self{
@@ -67,6 +85,23 @@ enum Billie : String, CustomStringConvertible, CaseIterable, Comparable {
             return 4
         case .Intellecto:
             return 5
+        }
+    }
+    
+    static func getBillieFromInt(key : Int) -> Billie {
+        switch key{
+        case 1:
+            return .Emoto
+        case 2:
+            return .Psymo
+        case 3:
+            return .Fanti
+        case 4:
+            return .Senzo
+        case 5:
+            return .Intellecto
+        default:
+            return .All
         }
     }
 }

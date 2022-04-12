@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum BillieMode {
+enum BillieMode : String, CustomStringConvertible {
     case child
     case parent
     case adult
@@ -18,6 +18,18 @@ enum BillieMode {
                 return true
             default:
                 return false
+        }
+    }
+    
+    static func fromBools(adultMode: Bool, showChild: Bool) -> BillieMode{
+        if adultMode {
+            return .parent
+        } else {
+            if showChild {
+                return .child
+            } else {
+                return .parent
+            }
         }
     }
 }

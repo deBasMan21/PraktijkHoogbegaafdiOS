@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import CoreData
+import SwiftUI
 
 extension HomeView {
     class ViewModel : ObservableObject {
         @Published var adultMode  = false
         @Published var action: Int? = 0
+        
         
         let defs = UserDefaults()
         

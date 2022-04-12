@@ -8,6 +8,7 @@
 import Foundation
 import Charts
 import SwiftUI
+import CoreData
 
 extension GraphView {
     class ViewModel : ObservableObject {
@@ -22,8 +23,8 @@ extension GraphView {
         @Published var weekStats : [Billie : Double] = [:]
         @Published var dayStats : [Billie: Double] = [:]
         
-        @Published var beginDate : Date = Date().addingTimeInterval(-60 * 60 * 24 * 6)
-        @Published var endDate : Date = Date()
+        @Published var beginDate : Date = Date().toDate().addingTimeInterval(-60 * 60 * 24 * 7)
+        @Published var endDate : Date = Date().toDate()
          
         @Published var geo : GeometryProxy? = nil
         @Published var images : [UIImage] = []
@@ -33,26 +34,59 @@ extension GraphView {
         
         @Published var showShareOptions = false
         
+        @Published var maxX = 7.0
+        @Published var graphId = 0
+        
         let defs = UserDefaults()
+        var moc : NSManagedObjectContext? = nil
         
         init() {
             adultMode = defs.bool(forKey: "adultMode")
             if adultMode {
                 showChild = false
             }
-            
-            loadData()
         }
         
-        func loadData() {
+        func loadData() async{
             selectedGraph = .All
-            entries = showChild ? getChildData(from: beginDate, to: endDate) : getParentData(from: beginDate, to: endDate)
-            filteredEntries = entries
-            loadStats()
+            
+            print(beginDate.toString())
+            print(endDate.toString())
+            
+            let req  : NSFetchRequest<BillieValueEntity> = BillieValueEntity.fetchRequest()
+            
+            let modePredicate = NSPredicate(format: "mode == %@", BillieMode.fromBools(adultMode: adultMode, showChild: showChild).description)
+            let beginDatePredicate = NSPredicate(format: "dateTime >= %@", beginDate as CVarArg)
+            let endDatePredicate = NSPredicate(format: "dateTime <= %@", endDate as CVarArg)
+            
+            let andPredicate = NSCompoundPredicate(type: .and, subpredicates: [modePredicate, beginDatePredicate, endDatePredicate])
+            
+            req.predicate = andPredicate
+            
+            do {
+                let array = try moc!.fetch(req) as [BillieValueEntity]
+                let amountOfDays = beginDate.differenceInDays(to: endDate)
+                entries = parseObjectsToGraph(values: array, amountOfDays: amountOfDays)
+                filteredEntries = entries
+                await setHighestX()
+                loadStats()
+            } catch let error {
+                print(error)
+            }
         }
         
-        func getHighestX() -> Double {
-            return entries[0].data[entries[0].data.count - 1].x
+        func setHighestX() async{
+            await MainActor.run{
+                if entries.count != 0 {
+                    if entries[0].data[entries[0].data.count - 1].x < 7 {
+                        maxX = 7
+                    }
+                    maxX = entries[0].data[entries[0].data.count - 1].x
+                } else {
+                    maxX = 7
+                }
+                graphId += 1
+            }
         }
         
         func filter(){

@@ -10,6 +10,7 @@ import Charts
  
 struct GraphView: View {
     @StateObject var viewModel = ViewModel()
+    @Environment(\.managedObjectContext) var moc
     
     var body: some View {
         VStack{
@@ -20,7 +21,9 @@ struct GraphView: View {
                         Text("Ouder").tag(false)
                     }.pickerStyle(.segmented)
                         .onChange(of: viewModel.showChild) {tag in
-                            viewModel.loadData()
+                            Task{
+                                await viewModel.loadData()
+                            }
                         }
                         .padding()
                 }
@@ -42,9 +45,19 @@ struct GraphView: View {
                     }
 
                     VStack{
-                        DatePicker("Begin moment", selection: $viewModel.beginDate, in: viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 31)...viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 6), displayedComponents: [.date])
+                        DatePicker("Begin moment", selection: $viewModel.beginDate, in: viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 28)...viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 7), displayedComponents: [.date])
+                            .onChange(of: viewModel.beginDate, perform: { tag in
+                                Task{
+                                    await viewModel.loadData()
+                                }
+                            })
                         
                         DatePicker("Eind moment", selection: $viewModel.endDate, in: ...Date.now, displayedComponents: [.date])
+                            .onChange(of: viewModel.endDate, perform: { tag in
+                                Task{
+                                    await viewModel.loadData()
+                                }
+                            })
                     }.padding(.horizontal, 50)
                         .padding(.bottom)
                     
@@ -147,17 +160,25 @@ struct GraphView: View {
             
             Button("Annuleren", role: .cancel, action: {})
         }.navigationTitle("Grafieken")
+            .onAppear{
+                Task{
+                    viewModel.moc = moc
+                    await viewModel.loadData()
+                }
+            }
     }
     
     var graphView : some View {
         GeometryReader{ geo in
             VStack{
                 if viewModel.showChild {
-                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: viewModel.getHighestX(), minY: 0.0, maxY: 10.0), child: viewModel.showChild)
+                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: viewModel.maxX, minY: 0.0, maxY: 10.0), child: viewModel.showChild)
                         .frame(height: 220)
+                        .id(viewModel.graphId)
                 } else {
-                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: viewModel.getHighestX(), minY: -2.5, maxY: 2.5), child: viewModel.showChild)
+                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: viewModel.maxX, minY: -2.5, maxY: 2.5), child: viewModel.showChild)
                         .frame(height: 220)
+                        .id(viewModel.graphId)
                 }
             }.onAppear{
                 viewModel.geo = geo

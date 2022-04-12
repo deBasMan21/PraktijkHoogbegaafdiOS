@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SummaryView: View {
     @State var viewModel : ViewModel
+    @Environment(\.managedObjectContext) var moc
     
     init(mode : BillieMode, values : [Billie : Double]){
         self.viewModel = ViewModel(mode: mode, values: values)
@@ -54,7 +55,7 @@ struct SummaryView: View {
             
             VStack{
                 Button(action: {
-                    viewModel.saveStats()
+                    viewModel.saveStats(moc: moc)
                     NavigationUtil.popToRootView()
                 }){
                     Text("Klaar")
