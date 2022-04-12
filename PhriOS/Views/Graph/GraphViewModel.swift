@@ -61,12 +61,15 @@ extension GraphView {
             
             let andPredicate = NSCompoundPredicate(type: .and, subpredicates: [modePredicate, beginDatePredicate, endDatePredicate])
             
+            let sorter = NSSortDescriptor(key: #keyPath(BillieValueEntity.dateTime), ascending: true)
+            
+            req.sortDescriptors = [sorter]
             req.predicate = andPredicate
             
             do {
                 let array = try moc!.fetch(req) as [BillieValueEntity]
                 let amountOfDays = beginDate.differenceInDays(to: endDate)
-                entries = parseObjectsToGraph(values: array, amountOfDays: amountOfDays)
+                entries = parseObjectsToGraph(values: array, amountOfDays: amountOfDays, minDate: beginDate, maxDate: endDate)
                 filteredEntries = entries
                 await setHighestX()
                 loadStats()
@@ -78,10 +81,10 @@ extension GraphView {
         func setHighestX() async{
             await MainActor.run{
                 if entries.count != 0 {
-                    if entries[0].data[entries[0].data.count - 1].x < 7 {
+                    if entries[0].data[0].x < 7 {
                         maxX = 7
                     }
-                    maxX = entries[0].data[entries[0].data.count - 1].x
+                    maxX = entries[0].data[0].x
                 } else {
                     maxX = 7
                 }
