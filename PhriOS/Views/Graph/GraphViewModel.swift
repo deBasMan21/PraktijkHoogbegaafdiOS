@@ -47,7 +47,7 @@ extension GraphView {
             }
         }
         
-        func loadData() async{
+        func loadData(){
             selectedGraph = .All
             
             print(beginDate.toString())
@@ -56,8 +56,8 @@ extension GraphView {
             let req  : NSFetchRequest<BillieValueEntity> = BillieValueEntity.fetchRequest()
             
             let modePredicate = NSPredicate(format: "mode == %@", BillieMode.fromBools(adultMode: adultMode, showChild: showChild).description)
-            let beginDatePredicate = NSPredicate(format: "dateTime >= %@", beginDate as CVarArg)
-            let endDatePredicate = NSPredicate(format: "dateTime <= %@", endDate as CVarArg)
+            let beginDatePredicate = NSPredicate(format: "dateTime >= %@", endDate.addingTimeInterval(-60 * 60 * 24 * 7) as CVarArg)
+            let endDatePredicate = NSPredicate(format: "dateTime <= %@", endDate.addingTimeInterval(60 * 60 * 24) as CVarArg)
             
             let andPredicate = NSCompoundPredicate(type: .and, subpredicates: [modePredicate, beginDatePredicate, endDatePredicate])
             
@@ -71,25 +71,25 @@ extension GraphView {
                 let amountOfDays = beginDate.differenceInDays(to: endDate)
                 entries = parseObjectsToGraph(values: array, amountOfDays: amountOfDays, minDate: beginDate, maxDate: endDate)
                 filteredEntries = entries
-                await setHighestX()
                 loadStats()
             } catch let error {
                 print(error)
             }
+            
+            setHighestX()
         }
         
-        func setHighestX() async{
-            await MainActor.run{
-                if entries.count != 0 {
-                    if entries[0].data[0].x < 7 {
-                        maxX = 7
-                    }
-                    maxX = entries[0].data[0].x
-                } else {
+        func setHighestX() {
+            if entries.count != 0 {
+                if entries[0].data[0].x < 7 {
                     maxX = 7
+                } else {
+                    maxX = entries[0].data[0].x
                 }
-                graphId += 1
+            } else {
+                maxX = 7
             }
+            graphId += 1
         }
         
         func filter(){

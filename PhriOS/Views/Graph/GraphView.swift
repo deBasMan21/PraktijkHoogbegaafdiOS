@@ -21,9 +21,7 @@ struct GraphView: View {
                         Text("Ouder").tag(false)
                     }.pickerStyle(.segmented)
                         .onChange(of: viewModel.showChild) {tag in
-                            Task{
-                                await viewModel.loadData()
-                            }
+                            viewModel.loadData()
                         }
                         .padding()
                 }
@@ -45,18 +43,14 @@ struct GraphView: View {
                     }
 
                     VStack{
-                        DatePicker("Begin moment", selection: $viewModel.beginDate, in: viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 28)...viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 7), displayedComponents: [.date])
-                            .onChange(of: viewModel.beginDate, perform: { tag in
-                                Task{
-                                    await viewModel.loadData()
-                                }
-                            })
+//                        DatePicker("Begin moment", selection: $viewModel.beginDate, in: viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 28)...viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 7), displayedComponents: [.date])
+//                            .onChange(of: viewModel.beginDate, perform: { tag in
+//                                viewModel.loadData()
+//                            })
                         
                         DatePicker("Eind moment", selection: $viewModel.endDate, in: ...Date.now, displayedComponents: [.date])
                             .onChange(of: viewModel.endDate, perform: { tag in
-                                Task{
-                                    await viewModel.loadData()
-                                }
+                                viewModel.loadData()
                             })
                     }.padding(.horizontal, 50)
                         .padding(.bottom)
@@ -161,10 +155,8 @@ struct GraphView: View {
             Button("Annuleren", role: .cancel, action: {})
         }.navigationTitle("Grafieken")
             .onAppear{
-                Task{
-                    viewModel.moc = moc
-                    await viewModel.loadData()
-                }
+                viewModel.moc = moc
+                viewModel.loadData()
             }
     }
     
@@ -172,11 +164,11 @@ struct GraphView: View {
         GeometryReader{ geo in
             VStack{
                 if viewModel.showChild {
-                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: viewModel.maxX, minY: 0.0, maxY: 10.0), child: viewModel.showChild)
+                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: 7, minY: 0.0, maxY: 10.0), child: viewModel.showChild)
                         .frame(height: 220)
                         .id(viewModel.graphId)
                 } else {
-                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: viewModel.maxX, minY: -2.5, maxY: 2.5), child: viewModel.showChild)
+                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: 7, minY: -2.5, maxY: 2.5), child: viewModel.showChild)
                         .frame(height: 220)
                         .id(viewModel.graphId)
                 }

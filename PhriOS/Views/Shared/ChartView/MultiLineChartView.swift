@@ -99,7 +99,7 @@ class ChartStyle {
     init(minX : Double, maxX : Double, minY : Double, maxY : Double) {
         print(maxX)
         self.minX = minX
-        self.maxX = Double(Int(maxX) + 1)
+        self.maxX = maxX
         self.minY = minY
         self.maxY = maxY
         print(self.maxX)

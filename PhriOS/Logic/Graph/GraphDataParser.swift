@@ -26,7 +26,7 @@ func parseObjectsToGraph(values : [BillieValueEntity], amountOfDays : Int, minDa
         var splitPerDay : [Date : [BillieValueEntity]] = [:]
         
         for day in 0...amountOfDays {
-            splitPerDay[minDate.addingTimeInterval(Double(day * 60 * 60 * 24)).toDate()] = []
+            splitPerDay[maxDate.addingTimeInterval(Double(-day * 60 * 60 * 24)).toDate()] = []
         }
         
         for value in pair.value {
@@ -41,9 +41,10 @@ func parseObjectsToGraph(values : [BillieValueEntity], amountOfDays : Int, minDa
             print(tuple.key)
             print(index)
             let amount = Double(tuple.value.count)
-            let incrementAmount : Double = 1 / amount
             
             if tuple.value.count > 0 {
+                let incrementAmount : Double = 1 / amount
+                
                 for i in 0...tuple.value.count - 1 {
                     var tempChartdata : [ChartDataEntry] = []
                     let x : Double = index + (Double(i) * incrementAmount)
@@ -56,14 +57,17 @@ func parseObjectsToGraph(values : [BillieValueEntity], amountOfDays : Int, minDa
             index -= 1
         }
         
-//        print(pair.key.description)
-//        for v in chartData {
-//            print("x: \(v.x) y: \(v.y)")
-//        }
-        
         chartData = chartData.sorted(by: {$0.x < $1.x})
         returnList.append(ChartDataEntryWrapper(data: chartData, color: pair.key.getColor(), billie: pair.key))
     }
+    
+    for entry in returnList {
+        print(entry.billie)
+        for v in entry.data {
+            print("x: \(v.x) y: \(v.y)")
+        }
+    }
+    
     return returnList
 }
 
