@@ -13,14 +13,18 @@ let SHARE_STRING_ADULT = "Klik op delen en dan wordt er een mail klaargezet die 
 let SHARE_STRING_PARENT = "Kies hieronder wat je wilt delen met je begeleider. \n\nEr wordt een mail klaargezet die alleen nog verzonden moet worden."
 let SHARE_STRING_NO_PHR_PARENT = "Kies hieronder wat je op wil slaan. \n\nNa een moment wachten worden de deelopties geopend."
 let SHARE_STRING_NO_PHR_ADULT = "Klik op delen en dan krijg je opties om de pdf te delen."
+
 //      HOMEVIEW
 let START_INTENSITEITEN_ADULT = "Vul je intensiteiten in"
 let START_INTENSITEITEN_PARENT = "Vul de intensiteiten van je kind in"
+
 //      SETTINGSVIEW
 let RESET_MESSAGE = "Weet je zeker dat je de app wil resetten?"
+
 //      NEWUSERVIEW
 let DISCLAIMER_MESSAGE = "Hallo en leuk dat je deze app gaat gebruiken! Dit is een beta versie van de app en deze kan nog problemen bevatten. Mocht er een fout voordoen geef dit dan aan bij je begeleidster. \n\nAlle data die opgeslagen wordt is alleen op je eigen device opgeslagen en zal op geen enkele manier openbaar kunnen worden."
 let WELCOME_MESSAGE = "Vul de velden hieronder in en klik op beginnen om aan de slag te gaan met de app. \n\nVeel succes!"
+
 //      BILLIEVIEW
 let BILLIE_CHILD = "Hoeveel ...'s heb je?"
 let BILLIE_PARENT = "Hoe erg is de ... intensiteit aanwezig bij je kind?"
@@ -35,10 +39,18 @@ let BILLIES_MAX_ENTERED = "Je hebt vandaag al 3 keer je intensiteiten ingevuld. 
 
 //STATIC INFORMATION
 let BEGELEIDSTERS : [String : String] = [
+    "Eveline Eulderink" : "eveline@praktijkhoogbegaafd.nl",
+    "Yvonne Duran" : "yvonne@praktijkhoobegaafd.nl",
+    "Sjarai Gelissen" : "sjarai@praktijkhoogbegaafd.nl",
+    "Mirthe Zom" : "mirthe@praktijkhoogbegaafd.nl",
     "Lisanne Boerboom" : "lisanne@praktijkhoogbegaafd.nl",
-    "Yvonne Buijsen" : "Yvonne@praktijkhoobegaafd.nl",
-    "Aukje Buijsen" : "Aukje@praktijkhoogbegaafd.nl",
-    "TEST" : "bbuijsen@gmail.com"
+    "Meghan Kalisvaart" : "meghan@praktijkhoogbegaafd.nl",
+    "Tessa van Sluijs" : "tessa@praktijkhoogbegaafd.nl",
+    "Eda Canikli" : "eda@praktijkhoogbegaafd.nl",
+    "Milou van Beijsterveldt" : "milou@praktijkhoogbegaafd.nl",
+    "Denise Janssen" : "???",
+    "Denise Damen" : "???",
+    "Claire Spoormakers" : "claire@praktijkhoogbegaafd.nl"
 ]
 let VERSION = "1.0.0"
 
