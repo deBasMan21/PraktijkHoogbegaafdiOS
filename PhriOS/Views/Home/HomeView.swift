@@ -27,7 +27,7 @@ struct HomeView: View {
             Spacer()
             
             if !viewModel.adultMode {
-                NavigationLink(destination: DisabledView(isDisabled: viewModel.canAddData(moc: moc, mode: .child)), tag: 1, selection: $viewModel.action){
+                NavigationLink(destination: DisabledView(mode: .child), tag: 1, selection: $viewModel.action){
                     Button(action: {
                         viewModel.action = 1
                     }){
@@ -37,7 +37,7 @@ struct HomeView: View {
                         .padding(.horizontal)
                 }
                 
-                NavigationLink(destination: BillieView(mode: .parent), tag: 2, selection: $viewModel.action){
+                NavigationLink(destination: DisabledView(mode: .parent), tag: 2, selection: $viewModel.action){
                     Button(action: {
                         viewModel.action = 2
                     }){
@@ -47,7 +47,7 @@ struct HomeView: View {
                         .padding()
                 }
             } else {
-                NavigationLink(destination: BillieView(mode: .adult), tag: 3, selection: $viewModel.action){
+                NavigationLink(destination: DisabledView(mode: .adult), tag: 3, selection: $viewModel.action){
                     Button(action: {
                         viewModel.action = 3
                     }){
@@ -64,26 +64,3 @@ struct HomeView: View {
 }
 
 
-struct DisabledView : View {
-    @State var isDisabled : Bool
-    
-    var body: some View {
-        VStack{
-            if isDisabled {
-                Image("sterren")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding(50)
-                    .padding(.horizontal, 100)
-                
-                Text(BILLIES_MAX_ENTERED)
-                    .padding(.horizontal)
-                    .multilineTextAlignment(.center)
-                
-                Spacer()
-            } else {
-                BillieView(mode: .child)
-            }
-        }
-    }
-}

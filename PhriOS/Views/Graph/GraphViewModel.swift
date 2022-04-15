@@ -14,6 +14,8 @@ extension GraphView {
     class ViewModel : ObservableObject {
         @Published var adultMode : Bool = false
         @Published var showChild = true
+        @Published var withPhr = false
+        @Published var name = ""
         
         @Published var entries : [ChartDataEntryWrapper] = []
         @Published var filteredEntries : [ChartDataEntryWrapper] = []
@@ -23,9 +25,8 @@ extension GraphView {
         @Published var weekStats : [Billie : Double] = [:]
         @Published var dayStats : [Billie: Double] = [:]
         
-        @Published var beginDate : Date = Date().toDate().addingTimeInterval(-60 * 60 * 24 * 7)
         @Published var endDate : Date = Date().toDate()
-         
+        
         @Published var geo : GeometryProxy? = nil
         @Published var images : [UIImage] = []
         
@@ -34,14 +35,15 @@ extension GraphView {
         
         @Published var showShareOptions = false
         
-        @Published var maxX = 7.0
-        @Published var graphId = 0
+        @Published var graphId = 2
         
         let defs = UserDefaults()
         var moc : NSManagedObjectContext? = nil
         
         init() {
-            adultMode = defs.bool(forKey: "adultMode")
+            adultMode = defs.bool(forKey: DEFS_ADULT_MODE)
+            withPhr = defs.bool(forKey: DEFS_WITH_PHR)
+            name = defs.string(forKey: DEFS_NAME) ?? ""
             if adultMode {
                 showChild = false
             }
@@ -49,9 +51,6 @@ extension GraphView {
         
         func loadData(){
             selectedGraph = .All
-            
-            print(beginDate.toString())
-            print(endDate.toString())
             
             let req  : NSFetchRequest<BillieValueEntity> = BillieValueEntity.fetchRequest()
             
@@ -74,21 +73,6 @@ extension GraphView {
             } catch let error {
                 print(error)
             }
-            
-            setHighestX()
-        }
-        
-        func setHighestX() {
-            if entries.count != 0 {
-                if entries[0].data[0].x < 7 {
-                    maxX = 7
-                } else {
-                    maxX = entries[0].data[0].x
-                }
-            } else {
-                maxX = 7
-            }
-            graphId += 1
         }
         
         func filter(){
@@ -102,8 +86,50 @@ extension GraphView {
         }
         
         func loadStats() {
-            weekStats = getWeekStats(from: beginDate, to: endDate, child: showChild)
-            dayStats = getDayStats(of: endDate, child: showChild)
+            weekStats = getWeekStats(mode: BillieMode.fromBools(adultMode: adultMode, showChild: showChild))
+            dayStats = getDayStats(mode: BillieMode.fromBools(adultMode: adultMode, showChild: showChild))
+        }
+        
+        func getWeekStats(mode : BillieMode) -> [Billie : Double]{
+            let req  : NSFetchRequest<BillieValueEntity> = BillieValueEntity.fetchRequest()
+            
+            let modePredicate = NSPredicate(format: "mode == %@", mode.description)
+            let beginDatePredicate = NSPredicate(format: "dateTime >= %@", endDate.addingTimeInterval(-60 * 60 * 24 * 7) as CVarArg)
+            let endDatePredicate = NSPredicate(format: "dateTime <= %@", endDate.addingTimeInterval(60 * 60 * 24 * 2) as CVarArg)
+            
+            let andPredicate = NSCompoundPredicate(type: .and, subpredicates: [modePredicate, beginDatePredicate, endDatePredicate])
+            
+            req.predicate = andPredicate
+            
+            do {
+                let array = try moc!.fetch(req) as [BillieValueEntity]
+                return calculateStats(values: array)
+            } catch let error {
+                print(error)
+            }
+            
+            return [:]
+        }
+        
+        func getDayStats(mode : BillieMode) -> [Billie : Double]{
+            let req  : NSFetchRequest<BillieValueEntity> = BillieValueEntity.fetchRequest()
+            
+            let modePredicate = NSPredicate(format: "mode == %@", mode.description)
+            let beginDatePredicate = NSPredicate(format: "dateTime <= %@", endDate.toDate().addingTimeInterval(60 * 60 * 24) as CVarArg)
+            let endDatePredicate = NSPredicate(format: "dateTime > %@", endDate.toDate() as CVarArg)
+            
+            let andPredicate = NSCompoundPredicate(type: .and, subpredicates: [modePredicate, beginDatePredicate, endDatePredicate])
+            
+            req.predicate = andPredicate
+            
+            do {
+                let array = try moc!.fetch(req) as [BillieValueEntity]
+                return calculateStats(values: array)
+            } catch let error {
+                print(error)
+            }
+            
+            return [:]
         }
         
         func share(shareOptions : ShareType) async {
@@ -125,7 +151,14 @@ extension GraphView {
                 await createScreenshots()
             }
             
-            await createMail(shareOptions: shareOptions)
+            if withPhr {
+                await createMail(shareOptions: shareOptions)
+            } else {
+                let parentStats = shareOptions == .both || shareOptions == .parentOnly ? getWeekStats(mode: adultMode ? .adult : .parent) : nil
+                let childStats = shareOptions == .both || shareOptions == .childOnly ? getWeekStats(mode: .child) : nil
+
+                await saveWithOptions(pdfData: createPDF(images: images, weekStatsParent: parentStats, weekStatsChild: childStats))
+            }
         }
         
         func createMail(shareOptions : ShareType) async {
@@ -137,10 +170,10 @@ extension GraphView {
                 mailData.recipients = [emailRecipient]
                 
                 mailData.message = mailData.message.replacingOccurrences(of: "...", with: "\(endDate.toString())")
-                mailData.message = mailData.message.replacingOccurrences(of: "..", with: "\(beginDate.toString())")
+                mailData.message = mailData.message.replacingOccurrences(of: "..", with: "\(endDate.addingTimeInterval(60 * 60 * 24 * -7).toString())")
                 
-                let parentStats = shareOptions == .both || shareOptions == .parentOnly ? getWeekStats(from: beginDate, to: endDate, child: false) : nil
-                let childStats = shareOptions == .both || shareOptions == .childOnly ? getWeekStats(from: beginDate, to: endDate, child: true) : nil
+                let parentStats = shareOptions == .both || shareOptions == .parentOnly ? getWeekStats(mode: adultMode ? .adult : .parent) : nil
+                let childStats = shareOptions == .both || shareOptions == .childOnly ? getWeekStats(mode: .child) : nil
                 
                 let pdf = createPDF(images: images, weekStatsParent: parentStats, weekStatsChild: childStats)
                 mailData.attachments?.append(AttachmentData(data: pdf, mimeType: "application/pdf", fileName: "verslag.pdf"))
@@ -149,6 +182,7 @@ extension GraphView {
             }
         }
         
+        // loops to set the graph and take a screenshot
         func createScreenshots() async {
             for billie in Billie.allCases {
                 await MainActor.run{
@@ -166,24 +200,64 @@ extension GraphView {
             }
         }
         
+        // takes the screenshot from the view
         func takeScreenshot() -> UIImage? {
             guard let window = UIApplication.shared.keyWindow else {
                 print("View.takeScreenshot: No main window found")
                 return nil
             }
-
+            
             UIGraphicsBeginImageContextWithOptions(window.bounds.size, false, 0.0)
             let renderer = UIGraphicsImageRenderer(bounds: window.bounds, format: UIGraphicsImageRendererFormat())
             let image = renderer.image { (context) in
-            window.drawHierarchy(in: window.bounds, afterScreenUpdates: true)
+                window.drawHierarchy(in: window.bounds, afterScreenUpdates: true)
             }
             UIGraphicsEndImageContext()
-
+            
             let scale = UIScreen.main.scale
             let rect = CGRect(x: geo!.frame(in: .global).origin.x, y: geo!.frame(in: .global).origin.y, width: geo!.size.width, height: geo!.size.height)
             let croppedImage = image.cropped(boundingBox: rect, scale: scale)
-
+            
             return croppedImage
+        }
+        
+        // pops up the options for saving or sharing a pdf
+        func saveWithOptions(pdfData : Data) async {
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            
+            let url = paths[0].appendingPathComponent("\(createFileName()).pdf")
+            
+            do {
+                try pdfData.write(to: url)
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+            let activityController = await UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            
+            await MainActor.run{
+                UIApplication.shared.keyWindow!.rootViewController!.present(activityController, animated: true, completion: nil)
+            }
+        }
+        
+        func createFileName() -> String {
+            return "verslag \(name) \(Date().toString())"
+        }
+        
+        func getShareString() -> String {
+            if withPhr {
+                if adultMode {
+                    return SHARE_STRING_ADULT
+                } else {
+                    return SHARE_STRING_PARENT
+                }
+            } else {
+                if adultMode{
+                    return SHARE_STRING_NO_PHR_ADULT
+                } else {
+                    return SHARE_STRING_NO_PHR_PARENT
+                }
+            }
         }
     }
 }

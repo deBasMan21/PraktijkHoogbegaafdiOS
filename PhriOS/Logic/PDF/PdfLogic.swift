@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import Charts
 import PDFKit
+import UniformTypeIdentifiers
 
 func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekStatsChild : [Billie : Double]?) -> Data {
     let logo = UIImage(named: "Logo")!
@@ -49,7 +50,7 @@ func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekSta
         ]
         
         logo.draw(at: CGPoint(x: (pageWidth - logo.size.width) / 2, y: 0))
-
+        
         var rowCount = 0
         var columnCount = 0
         

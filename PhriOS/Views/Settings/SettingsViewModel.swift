@@ -16,6 +16,7 @@ extension SettingsView {
         @Published var name : String = ""
         @Published var counter = 0
         @Published var showResetAlert = false
+        @Published var withPhr = false
         
         @Published var notificationsEnabled = true
         @Published var notifications : [Date] = [Date(), Date(), Date()]
@@ -29,6 +30,7 @@ extension SettingsView {
             name = defs.string(forKey: DEFS_NAME) ?? ""
             notifications = (defs.array(forKey: DEFS_NOTIFICATIONS) ?? [Date(), Date(), Date()]) as? [Date] ?? [Date(), Date(), Date()]
             notificationsEnabled = defs.bool(forKey: DEFS_NOTIFICATIONS_ENABLED)
+            withPhr = defs.bool(forKey: DEFS_WITH_PHR)
         }
         
         func saveSettings() {
@@ -45,6 +47,7 @@ extension SettingsView {
             defs.removeObject(forKey: DEFS_NAME)
             defs.removeObject(forKey: DEFS_NOTIFICATIONS)
             defs.removeObject(forKey: DEFS_NOTIFICATIONS_ENABLED)
+            defs.removeObject(forKey: DEFS_WITH_PHR)
             removeNotifications()
             
             let fetchReq : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "BillieValueEntity")

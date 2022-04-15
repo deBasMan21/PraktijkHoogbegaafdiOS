@@ -7,104 +7,100 @@
 
 import SwiftUI
 import Charts
- 
+
 struct GraphView: View {
     @StateObject var viewModel = ViewModel()
     @Environment(\.managedObjectContext) var moc
     
     var body: some View {
-        VStack{
-            ScrollView{
-                if !viewModel.adultMode{
-                    Picker(selection: $viewModel.showChild, label: Text("view")){
-                        Text("Kind").tag(true)
-                        Text("Ouder").tag(false)
-                    }.pickerStyle(.segmented)
-                        .onChange(of: viewModel.showChild) {tag in
-                            viewModel.loadData()
-                        }
-                        .padding()
-                }
-                
-                VStack{
-                    graphView
-                    
-                    HStack{
-                        Text("Categorie:")
-                            .padding(.horizontal)
-                        
-                        Picker("Selecteer categorie", selection: $viewModel.selectedGraph) {
-                            ForEach(Billie.allCases, id: \.self) {
-                                Text($0.toString(child: viewModel.showChild))
+        ScrollViewReader { scroll in
+            VStack{
+                ScrollView{
+                    if !viewModel.adultMode{
+                        Picker(selection: $viewModel.showChild, label: Text("view")){
+                            Text("Kind").tag(true)
+                            Text("Ouder").tag(false)
+                        }.pickerStyle(.segmented)
+                            .onChange(of: viewModel.showChild) {tag in
+                                viewModel.loadData()
                             }
-                        }.onChange(of: viewModel.selectedGraph) {tag in
-                            viewModel.filter()
-                        }.pickerStyle(MenuPickerStyle())
+                            .padding()
                     }
-
+                    
                     VStack{
-//                        DatePicker("Begin moment", selection: $viewModel.beginDate, in: viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 28)...viewModel.endDate.addingTimeInterval(-60 * 60 *  24 * 7), displayedComponents: [.date])
-//                            .onChange(of: viewModel.beginDate, perform: { tag in
-//                                viewModel.loadData()
-//                            })
+                        graphView
                         
-                        DatePicker("Eind moment", selection: $viewModel.endDate, in: ...Date.now, displayedComponents: [.date])
+                        HStack{
+                            Text("Categorie:")
+                                .padding(.horizontal)
+                            
+                            
+                            Picker("Selecteer categorie", selection: $viewModel.selectedGraph) {
+                                ForEach(Billie.allCases, id: \.self) {
+                                    Text($0.toString(child: viewModel.showChild))
+                                }
+                            }.onChange(of: viewModel.selectedGraph) {tag in
+                                viewModel.filter()
+                            }.pickerStyle(MenuPickerStyle())
+                        }
+                        
+                        DatePicker("Geselecteerde datum:", selection: $viewModel.endDate, in: ...Date.now, displayedComponents: [.date])
                             .onChange(of: viewModel.endDate, perform: { tag in
                                 viewModel.loadData()
-                            })
-                    }.padding(.horizontal, 50)
-                        .padding(.bottom)
-                    
-
-                    VStack{
-                        Text("Periodegemiddelde van \n\(viewModel.beginDate.toString()) t/m \(viewModel.endDate.toString()):")
-                            .foregroundColor(Color(PHR_PURPLE))
-                            .fontWeight(.bold)
-                            .multilineTextAlignment(.center)
+                            }).padding(.horizontal, 50)
+                            .padding(.bottom)
                         
-                        HStack(spacing: 50){
-                            VStack(alignment: .leading){
-                                ForEach(Billie.allCases, id: \.self) {
-                                    if $0 != .All{
-                                        Text($0.toString(child: viewModel.showChild) + ":")
-                                    }
-                                }
-                            }
-                            
-                            VStack(alignment: .trailing){
-                                ForEach(Billie.allCases, id: \.self) {
-                                    if $0 != .All{
-                                        Text(String(viewModel.weekStats[$0] ?? 0.0))
-                                            .foregroundColor(Color(PHR_ORANGE))
-                                            .fontWeight(.bold)
-                                    }
-                                }
-                            }
-                        }
-                    }.padding(.bottom)
-                    
-                    VStack{
-                        Text("Daggemiddelde van \(viewModel.endDate.toString()):")
-                            .foregroundColor(Color(PHR_PURPLE))
-                            .fontWeight(.bold)
-                            .multilineTextAlignment(.center)
                         
-                        HStack(spacing: 50){
-                            VStack(alignment: .leading){
-                                ForEach(Billie.allCases, id: \.self) {
-                                    if $0 != .All{
-                                        Text($0.toString(child: viewModel.showChild) + ":")
+                        VStack{
+                            Text("Periodegemiddelde van \n\(viewModel.endDate.addingTimeInterval(60 * 60 * 24 * -7).toString()) t/m \(viewModel.endDate.toString()):")
+                                .foregroundColor(Color(PHR_PURPLE))
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
+                            
+                            HStack(spacing: 50){
+                                VStack(alignment: .leading){
+                                    ForEach(Billie.allCases, id: \.self) {
+                                        if $0 != .All{
+                                            Text($0.toString(child: viewModel.showChild) + ":")
+                                        }
                                     }
                                 }
-
+                                
+                                VStack(alignment: .trailing){
+                                    ForEach(Billie.allCases, id: \.self) {
+                                        if $0 != .All{
+                                            Text(String(viewModel.weekStats[$0] ?? 0.0))
+                                                .foregroundColor(Color(PHR_ORANGE))
+                                                .fontWeight(.bold)
+                                        }
+                                    }
+                                }
                             }
+                        }.padding(.bottom)
+                        
+                        VStack{
+                            Text("Daggemiddelde van \(viewModel.endDate.toString()):")
+                                .foregroundColor(Color(PHR_PURPLE))
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
                             
-                            VStack(alignment: .trailing){
-                                ForEach(Billie.allCases, id: \.self) {
-                                    if $0 != .All{
-                                        Text(String(viewModel.dayStats[$0] ?? 0.0))
-                                            .foregroundColor(Color(PHR_ORANGE))
-                                            .fontWeight(.bold)
+                            HStack(spacing: 50){
+                                VStack(alignment: .leading){
+                                    ForEach(Billie.allCases, id: \.self) {
+                                        if $0 != .All{
+                                            Text($0.toString(child: viewModel.showChild) + ":")
+                                        }
+                                    }
+                                    
+                                }
+                                
+                                VStack(alignment: .trailing){
+                                    ForEach(Billie.allCases, id: \.self) {
+                                        if $0 != .All{
+                                            Text(String(viewModel.dayStats[$0] ?? 0.0))
+                                                .foregroundColor(Color(PHR_ORANGE))
+                                                .fontWeight(.bold)
+                                        }
                                     }
                                 }
                             }
@@ -116,18 +112,21 @@ struct GraphView: View {
             Spacer()
             
             Button(action: {
+                withAnimation{
+                    scroll.scrollTo(1, anchor: .center)
+                }
                 viewModel.showShareOptions = true
             }){
-                Text("Delen")
+                Text(viewModel.withPhr ? "Delen" : "Opslaan")
                     .frame(maxWidth: .infinity)
             }.buttonStyle(OrangeButton())
-            .padding(.horizontal, 50)
+                .padding(.horizontal, 50)
             
         }.sheet(isPresented: $viewModel.showMail) {
             MailView(data: $viewModel.mailData){ result in
                 print(result)
             }
-        }.alert(viewModel.adultMode ? SHARE_STRING_ADULT : SHARE_STRING_PARENT, isPresented: $viewModel.showShareOptions){
+        }.alert(viewModel.getShareString(), isPresented: $viewModel.showShareOptions){
             if !viewModel.adultMode {
                 Button("Alleen ouder", action: {
                     Task{
@@ -172,9 +171,10 @@ struct GraphView: View {
                         .frame(height: 220)
                         .id(viewModel.graphId)
                 }
-            }.onAppear{
-                viewModel.geo = geo
-            }
+            }.id(1)
+                .onAppear{
+                    viewModel.geo = geo
+                }
         }.frame(height: 220)
     }
 }

@@ -18,16 +18,18 @@ struct SettingsView: View {
                 VStack{
                     Divider().padding()
                     
-                    VStack{
-                        Text("Je begeleidster: ")
-                        
-                        Picker("Selecteer begeleidster", selection: $viewModel.begeleidster) {
-                            ForEach(BEGELEIDSTERS.sorted(by: <), id: \.key) { key, value in
-                                Text(key)
-                            }
-                        }.onChange(of: viewModel.begeleidster) {tag in
-                            viewModel.saveSettings()
-                        }.pickerStyle(MenuPickerStyle())
+                    if viewModel.withPhr {
+                        VStack{
+                            Text("Je begeleidster: ")
+                            
+                            Picker("Selecteer begeleidster", selection: $viewModel.begeleidster) {
+                                ForEach(BEGELEIDSTERS.sorted(by: <), id: \.key) { key, value in
+                                    Text(key)
+                                }
+                            }.onChange(of: viewModel.begeleidster) {tag in
+                                viewModel.saveSettings()
+                            }.pickerStyle(MenuPickerStyle())
+                        }
                     }
                     
                     VStack{

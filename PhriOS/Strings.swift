@@ -11,6 +11,8 @@ import Foundation
 //      GRAPHVIEW
 let SHARE_STRING_ADULT = "Klik op delen en dan wordt er een mail klaargezet die alleen nog verzonden moet worden."
 let SHARE_STRING_PARENT = "Kies hieronder wat je wilt delen met je begeleider. \n\nEr wordt een mail klaargezet die alleen nog verzonden moet worden."
+let SHARE_STRING_NO_PHR_PARENT = "Kies hieronder wat je op wil slaan. \n\nNa een moment wachten worden de deelopties geopend."
+let SHARE_STRING_NO_PHR_ADULT = "Klik op delen en dan krijg je opties om de pdf te delen."
 //      HOMEVIEW
 let START_INTENSITEITEN_ADULT = "Vul je intensiteiten in"
 let START_INTENSITEITEN_PARENT = "Vul de intensiteiten van je kind in"
@@ -46,6 +48,7 @@ let DEFS_BEGELEIDSTER = "begeleidster"
 let DEFS_NAME = "name"
 let DEFS_NOTIFICATIONS_ENABLED = "notsEnabled"
 let DEFS_NOTIFICATIONS = "nots"
+let DEFS_WITH_PHR = "withBegeleidster"
 
 //TEXTS FOR EMAIL
 let EMAIL_BODY = "In de bijlage zit het verslag van de intensiteiten. Dit is van .. tot en met ..."

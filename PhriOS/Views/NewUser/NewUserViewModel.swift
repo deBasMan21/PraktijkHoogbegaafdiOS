@@ -10,11 +10,16 @@ import SwiftUI
 
 extension NewUserView {
     class ViewModel : ObservableObject {
+        @Published var withPhr = false
         @Published var selectedBegeleidster = ""
         @Published var adultMode = false
         @Published var name = ""
         
+        @Published var isCorrectCode = false
+        @Published var code = ""
+        
         @Published var showDisclaimer = false
+        @Published var showWrongCode = false
         
         let defs = UserDefaults()
         
@@ -32,6 +37,7 @@ extension NewUserView {
                 defs.set(selectedBegeleidster, forKey: DEFS_BEGELEIDSTER)
                 defs.set(adultMode, forKey: DEFS_ADULT_MODE)
                 defs.set(name, forKey: DEFS_NAME)
+                defs.set(withPhr, forKey: DEFS_WITH_PHR)
             }
         }
     }

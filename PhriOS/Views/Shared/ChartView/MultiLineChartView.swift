@@ -97,11 +97,9 @@ class ChartStyle {
     var maxY : Double
     
     init(minX : Double, maxX : Double, minY : Double, maxY : Double) {
-        print(maxX)
         self.minX = minX
         self.maxX = maxX
         self.minY = minY
         self.maxY = maxY
-        print(self.maxX)
     }
 }

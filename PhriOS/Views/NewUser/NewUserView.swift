@@ -26,30 +26,74 @@ struct NewUserView: View {
                 Spacer()
                 
                 VStack{
-                    Text("Gebruiker(s):")
+                    Text("Is de app op aanwijzen van een Praktijk Hoogbegaafd medewerker?")
                     
-                    Picker(selection: $viewModel.adultMode, label: Text("view")){
-                        Text("Volwassen").tag(true)
-                        Text("Ouder met kind").tag(false)
+                    Picker(selection: $viewModel.withPhr, label: Text("view")){
+                        Text("Ja").tag(true)
+                        Text("Nee").tag(false)
                     }.pickerStyle(.segmented)
+                        .onChange(of: viewModel.withPhr, perform: {tag in
+                            viewModel.isCorrectCode = false
+                            viewModel.code = ""
+                        })
+                }.alert("Verkeerde code", isPresented: $viewModel.showWrongCode){
+                    Button("Oke", action:{})
                 }
                 
-                VStack{
-                    Text("Begeleidster: ")
-                    
-                    Picker("Selecteer begeleidster", selection: $viewModel.selectedBegeleidster) {
-                        ForEach(BEGELEIDSTERS.sorted(by: >), id: \.key) { key, value in
-                            Text(key)
+                if viewModel.withPhr && !viewModel.isCorrectCode {
+                    VStack{
+                        Text("Ontvangen code:")
+                        
+                        HStack{
+                            SecureField("Code", text: $viewModel.code)
+                                .keyboardType(.numberPad)
+                                .multilineTextAlignment(.center)
+                                .textFieldStyle(.roundedBorder)
+                                .padding(.trailing)
+                            
+                            Button("Verder", action: {
+                                if viewModel.code == "0165" {
+                                    viewModel.isCorrectCode = true
+                                    viewModel.code = ""
+                                } else {
+                                    viewModel.showWrongCode = true
+                                    viewModel.isCorrectCode = false
+                                    viewModel.code = ""
+                                }
+                            }).buttonStyle(PurpleButton())
                         }
-                    }.pickerStyle(MenuPickerStyle())
-                }.padding(.vertical, 25)
+                    }.padding()
+                }
                 
-                VStack{
-                    Text("Naam:")
+                if !viewModel.withPhr || viewModel.isCorrectCode {
+                    VStack{
+                        Text("Gebruiker(s):")
+                        
+                        Picker(selection: $viewModel.adultMode, label: Text("view")){
+                            Text("Volwassen").tag(true)
+                            Text("Ouder met kind").tag(false)
+                        }.pickerStyle(.segmented)
+                    }.padding()
                     
-                    TextField("Naam", text: $viewModel.name)
-                        .textFieldStyle(.roundedBorder)
-                        .autocapitalization(.words)
+                    VStack{
+                        Text("Naam:")
+                        
+                        TextField("Naam", text: $viewModel.name)
+                            .textFieldStyle(.roundedBorder)
+                            .autocapitalization(.words)
+                    }
+                    
+                    if viewModel.isCorrectCode {
+                        VStack{
+                            Text("Begeleidster: ")
+                            
+                            Picker("Selecteer begeleidster", selection: $viewModel.selectedBegeleidster) {
+                                ForEach(BEGELEIDSTERS.sorted(by: >), id: \.key) { key, value in
+                                    Text(key)
+                                }
+                            }.pickerStyle(MenuPickerStyle())
+                        }.padding(.vertical, 25)
+                    }
                 }
             }
             

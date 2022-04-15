@@ -39,7 +39,7 @@ func parseObjectsToGraph(values : [BillieValueEntity], amountOfDays : Int, maxDa
         var index = Double(amountOfDays)
         for tuple in splitPerDay.sorted(by: { $0.0 > $1.0}){
             print(tuple.key)
-            print(index)
+            print(tuple.value.count)
             let amount = Double(tuple.value.count)
             
             if tuple.value.count > 0 {
@@ -61,13 +61,31 @@ func parseObjectsToGraph(values : [BillieValueEntity], amountOfDays : Int, maxDa
         returnList.append(ChartDataEntryWrapper(data: chartData, color: pair.key.getColor(), billie: pair.key))
     }
     
-    for entry in returnList {
-        print(entry.billie)
-        for v in entry.data {
-            print("x: \(v.x) y: \(v.y)")
-        }
-    }
-    
     return returnList
 }
 
+func calculateStats(values : [BillieValueEntity]) -> [Billie : Double] {
+    var split : [Billie : [BillieValueEntity]] = [:]
+    for value in values {
+        if split[Billie.getBillieFromInt(key: Int(value.billie))] == nil {
+            split[Billie.getBillieFromInt(key: Int(value.billie))] = []
+        }
+        split[Billie.getBillieFromInt(key: Int(value.billie))]?.append(value)
+    }
+    
+    var returnValue : [Billie : Double] = [:]
+    
+    for billie in split {
+        var count = 0.0
+        var totalValue = 0.0
+        
+        for value in billie.value{
+            count += 1
+            totalValue += value.value
+        }
+        
+        returnValue[billie.key] = round(totalValue / count * 10) / 10
+    }
+    
+    return returnValue
+}

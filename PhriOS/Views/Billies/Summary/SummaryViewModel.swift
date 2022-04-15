@@ -24,7 +24,7 @@ extension SummaryView {
         func saveStats(moc : NSManagedObjectContext) {
             for value in values {
                 let dataObj = BillieValueEntity(context: moc)
-                dataObj.dateTime = Date()
+                dataObj.dateTime = Date().addingTimeInterval(-60 * 60 * 24)
                 dataObj.billie = Int16(value.key.getIntKey())
                 dataObj.mode = mode.description
                 dataObj.value = value.value
