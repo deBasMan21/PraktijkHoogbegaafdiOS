@@ -8,7 +8,7 @@
 import Foundation
 import Charts
 
-func parseObjectsToGraph(values : [BillieValueEntity], amountOfDays : Int, minDate : Date, maxDate : Date) -> [ChartDataEntryWrapper]{
+func parseObjectsToGraph(values : [BillieValueEntity], amountOfDays : Int, maxDate : Date) -> [ChartDataEntryWrapper]{
     var split : [Billie : [BillieValueEntity]] = [:]
     for value in values {
         if split[Billie.getBillieFromInt(key: Int(value.billie))] == nil {

@@ -32,7 +32,7 @@ extension Date {
         // Create date from components
         let userCalendar = Calendar.current // user calendar
         let someDateTime = userCalendar.date(from: dateComponents)
-        return someDateTime!.addingTimeInterval(60 * 60 * 24)
+        return someDateTime!
     }
     
     func timeFromComponents(hour: Int, minute: Int) -> Date?{

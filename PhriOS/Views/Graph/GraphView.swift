@@ -164,11 +164,11 @@ struct GraphView: View {
         GeometryReader{ geo in
             VStack{
                 if viewModel.showChild {
-                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: 7, minY: 0.0, maxY: 10.0), child: viewModel.showChild)
+                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: 7.0, minY: 0.0, maxY: 10.0), child: viewModel.showChild)
                         .frame(height: 220)
                         .id(viewModel.graphId)
                 } else {
-                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: 7, minY: -2.5, maxY: 2.5), child: viewModel.showChild)
+                    MultiLineChartView(lines: $viewModel.filteredEntries, style: ChartStyle(minX: 1.0, maxX: 7.0, minY: -2.5, maxY: 2.5), child: viewModel.showChild)
                         .frame(height: 220)
                         .id(viewModel.graphId)
                 }

@@ -57,7 +57,7 @@ extension GraphView {
             
             let modePredicate = NSPredicate(format: "mode == %@", BillieMode.fromBools(adultMode: adultMode, showChild: showChild).description)
             let beginDatePredicate = NSPredicate(format: "dateTime >= %@", endDate.addingTimeInterval(-60 * 60 * 24 * 7) as CVarArg)
-            let endDatePredicate = NSPredicate(format: "dateTime <= %@", endDate.addingTimeInterval(60 * 60 * 24) as CVarArg)
+            let endDatePredicate = NSPredicate(format: "dateTime <= %@", endDate.addingTimeInterval(60 * 60 * 24 * 2) as CVarArg)
             
             let andPredicate = NSCompoundPredicate(type: .and, subpredicates: [modePredicate, beginDatePredicate, endDatePredicate])
             
@@ -68,8 +68,7 @@ extension GraphView {
             
             do {
                 let array = try moc!.fetch(req) as [BillieValueEntity]
-                let amountOfDays = beginDate.differenceInDays(to: endDate)
-                entries = parseObjectsToGraph(values: array, amountOfDays: amountOfDays, minDate: beginDate, maxDate: endDate)
+                entries = parseObjectsToGraph(values: array, amountOfDays: 7, maxDate: endDate.addingTimeInterval(60 * 60 * 24))
                 filteredEntries = entries
                 loadStats()
             } catch let error {

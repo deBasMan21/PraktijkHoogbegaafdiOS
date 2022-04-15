@@ -10,8 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @StateObject var viewModel = ViewModel()
     @Binding var isNew : Bool
-    
-
+    @Environment(\.managedObjectContext) var moc
     
     var body: some View {
         VStack{
@@ -96,7 +95,7 @@ struct SettingsView: View {
         }.navigationTitle("Instellingen")
             .alert(RESET_MESSAGE, isPresented: $viewModel.showResetAlert){
                 Button("Doorgaan", role: .destructive, action: {
-                    viewModel.reset()
+                    viewModel.reset(moc: moc)
                     isNew = true
                 })
             }

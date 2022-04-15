@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CoreData
 
 extension SettingsView {
     class ViewModel : ObservableObject {
@@ -38,13 +39,22 @@ extension SettingsView {
             defs.set(notificationsEnabled, forKey: DEFS_NOTIFICATIONS_ENABLED)
         }
         
-        func reset() {
+        func reset(moc: NSManagedObjectContext) {
             defs.removeObject(forKey: DEFS_BEGELEIDSTER)
             defs.removeObject(forKey: DEFS_ADULT_MODE)
             defs.removeObject(forKey: DEFS_NAME)
             defs.removeObject(forKey: DEFS_NOTIFICATIONS)
             defs.removeObject(forKey: DEFS_NOTIFICATIONS_ENABLED)
             removeNotifications()
+            
+            let fetchReq : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "BillieValueEntity")
+            let deleteReq = NSBatchDeleteRequest(fetchRequest: fetchReq)
+            
+            do{
+                try moc.execute(deleteReq)
+            } catch let error {
+                print(error)
+            }
         }
         
         func saveNotifications() {
