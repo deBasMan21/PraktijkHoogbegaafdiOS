@@ -59,6 +59,7 @@ struct BillieView: View {
                         .multilineTextAlignment(.center)
                         .padding()
                         .foregroundColor(.gray)
+                        .frame(height: 300)
                 }
             }
 

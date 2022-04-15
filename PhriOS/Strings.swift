@@ -29,6 +29,7 @@ let BILLIE_SENZO = "De sensorische intensiteit kan het best omschreven worden al
 let BILLIE_INTELLECTO = "De intellectuele intensiteit kan het best omschreven worden als een drang naar het verkrijgen van informatie, het zoeken naar en begrijpen van de waarheid en het analyseren en synthetiseren van informatie om zo antwoord te krijgen op vragen. Kritisch nadenken, perfectionisme en een sterk rechtvaardigheidsgevoel zijn daarin tevens kenmerken die vaker naar voren komen. "
 let BILLIE_FANTI = "De beeldende intensiteit kan het best omschreven worden als een versterkt vermogen tot verbeelding die naar voren kan komen als een sterke fantasie, het uit verband trekken van situaties, het hebben van intense dromen of nachtmerries en het bedenken van en het opgaan in levendige innerlijke werelden."
 let BILLIES_DESCRIPTION : [Billie : String] = [.Emoto : BILLIE_EMOTO, .Fanti : BILLIE_FANTI, .Intellecto : BILLIE_INTELLECTO, .Psymo : BILLIE_PSYMO, .Senzo : BILLIE_SENZO]
+let BILLIES_MAX_ENTERED = "Je hebt vandaag al 3 keer je intensiteiten ingevuld. Dit is het maximale aantal per dag. Morgen kan je weer invullen!"
 
 //STATIC INFORMATION
 let BEGELEIDSTERS : [String : String] = [

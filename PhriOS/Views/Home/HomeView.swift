@@ -10,6 +10,7 @@ import UserNotifications
 
 struct HomeView: View {
     @StateObject var viewModel = ViewModel()
+    @Environment(\.managedObjectContext) var moc
     
     var body: some View {
         VStack{
@@ -26,7 +27,7 @@ struct HomeView: View {
             Spacer()
             
             if !viewModel.adultMode {
-                NavigationLink(destination: BillieView(mode: .child), tag: 1, selection: $viewModel.action){
+                NavigationLink(destination: DisabledView(isDisabled: viewModel.canAddData(moc: moc, mode: .child)), tag: 1, selection: $viewModel.action){
                     Button(action: {
                         viewModel.action = 1
                     }){
@@ -59,5 +60,30 @@ struct HomeView: View {
             
 
         }.navigationTitle("Home")
+    }
+}
+
+
+struct DisabledView : View {
+    @State var isDisabled : Bool
+    
+    var body: some View {
+        VStack{
+            if isDisabled {
+                Image("sterren")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(50)
+                    .padding(.horizontal, 100)
+                
+                Text(BILLIES_MAX_ENTERED)
+                    .padding(.horizontal)
+                    .multilineTextAlignment(.center)
+                
+                Spacer()
+            } else {
+                BillieView(mode: .child)
+            }
+        }
     }
 }
