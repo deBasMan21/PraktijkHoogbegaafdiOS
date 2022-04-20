@@ -38,8 +38,6 @@ extension NewUserView {
                 defs.set(adultMode, forKey: DEFS_ADULT_MODE)
                 defs.set(name, forKey: DEFS_NAME)
                 defs.set(withPhr, forKey: DEFS_WITH_PHR)
-                
-                setDefsPermission()
                 defs.set([Date().timeFromComponents(hour: 10, minute: 00)!, Date().timeFromComponents(hour: 16, minute: 00)!, Date().timeFromComponents(hour: 20, minute: 00)!], forKey: DEFS_NOTIFICATIONS)
             }
         }

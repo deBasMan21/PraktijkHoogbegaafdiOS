@@ -42,31 +42,19 @@ func requestPermission() {
     center.getNotificationSettings { settings in
         if settings.authorizationStatus == .authorized {
             setNotifications(times: [Date().timeFromComponents(hour: 10, minute: 00)!, Date().timeFromComponents(hour: 16, minute: 00)!, Date().timeFromComponents(hour: 20, minute: 00)!])
-        } else {
-            center.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                if success {
-                    setNotifications(times: [Date().timeFromComponents(hour: 10, minute: 00)!, Date().timeFromComponents(hour: 16, minute: 00)!, Date().timeFromComponents(hour: 20, minute: 00)!])
-                } else {
-                    print("D'oh")
-                }
-            }
-        }
-    }
-}
-
-
-func setDefsPermission() {
-    let center = UNUserNotificationCenter.current()
-    
-    center.getNotificationSettings { settings in
-        if settings.authorizationStatus == .authorized {
+            
             let defs = UserDefaults()
             defs.set(true, forKey: DEFS_NOTIFICATIONS_ENABLED)
         } else {
             center.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                 if success {
+                    setNotifications(times: [Date().timeFromComponents(hour: 10, minute: 00)!, Date().timeFromComponents(hour: 16, minute: 00)!, Date().timeFromComponents(hour: 20, minute: 00)!])
+                    
                     let defs = UserDefaults()
                     defs.set(true, forKey: DEFS_NOTIFICATIONS_ENABLED)
+                } else {
+                    let defs = UserDefaults()
+                    defs.set(false, forKey: DEFS_NOTIFICATIONS_ENABLED)
                 }
             }
         }

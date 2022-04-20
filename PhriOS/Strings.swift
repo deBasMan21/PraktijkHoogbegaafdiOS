@@ -48,8 +48,8 @@ let BEGELEIDSTERS : [String : String] = [
     "Tessa van Sluijs" : "tessa@praktijkhoogbegaafd.nl",
     "Eda Canikli" : "eda@praktijkhoogbegaafd.nl",
     "Milou van Beijsterveldt" : "milou@praktijkhoogbegaafd.nl",
-    "Denise Janssen" : "???",
-    "Denise Damen" : "???",
+    "Denise Janssen" : "denise_j@praktijkhoogbegaafd.nl",
+    "Denise Damen" : "denise_d@praktijkhoogbegaafd.nl",
     "Claire Spoormakers" : "claire@praktijkhoogbegaafd.nl"
 ]
 let VERSION = "1.0.0"

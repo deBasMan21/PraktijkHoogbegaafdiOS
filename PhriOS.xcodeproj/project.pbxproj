@@ -512,7 +512,6 @@
 			);
 			mainGroup = EF1DF0F827FB55EB0007B195;
 			packageReferences = (
-				EF9AA9B727FB697D00C1DC9F /* XCRemoteSwiftPackageReference "ChartView" */,
 				EF9AA9BA27FB6CC100C1DC9F /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = EF1DF10227FB55EB0007B195 /* Products */;
@@ -928,14 +927,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EF9AA9B727FB697D00C1DC9F /* XCRemoteSwiftPackageReference "ChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.5.0;
-			};
-		};
 		EF9AA9BA27FB6CC100C1DC9F /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts";
