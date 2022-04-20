@@ -23,7 +23,7 @@ enum BillieMode : String, CustomStringConvertible {
     
     static func fromBools(adultMode: Bool, showChild: Bool) -> BillieMode{
         if adultMode {
-            return .parent
+            return .adult
         } else {
             if showChild {
                 return .child

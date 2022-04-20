@@ -38,8 +38,6 @@ func parseObjectsToGraph(values : [BillieValueEntity], amountOfDays : Int, maxDa
         
         var index = Double(amountOfDays)
         for tuple in splitPerDay.sorted(by: { $0.0 > $1.0}){
-            print(tuple.key)
-            print(tuple.value.count)
             let amount = Double(tuple.value.count)
             
             if tuple.value.count > 0 {
@@ -47,7 +45,7 @@ func parseObjectsToGraph(values : [BillieValueEntity], amountOfDays : Int, maxDa
                 
                 for i in 0...tuple.value.count - 1 {
                     var tempChartdata : [ChartDataEntry] = []
-                    let x : Double = index + (Double(i) * incrementAmount)
+                    let x : Double = index + (Double(i) * incrementAmount) + 1
                     let y = tuple.value[i].value
                     tempChartdata.append(ChartDataEntry(x: x, y: y))
                     chartData.append(contentsOf:tempChartdata)

@@ -53,3 +53,22 @@ func requestPermission() {
         }
     }
 }
+
+
+func setDefsPermission() {
+    let center = UNUserNotificationCenter.current()
+    
+    center.getNotificationSettings { settings in
+        if settings.authorizationStatus == .authorized {
+            let defs = UserDefaults()
+            defs.set(true, forKey: DEFS_NOTIFICATIONS_ENABLED)
+        } else {
+            center.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                if success {
+                    let defs = UserDefaults()
+                    defs.set(true, forKey: DEFS_NOTIFICATIONS_ENABLED)
+                }
+            }
+        }
+    }
+}
