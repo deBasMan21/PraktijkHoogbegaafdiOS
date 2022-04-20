@@ -26,7 +26,7 @@ struct NewUserView: View {
                 Spacer()
                 
                 VStack{
-                    Text("Is de app op aanwijzen van een Praktijk Hoogbegaafd medewerker?")
+                    Text("Gebruik je deze app in het kader van de behandeling bij Praktijk Hoogbegaafd?")
                     
                     Picker(selection: $viewModel.withPhr, label: Text("view")){
                         Text("Ja").tag(true)
@@ -85,7 +85,7 @@ struct NewUserView: View {
                     
                     if viewModel.isCorrectCode {
                         VStack{
-                            Text("Begeleidster: ")
+                            Text("Kies behandelaar: ")
                             
                             Picker("Selecteer begeleidster", selection: $viewModel.selectedBegeleidster) {
                                 ForEach(BEGELEIDSTERS.sorted(by: >), id: \.key) { key, value in

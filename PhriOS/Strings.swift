@@ -27,8 +27,8 @@ let WELCOME_MESSAGE = "Vul de velden hieronder in en klik op beginnen om aan de 
 
 //      BILLIEVIEW
 let BILLIE_CHILD = "Hoeveel ...'s heb je?"
-let BILLIE_PARENT = "Hoe erg is de ... intensiteit aanwezig bij je kind?"
-let BILLIE_ADULT = "Hoe erg is de ... intensiteit aanwezig bij jezelf?"
+let BILLIE_PARENT = "Hoe sterk is de ... aanwezig bij je kind?"
+let BILLIE_ADULT = "Hoe sterk is de ... aanwezig bij jezelf?"
 let BILLIE_EMOTO = "De emotionele intensiteit kan het best worden omschreven als een versterkte beleving van emoties bij jezelf, maar ook het versterk waarnemen van emoties bij anderen. Dit zorgt voor het ervaren van diepte in emoties en een sterk empathisch vermogen. Je hebt meer behoefte aan diepe emotionele verbinding met anderen, toont compassie en sensitiviteit in relaties en bent sterker gehecht aan plekken, mensen, spullen of dieren."
 let BILLIE_PSYMO = "De psychomotorische intensiteit kan het best omschreven worden door een constante psychomotorische activiteit, hoge energielevels, snel en veel praten, veel beweging nodig hebben en een drang naar actie. Dit kan naar voren komen in het niet goed stil kunnen zitten, het repetitief friemelen aan voorwerpen of last hebben van motorische of verbale impulsiviteit."
 let BILLIE_SENZO = "De sensorische intensiteit kan het best omschreven worden als een versterkte beleving van sensorische input, zoals dingen die je hoort, ziet, voelt, proeft en ruikt als duidelijk prettig of onprettig ervaren worden. Dit kan er toe leiden dat je sterk wordt aangetrokken tot sommige zintuigelijke belevingen of juist een aversie ontwikkelt voor bepaalde zintuigelijke belevingen en daarom deze uit de weg gaat."
