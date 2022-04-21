@@ -71,27 +71,23 @@ struct SettingsView: View {
                     }
                     
                     Divider().padding()
+                    
+                    Toggle("Volwassen mode", isOn: $viewModel.adultMode)
+                        .onChange(of: viewModel.adultMode){ value in
+                            viewModel.saveSettings()
+                        }.tint(Color(PHR_ORANGE))
                 }.padding(.horizontal, 50)
             }.alert("Let op! Hiervoor moet je toestemming gegeven hebben. Dit kan later nog gedaan worden in de instellingen van je telefoon.", isPresented: $viewModel.notificationsError){
                 Button("Oke", role: .cancel, action:{})
             }
             
             Spacer()
-            
-            if viewModel.name == "debug" {
-                Toggle("Volwassen mode", isOn: $viewModel.adultMode)
-                    .onChange(of: viewModel.adultMode){ value in
-                        viewModel.saveSettings()
-                    }.tint(Color(PHR_ORANGE))
-            }
 
             Text("Versie \(VERSION)").onTapGesture{
-                if viewModel.name == "debug"{
-                    viewModel.counter += 1
-                    if viewModel.counter > 4 {
-                        viewModel.counter = 0
-                        viewModel.showResetAlert = true
-                    }
+                viewModel.counter += 1
+                if viewModel.counter > 4 {
+                    viewModel.counter = 0
+                    viewModel.showResetAlert = true
                 }
             }
         }.navigationTitle("Instellingen")
@@ -101,6 +97,5 @@ struct SettingsView: View {
                     isNew = true
                 })
             }
-
     }
 }

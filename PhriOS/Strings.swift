@@ -40,7 +40,7 @@ let BILLIES_MAX_ENTERED = "Je hebt vandaag al 3 keer je intensiteiten ingevuld. 
 //STATIC INFORMATION
 let BEGELEIDSTERS : [String : String] = [
     "Eveline Eulderink" : "eveline@praktijkhoogbegaafd.nl",
-    "Yvonne Duran" : "yvonne@praktijkhoobegaafd.nl",
+    "Yvonne Duran" : "yvonne@praktijkhoogbegaafd.nl",
     "Sjarai Gelissen" : "sjarai@praktijkhoogbegaafd.nl",
     "Mirthe Zom" : "mirthe@praktijkhoogbegaafd.nl",
     "Lisanne Boerboom" : "lisanne@praktijkhoogbegaafd.nl",
@@ -50,7 +50,8 @@ let BEGELEIDSTERS : [String : String] = [
     "Milou van Beijsterveldt" : "milou@praktijkhoogbegaafd.nl",
     "Denise Janssen" : "denise_j@praktijkhoogbegaafd.nl",
     "Denise Damen" : "denise_d@praktijkhoogbegaafd.nl",
-    "Claire Spoormakers" : "claire@praktijkhoogbegaafd.nl"
+    "Claire Spoormakers" : "claire@praktijkhoogbegaafd.nl",
+    "Chelsea Aarts" : "chelsea@praktijkhoogbegaafd.nl"
 ]
 let VERSION = "1.0.0"
 
