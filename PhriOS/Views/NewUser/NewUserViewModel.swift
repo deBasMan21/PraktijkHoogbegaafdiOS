@@ -20,6 +20,7 @@ extension NewUserView {
         
         @Published var showDisclaimer = false
         @Published var showWrongCode = false
+        @Published var activeLink : Int? = 0
         
         let defs = UserDefaults()
         

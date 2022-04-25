@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import ConcentricOnboarding
 
 struct NewUserView: View {
     @StateObject var viewModel = ViewModel()
     @Binding var isNew : Bool
+    @Binding var showOnboarding: Bool
     
     var body: some View {
         VStack{
@@ -115,7 +117,13 @@ struct NewUserView: View {
     func save() {
         if viewModel.isValid() {
             viewModel.saveAndContinue()
-            isNew = false
+            withAnimation{
+                showOnboarding = true
+                isNew = false
+            }
         }
     }
 }
+
+
+

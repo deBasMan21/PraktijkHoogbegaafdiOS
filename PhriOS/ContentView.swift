@@ -19,11 +19,13 @@ struct ContentView: View {
         NavigationView{
             VStack{
                 if viewModel.isNew {
-                    NewUserView(isNew : $viewModel.isNew).onAppear{
+                    NewUserView(isNew : $viewModel.isNew, showOnboarding: $viewModel.showOnboarding).onAppear{
                         viewModel.selectedMenu = .home
                     }.onAppear{
                         viewModel.showNavBar = false
                     }
+                } else if viewModel.showOnboarding{
+                    OnboardingView(isNew: $viewModel.showOnboarding)
                 } else {
                     VStack{
                         if viewModel.selectedMenu == .home {

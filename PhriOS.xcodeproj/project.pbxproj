@@ -16,6 +16,10 @@
 		EF1DF12227FB55F10007B195 /* PhriOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF12127FB55F10007B195 /* PhriOSUITestsLaunchTests.swift */; };
 		EF1DF13527FB56690007B195 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF13427FB56690007B195 /* HomeView.swift */; };
 		EF1DF13727FB56780007B195 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF13627FB56780007B195 /* HomeViewModel.swift */; };
+		EF6458DB2816BC75009A9179 /* ConcentricOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = EF6458DA2816BC75009A9179 /* ConcentricOnboarding */; };
+		EF6458DD2816C020009A9179 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6458DC2816C020009A9179 /* OnboardingView.swift */; };
+		EF6458DF2816C1B5009A9179 /* OnboardingPageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6458DE2816C1B5009A9179 /* OnboardingPageType.swift */; };
+		EF6458E12816C1FE009A9179 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6458E02816C1FE009A9179 /* OnboardingViewModel.swift */; };
 		EF9AA9AB27FB5A8F00C1DC9F /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9AA27FB5A8F00C1DC9F /* MenuView.swift */; };
 		EF9AA9AF27FB5E3600C1DC9F /* PhrButtonOrange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9AE27FB5E3600C1DC9F /* PhrButtonOrange.swift */; };
 		EF9AA9B127FB60CD00C1DC9F /* PhrButtonPurple.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AA9B027FB60CD00C1DC9F /* PhrButtonPurple.swift */; };
@@ -82,6 +86,9 @@
 		EF1DF12127FB55F10007B195 /* PhriOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhriOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EF1DF13427FB56690007B195 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EF1DF13627FB56780007B195 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EF6458DC2816C020009A9179 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		EF6458DE2816C1B5009A9179 /* OnboardingPageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageType.swift; sourceTree = "<group>"; };
+		EF6458E02816C1FE009A9179 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		EF9AA9AA27FB5A8F00C1DC9F /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		EF9AA9AE27FB5E3600C1DC9F /* PhrButtonOrange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrButtonOrange.swift; sourceTree = "<group>"; };
 		EF9AA9B027FB60CD00C1DC9F /* PhrButtonPurple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrButtonPurple.swift; sourceTree = "<group>"; };
@@ -124,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF9AA9BC27FB6CC100C1DC9F /* Charts in Frameworks */,
+				EF6458DB2816BC75009A9179 /* ConcentricOnboarding in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +247,7 @@
 				EF9AA9DB280188B700C1DC9F /* MenuItem.swift */,
 				EF9AA9DD28018A7700C1DC9F /* ShareType.swift */,
 				EF9AAA0228045EA300C1DC9F /* BillieMode.swift */,
+				EF6458DE2816C1B5009A9179 /* OnboardingPageType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -346,6 +355,8 @@
 			children = (
 				EF9AA9F328040B2C00C1DC9F /* NewUserView.swift */,
 				EF9AA9F528040B3B00C1DC9F /* NewUserViewModel.swift */,
+				EF6458DC2816C020009A9179 /* OnboardingView.swift */,
+				EF6458E02816C1FE009A9179 /* OnboardingViewModel.swift */,
 			);
 			path = NewUser;
 			sourceTree = "<group>";
@@ -438,6 +449,7 @@
 			name = PhriOS;
 			packageProductDependencies = (
 				EF9AA9BB27FB6CC100C1DC9F /* Charts */,
+				EF6458DA2816BC75009A9179 /* ConcentricOnboarding */,
 			);
 			productName = PhriOS;
 			productReference = EF1DF10127FB55EB0007B195 /* PhriOS.app */;
@@ -513,6 +525,7 @@
 			mainGroup = EF1DF0F827FB55EB0007B195;
 			packageReferences = (
 				EF9AA9BA27FB6CC100C1DC9F /* XCRemoteSwiftPackageReference "Charts" */,
+				EF6458D92816BC75009A9179 /* XCRemoteSwiftPackageReference "ConcentricOnboarding" */,
 			);
 			productRefGroup = EF1DF10227FB55EB0007B195 /* Products */;
 			projectDirPath = "";
@@ -575,6 +588,7 @@
 				EF9AAA0128045DB200C1DC9F /* BillieViewModel.swift in Sources */,
 				EF1DF10527FB55EB0007B195 /* PhriOSApp.swift in Sources */,
 				EF9AA9E72803477C00C1DC9F /* Strings.swift in Sources */,
+				EF6458DF2816C1B5009A9179 /* OnboardingPageType.swift in Sources */,
 				EF9AAA052804712400C1DC9F /* SummaryView.swift in Sources */,
 				EF9AA9D72801842B00C1DC9F /* UIImageExtension.swift in Sources */,
 				EF9AA9FE28045D9500C1DC9F /* BillieView.swift in Sources */,
@@ -590,8 +604,10 @@
 				EF9AA9AF27FB5E3600C1DC9F /* PhrButtonOrange.swift in Sources */,
 				EF9AA9E028018AB400C1DC9F /* EnumExtension.swift in Sources */,
 				EF1DF13727FB56780007B195 /* HomeViewModel.swift in Sources */,
+				EF6458E12816C1FE009A9179 /* OnboardingViewModel.swift in Sources */,
 				EF9AA9EF2803497700C1DC9F /* SettingsViewModel.swift in Sources */,
 				EF9AA9E32802EA4100C1DC9F /* PdfLogic.swift in Sources */,
+				EF6458DD2816C020009A9179 /* OnboardingView.swift in Sources */,
 				EF9AA9DC280188B700C1DC9F /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -927,6 +943,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EF6458D92816BC75009A9179 /* XCRemoteSwiftPackageReference "ConcentricOnboarding" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ConcentricOnboarding";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		EF9AA9BA27FB6CC100C1DC9F /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts";
@@ -938,6 +962,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EF6458DA2816BC75009A9179 /* ConcentricOnboarding */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF6458D92816BC75009A9179 /* XCRemoteSwiftPackageReference "ConcentricOnboarding" */;
+			productName = ConcentricOnboarding;
+		};
 		EF9AA9BB27FB6CC100C1DC9F /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EF9AA9BA27FB6CC100C1DC9F /* XCRemoteSwiftPackageReference "Charts" */;

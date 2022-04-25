@@ -13,6 +13,7 @@ extension ContentView {
         @Published var selectedMenu : MenuItem = .home
         @Published var isNew = true
         @Published var showNavBar = true
+        @Published var showOnboarding = false
         
         init() {
             let defs = UserDefaults()
