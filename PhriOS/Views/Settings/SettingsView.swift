@@ -22,13 +22,18 @@ struct SettingsView: View {
                         VStack{
                             Text("Je begeleidster: ")
                             
-                            Picker("Selecteer begeleidster", selection: $viewModel.begeleidster) {
-                                ForEach(BEGELEIDSTERS.sorted(by: <), id: \.key) { key, value in
-                                    Text(key)
+                            Menu{
+                                Picker("Selecteer begeleidster", selection: $viewModel.begeleidster) {
+                                    ForEach(BEGELEIDSTERS.sorted(by: <), id: \.key) { key, value in
+                                        Text(key)
+                                    }
+                                }.onChange(of: viewModel.begeleidster) {tag in
+                                    viewModel.saveSettings()
                                 }
-                            }.onChange(of: viewModel.begeleidster) {tag in
-                                viewModel.saveSettings()
-                            }.pickerStyle(MenuPickerStyle())
+                            } label: {
+                                Text(viewModel.begeleidster)
+                                    .bold()
+                            }
                         }
                     }
                     
@@ -61,7 +66,6 @@ struct SettingsView: View {
                         ForEach(0...viewModel.notifications.count - 1, id: \.self) { value in
                             Text("Melding \(value + 1)")
                                 .foregroundColor(Color(PHR_ORANGE))
-                                .bold()
                             
                             DatePicker("Geselecteerde tijd:", selection: $viewModel.notifications[value], displayedComponents: [.hourAndMinute])
                         }.onChange(of: viewModel.notifications, perform: { value in

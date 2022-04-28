@@ -10,6 +10,7 @@ import ConcentricOnboarding
 
 struct OnboardingView: View {
     @Binding var isNew : Bool
+    @State var imageString : String = "chevron.right"
     
     var body: some View{
         VStack{
@@ -22,7 +23,9 @@ struct OnboardingView: View {
                                             withAnimation{
                                                 isNew = false
                                             }
-                                        }
+                                        }.didGoToLastPage {
+                                            imageString = "xmark"
+                                        }.nextIcon(imageString)
         }
     }
 }
@@ -39,6 +42,7 @@ struct OnboardingViewNotifications: View {
             Text("Notificaties")
                 .foregroundColor(.white)
                 .bold()
+                .font(.title)
             
             Text(ONBOARDING_NOTIFICATIONS)
                 .foregroundColor(.white)
@@ -62,6 +66,7 @@ struct OnboardingViewEntering: View {
             Text("Scores invullen")
                 .foregroundColor(.white)
                 .bold()
+                .font(.title)
             
             Text(ONBOARDING_SCORES)
                 .foregroundColor(.white)
@@ -86,6 +91,7 @@ struct OnboardingViewShare: View {
             Text("Delen")
                 .foregroundColor(.white)
                 .bold()
+                .font(.title)
             
             Text(ONBOARDING_SHARE)
                 .foregroundColor(.white)

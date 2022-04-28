@@ -34,14 +34,18 @@ struct GraphView: View {
                             Text("Categorie:")
                                 .padding(.horizontal)
                             
-                            
-                            Picker("Selecteer categorie", selection: $viewModel.selectedGraph) {
-                                ForEach(Billie.allCases, id: \.self) {
-                                    Text($0.toString(child: viewModel.showChild))
+                            Menu{
+                                Picker("Selecteer categorie", selection: $viewModel.selectedGraph) {
+                                    ForEach(Billie.allCases, id: \.self) {
+                                        Text($0.toString(child: viewModel.showChild))
+                                    }
+                                }.onChange(of: viewModel.selectedGraph) {tag in
+                                    viewModel.filter()
                                 }
-                            }.onChange(of: viewModel.selectedGraph) {tag in
-                                viewModel.filter()
-                            }.pickerStyle(MenuPickerStyle())
+                            } label: {
+                                Text(viewModel.selectedGraph.toString(child: viewModel.showChild))
+                                    .bold()
+                            }
                         }
                         
                         DatePicker("Geselecteerde datum:", selection: $viewModel.endDate, in: ...Date.now, displayedComponents: [.date])
@@ -71,7 +75,6 @@ struct GraphView: View {
                                         if $0 != .All{
                                             Text(String(viewModel.weekStats[$0] ?? 0.0))
                                                 .foregroundColor(Color(PHR_ORANGE))
-                                                .fontWeight(.bold)
                                         }
                                     }
                                 }
@@ -99,7 +102,6 @@ struct GraphView: View {
                                         if $0 != .All{
                                             Text(String(viewModel.dayStats[$0] ?? 0.0))
                                                 .foregroundColor(Color(PHR_ORANGE))
-                                                .fontWeight(.bold)
                                         }
                                     }
                                 }
