@@ -14,6 +14,11 @@ let SHARE_STRING_PARENT = "Kies hieronder wat je wilt delen met je begeleider. \
 let SHARE_STRING_NO_PHR_PARENT = "Kies hieronder wat je op wil slaan. \n\nNa een moment wachten worden de deelopties geopend."
 let SHARE_STRING_NO_PHR_ADULT = "Klik op delen en dan krijg je opties om de pdf te delen."
 
+//      ONBOARDINGVIEW
+let ONBOARDING_NOTIFICATIONS = "Als je bij het instellen toestemming hebt gegeven om notificaties te ontvangen krijg je standaard elke dag om 10.00, 16.00 en 20.00 een melding als herrinering om je intensiteiten in te vullen. De tijden kan je aanpassen in de instellingen van de app. Die zijn te vinden onder in het menu bij het tandwiel icoontje."
+let ONBOARDING_SCORES = "Elke dag kan je tot maximaal 3 keer je intensiteiten invullen. Je krijgt hier dan per intensiteit een slider om aan te geven hoe sterk deze aanwezig is. De ingevulde waardes kan je in de grafiek zien. Deze is te vinden bij het grafiek icoontje in het menu. Hier kun je ook een andere datum kiezen of er voor kiezen om een specifieke intensiteit te bekijken."
+let ONBOARDING_SHARE = "Op de grafiek pagina kun je ook de grafiek delen. Dit kan door op de delen knop te drukken. In het geval dat je de app gebruikt met een behandelaar van Praktijk Hoogbegaafd wordt er direct een email klaar gezet om de grafieken te delen met je behandelaar. Anders krijg je een menu om de gemaakte pdf op te slaan op je device."
+
 //      HOMEVIEW
 let START_INTENSITEITEN_ADULT = "Vul je intensiteiten in"
 let START_INTENSITEITEN_PARENT = "Vul de intensiteiten van je kind in"

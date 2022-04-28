@@ -15,9 +15,9 @@ struct OnboardingView: View {
         VStack{
             ConcentricOnboardingView(pageContents:
                                         [
-                                            (AnyView(OnboardingViewNotifications()), .red),
-                                            (AnyView(OnboardingViewEntering()), .green),
-                                            (AnyView(OnboardingViewShare()), .blue)
+                                            (AnyView(OnboardingViewNotifications()), Color(PHR_ORANGE)),
+                                            (AnyView(OnboardingViewEntering()), Color(PHR_PURPLE)),
+                                            (AnyView(OnboardingViewShare()), Color(PHR_ORANGE))
                                         ]).insteadOfCyclingToFirstPage {
                                             withAnimation{
                                                 isNew = false
@@ -30,7 +30,21 @@ struct OnboardingView: View {
 struct OnboardingViewNotifications: View {
     var body: some View {
         VStack{
-            Text("Notifications")
+            Image("bell")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 75, height: 100)
+                .padding()
+            
+            Text("Notificaties")
+                .foregroundColor(.white)
+                .bold()
+            
+            Text(ONBOARDING_NOTIFICATIONS)
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 50)
+                .padding()
         }
         
     }
@@ -39,7 +53,21 @@ struct OnboardingViewNotifications: View {
 struct OnboardingViewEntering: View {
     var body: some View {
         VStack{
+            Image("edit")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 75, height: 100)
+                .padding()
+            
             Text("Scores invullen")
+                .foregroundColor(.white)
+                .bold()
+            
+            Text(ONBOARDING_SCORES)
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 50)
+                .padding()
         }
         
     }
@@ -49,7 +77,21 @@ struct OnboardingViewShare: View {
     
     var body: some View {
         VStack{
+            Image("share")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 75, height: 100)
+                .padding()
+            
             Text("Delen")
+                .foregroundColor(.white)
+                .bold()
+            
+            Text(ONBOARDING_SHARE)
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 50)
+                .padding()
         }
         
     }
