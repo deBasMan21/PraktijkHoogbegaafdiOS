@@ -30,10 +30,8 @@ extension DisabledView {
             
             do {
                 let array = try moc.fetch(req) as [BillieValueEntity]
-                print(array.count < 3)
-                isValid = array.count < 3
-            } catch let error {
-                print(error)
+                isValid = array.count / 5 < 3
+            } catch _ {
                 isValid = false
             }
         }

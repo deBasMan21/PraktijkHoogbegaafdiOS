@@ -45,7 +45,7 @@ func parseObjectsToGraph(values : [BillieValueEntity], amountOfDays : Int, maxDa
                 
                 for i in 0...tuple.value.count - 1 {
                     var tempChartdata : [ChartDataEntry] = []
-                    let x : Double = index + (Double(i) * incrementAmount) + 1
+                    let x : Double = index + (Double(i) * incrementAmount)
                     let y = tuple.value[i].value
                     tempChartdata.append(ChartDataEntry(x: x, y: y))
                     chartData.append(contentsOf:tempChartdata)
