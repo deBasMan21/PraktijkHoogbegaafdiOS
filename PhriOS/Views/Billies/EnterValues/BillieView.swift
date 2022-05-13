@@ -9,9 +9,11 @@ import SwiftUI
 
 struct BillieView: View {
     @State var viewModel : ViewModel
+    @State var value : Double
     
     init(mode : BillieMode){
         self.viewModel = ViewModel(mode: mode, billieIndex: 1, values: [:])
+        value = mode.childNames() ? 5.0 : 0.0
     }
     
     var body: some View {
@@ -29,15 +31,20 @@ struct BillieView: View {
                         .foregroundColor(Color(PHR_PURPLE))
                         
                     
-                    Slider(value: $viewModel.currentValue, in: viewModel.mode.childNames() ? 0...10 : -2...2, step: 1){
-                        Text("\(viewModel.currentValue)")
+                    Slider(value: $value, in: viewModel.mode.childNames() ? 0...10 : -2...2, step: 1){
+                        Text("\(value)")
                     } minimumValueLabel: {
                         Text(viewModel.mode.childNames() ? "0" : "-2")
                     } maximumValueLabel: {
                         Text(viewModel.mode.childNames() ? "10" : "2")
                     }
                     
+                    Text("\(String(format: "%.0f", value))")
+                        .foregroundColor(Color(PHR_ORANGE))
+                        .bold()
+                    
                     Button(action: {
+                        viewModel.currentValue = value
                         viewModel.saveValues()
                         viewModel = ViewModel(mode: viewModel.mode, billieIndex: viewModel.billieIndex + 1, values: viewModel.values)
                     }){

@@ -58,7 +58,7 @@ let BEGELEIDSTERS : [String : String] = [
     "Claire Spoormakers" : "claire@praktijkhoogbegaafd.nl",
     "Chelsea Aarts" : "chelsea@praktijkhoogbegaafd.nl"
 ]
-let VERSION = "1.0.0"
+let VERSION = "1.1.0"
 
 //USER DEFAULT KEYS
 let DEFS_ADULT_MODE = "adultMode"
