@@ -9,6 +9,7 @@ import Foundation
 import Charts
 import SwiftUI
 import CoreData
+import MessageUI
 
 extension GraphView {
     class ViewModel : ObservableObject {
@@ -34,6 +35,8 @@ extension GraphView {
         @Published var mailData = ComposeMailData(subject: EMAIL_SUBJECT, recipients: [], message: EMAIL_BODY, attachments: [])
         
         @Published var showShareOptions = false
+        @Published var showShareWithPhrOptions = false
+        @Published var selectedShareOptions : ShareType? = nil
         
         @Published var graphId = 2
         
@@ -133,6 +136,7 @@ extension GraphView {
         }
         
         func share(shareOptions : ShareType) async {
+            selectedShareOptions = shareOptions
             images = []
             
             if shareOptions == .both {
@@ -152,12 +156,27 @@ extension GraphView {
             }
             
             if withPhr {
-                await createMail(shareOptions: shareOptions)
+                if await MFMailComposeViewController.canSendMail() {
+                    await MainActor.run{
+                        showShareWithPhrOptions = true
+                    }
+                } else {
+                    await saveWithOptions(shareOptions: shareOptions)
+                }
             } else {
-                let parentStats = shareOptions == .both || shareOptions == .parentOnly ? getWeekStats(mode: adultMode ? .adult : .parent) : nil
-                let childStats = shareOptions == .both || shareOptions == .childOnly ? getWeekStats(mode: .child) : nil
-
-                await saveWithOptions(pdfData: createPDF(images: images, weekStatsParent: parentStats, weekStatsChild: childStats))
+                await saveWithOptions(shareOptions: shareOptions)
+            }
+        }
+        
+        func choseShareOptions(mail: Bool) async {
+            if let selectedShareOptions = selectedShareOptions {
+                if mail {
+                    await createMail(shareOptions: selectedShareOptions)
+                } else {
+                    await saveWithOptions(shareOptions: selectedShareOptions)
+                }
+            } else {
+                print("no share type defined")
             }
         }
         
@@ -177,7 +196,7 @@ extension GraphView {
                 
                 let pdf = createPDF(images: images, weekStatsParent: parentStats, weekStatsChild: childStats)
                 mailData.attachments?.append(AttachmentData(data: pdf, mimeType: "application/pdf", fileName: "verslag.pdf"))
-                
+            
                 showMail = true
             }
         }
@@ -222,7 +241,12 @@ extension GraphView {
         }
         
         // pops up the options for saving or sharing a pdf
-        func saveWithOptions(pdfData : Data) async {
+        func saveWithOptions(shareOptions : ShareType) async {
+            let parentStats = shareOptions == .both || shareOptions == .parentOnly ? getWeekStats(mode: adultMode ? .adult : .parent) : nil
+            let childStats = shareOptions == .both || shareOptions == .childOnly ? getWeekStats(mode: .child) : nil
+            
+            let pdfData = createPDF(images: images, weekStatsParent: parentStats, weekStatsChild: childStats)
+            
             let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             
             let url = paths[0].appendingPathComponent("\(createFileName()).pdf")

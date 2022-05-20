@@ -109,6 +109,19 @@ struct GraphView: View {
                         }
                     }
                 }
+            }.alert(SHARE_STRING_WITH_PHR_OPTIONS, isPresented: $viewModel.showShareWithPhrOptions){
+                Button("Via apple mail", action: {
+                    Task{
+                        await viewModel.choseShareOptions(mail: true)
+                    }
+                })
+                Button("Via deelmenu", action: {
+                    Task{
+                        await viewModel.choseShareOptions(mail: false)
+                    }
+                })
+                
+                Button("Annuleren", role: .cancel, action: {})
             }
             
             Spacer()

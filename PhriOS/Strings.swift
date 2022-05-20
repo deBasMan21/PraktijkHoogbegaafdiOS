@@ -13,6 +13,7 @@ let SHARE_STRING_ADULT = "Klik op delen en dan wordt er een mail klaargezet die 
 let SHARE_STRING_PARENT = "Kies hieronder wat je wilt delen met je begeleider. \n\nEr wordt een mail klaargezet die alleen nog verzonden moet worden."
 let SHARE_STRING_NO_PHR_PARENT = "Kies hieronder wat je op wil slaan. \n\nNa een moment wachten worden de deelopties geopend."
 let SHARE_STRING_NO_PHR_ADULT = "Klik op delen en dan krijg je opties om de pdf te delen."
+let SHARE_STRING_WITH_PHR_OPTIONS = "Kies op welke manier je de grafieken wilt delen met je behandelaar."
 
 //      ONBOARDINGVIEW
 let ONBOARDING_NOTIFICATIONS = "Als je bij het instellen toestemming hebt gegeven om notificaties te ontvangen krijg je standaard elke dag om 10.00, 16.00 en 20.00 een melding als herrinering om je intensiteiten in te vullen. De tijden kan je aanpassen in de instellingen van de app. Die zijn te vinden onder in het menu bij het tandwiel icoontje."
@@ -58,7 +59,7 @@ let BEGELEIDSTERS : [String : String] = [
     "Claire Spoormakers" : "claire@praktijkhoogbegaafd.nl",
     "Chelsea Aarts" : "chelsea@praktijkhoogbegaafd.nl"
 ]
-let VERSION = "1.1.0"
+let VERSION = "1.1.1"
 
 //USER DEFAULT KEYS
 let DEFS_ADULT_MODE = "adultMode"
