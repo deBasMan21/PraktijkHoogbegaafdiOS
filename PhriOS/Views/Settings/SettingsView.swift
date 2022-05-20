@@ -76,10 +76,14 @@ struct SettingsView: View {
                     
                     Divider().padding()
                     
-                    Toggle("Volwassen mode", isOn: $viewModel.adultMode)
+                    Text("Door wie wordt de app gebruikt?")
+                    Picker(selection: $viewModel.adultMode, label: Text("view")){
+                        Text("Volwassen").tag(true)
+                        Text("Ouder met kind").tag(false)
+                    }.pickerStyle(.segmented)
                         .onChange(of: viewModel.adultMode){ value in
                             viewModel.saveSettings()
-                        }.tint(Color(PHR_ORANGE))
+                        }
                 }.padding(.horizontal, 50)
             }.alert("Let op! Hiervoor moet je toestemming gegeven hebben. Dit kan later nog gedaan worden in de instellingen van je telefoon.", isPresented: $viewModel.notificationsError){
                 Button("Oke", role: .cancel, action:{})
