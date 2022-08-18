@@ -86,6 +86,9 @@ struct GraphView: View {
                                 .foregroundColor(Color(PHR_PURPLE))
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
+                                .onTapGesture{
+                                    saveImageOfGraph()
+                                }
                             
                             HStack(spacing: 50){
                                 VStack(alignment: .leading){
@@ -172,6 +175,12 @@ struct GraphView: View {
                 viewModel.moc = moc
                 viewModel.loadData()
             }
+    }
+    
+    func saveImageOfGraph() {
+        let image = graphView.snapshot(geo: viewModel.geo!)
+
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
     
     var graphView : some View {

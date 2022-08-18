@@ -53,6 +53,7 @@
 		EF9AAA152805A7E600C1DC9F /* GraphDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9AAA142805A7E600C1DC9F /* GraphDataParser.swift */; };
 		EFC9B3C42809C4FD004B68B0 /* DisabledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9B3C32809C4FD004B68B0 /* DisabledView.swift */; };
 		EFC9B3C62809C515004B68B0 /* DisabledViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9B3C52809C515004B68B0 /* DisabledViewModel.swift */; };
+		EFED23F52837DFAC009C2C76 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED23F42837DFAC009C2C76 /* ViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		EF9AAA142805A7E600C1DC9F /* GraphDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphDataParser.swift; sourceTree = "<group>"; };
 		EFC9B3C32809C4FD004B68B0 /* DisabledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledView.swift; sourceTree = "<group>"; };
 		EFC9B3C52809C515004B68B0 /* DisabledViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledViewModel.swift; sourceTree = "<group>"; };
+		EFED23F42837DFAC009C2C76 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +330,7 @@
 				EF9AA9DF28018AB400C1DC9F /* EnumExtension.swift */,
 				EF9AA9E428031E3400C1DC9F /* DateExtension.swift */,
 				EF9AA9F02803555500C1DC9F /* UIApplicationExtension.swift */,
+				EFED23F42837DFAC009C2C76 /* ViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				EF9AA9DE28018A7700C1DC9F /* ShareType.swift in Sources */,
 				EF9AAA152805A7E600C1DC9F /* GraphDataParser.swift in Sources */,
 				EF9AA9F628040B3B00C1DC9F /* NewUserViewModel.swift in Sources */,
+				EFED23F52837DFAC009C2C76 /* ViewExtension.swift in Sources */,
 				EF9AAA092804714A00C1DC9F /* SummaryViewModel.swift in Sources */,
 				EF9AA9DA2801855E00C1DC9F /* MailView.swift in Sources */,
 				EF9AAA0128045DB200C1DC9F /* BillieViewModel.swift in Sources */,

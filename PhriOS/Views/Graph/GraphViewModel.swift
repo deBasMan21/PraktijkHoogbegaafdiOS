@@ -204,17 +204,15 @@ extension GraphView {
         // loops to set the graph and take a screenshot
         func createScreenshots() async {
             for billie in Billie.allCases {
-                await MainActor.run{
+                await MainActor.run {
                     selectedGraph = billie
+                    filter()
                 }
-                do{
-                    try await Task.sleep(nanoseconds: UInt64(NSEC_PER_SEC) / 32)
-                } catch {
-                    print("oops")
-                }
-                await MainActor.run{
-                    let img = takeScreenshot()
-                    images.append(img ?? UIImage(named: "Logo")!)
+                
+                try? await Task.sleep(nanoseconds: UInt64(NSEC_PER_SEC) / 32)
+
+                await MainActor.run {
+                    images.append(takeScreenshot() ?? UIImage(named: "Logo")!)
                 }
             }
         }
