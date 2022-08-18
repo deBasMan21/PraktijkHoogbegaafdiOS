@@ -86,6 +86,7 @@
 		EF1DF12127FB55F10007B195 /* PhriOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhriOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EF1DF13427FB56690007B195 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EF1DF13627FB56780007B195 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EF37A0BC28AE524D00AC7E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EF6458DC2816C020009A9179 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		EF6458DE2816C1B5009A9179 /* OnboardingPageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageType.swift; sourceTree = "<group>"; };
 		EF9AA9AA27FB5A8F00C1DC9F /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -175,6 +176,7 @@
 		EF1DF10327FB55EB0007B195 /* PhriOS */ = {
 			isa = PBXGroup;
 			children = (
+				EF37A0BC28AE524D00AC7E4A /* Info.plist */,
 				EF9AA9FC2804310A00C1DC9F /* PhriOS.entitlements */,
 				EF1DF13127FB56390007B195 /* Infrastructure */,
 				EF1DF13027FB56330007B195 /* Models */,
@@ -771,6 +773,8 @@
 				DEVELOPMENT_TEAM = 963LK66N4P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhriOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Praktijk Hoogbegaafd";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to save the charts to your images";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -783,7 +787,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.Buijsen.PhriOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -804,6 +808,8 @@
 				DEVELOPMENT_TEAM = 963LK66N4P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhriOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Praktijk Hoogbegaafd";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to save the charts to your images";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -816,7 +822,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.Buijsen.PhriOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

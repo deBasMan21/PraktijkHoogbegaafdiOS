@@ -59,7 +59,7 @@ let BEGELEIDSTERS : [String : String] = [
     "Claire Spoormakers" : "claire@praktijkhoogbegaafd.nl",
     "Chelsea Aarts" : "chelsea@praktijkhoogbegaafd.nl"
 ]
-let VERSION = "1.1.1"
+let VERSION: String = Bundle.main.infoDictionary?["AppVersion"] as? String ?? "onbekend"
 
 //USER DEFAULT KEYS
 let DEFS_ADULT_MODE = "adultMode"
