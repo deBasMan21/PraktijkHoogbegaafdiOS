@@ -21,12 +21,21 @@ extension NewUserView {
         @Published var showDisclaimer = false
         @Published var showWrongCode = false
         @Published var activeLink : Int? = 0
+        @Published var hasConsent = false {
+            didSet {
+                let defs = UserDefaults.standard
+                defs.set(hasConsent, forKey: DEFS_SHOW_CONSENT)
+            }
+        }
         
         let defs = UserDefaults()
         
         init() {
             selectedBegeleidster = BEGELEIDSTERS.sorted(by: <).first!.key
             showDisclaimer = true
+            
+            let defs = UserDefaults.standard
+            hasConsent = defs.bool(forKey: DEFS_SHOW_CONSENT)
         }
         
         func isValid() -> Bool {

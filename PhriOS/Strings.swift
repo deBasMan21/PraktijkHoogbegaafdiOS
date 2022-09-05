@@ -19,6 +19,19 @@ let SHARE_STRING_WITH_PHR_OPTIONS = "Kies op welke manier je de grafieken wilt d
 let ONBOARDING_NOTIFICATIONS = "Als je bij het instellen toestemming hebt gegeven om notificaties te ontvangen krijg je standaard elke dag om 10.00, 16.00 en 20.00 een melding als herrinering om je intensiteiten in te vullen. De tijden kan je aanpassen in de instellingen van de app. Die zijn te vinden onder in het menu bij het tandwiel icoontje."
 let ONBOARDING_SCORES = "Elke dag kan je tot maximaal 3 keer je intensiteiten invullen. Je krijgt hier dan per intensiteit een slider om aan te geven hoe sterk deze aanwezig is. De ingevulde waardes kan je in de grafiek zien. Deze is te vinden bij het grafiek icoontje in het menu. Hier kun je ook een andere datum kiezen of er voor kiezen om een specifieke intensiteit te bekijken."
 let ONBOARDING_SHARE = "Op de grafiek pagina kun je ook de grafiek delen. Dit kan door op de delen knop te drukken. In het geval dat je de app gebruikt met een behandelaar van Praktijk Hoogbegaafd wordt er direct een email klaar gezet om de grafieken te delen met je behandelaar. Anders krijg je een menu om de gemaakte pdf op te slaan op je device."
+let ONBOARDING_CONSENT = """
+Om de app te kunnen gebruiken vragen we je om je toestemming om de data die ingevuld wordt op je eigen device op te slaan.
+
+Het opslaan van deze data is nodig om de app te kunnen gebruiken dus zonder toestemming kan de app ook niet gebruikt worden.
+
+De data wordt alleen op je eigen device opgeslagen. Het blijft bewaard zolang de app geïnstalleerd is of de app gereset wordt via de instellingen. Dit kan je zelf op elk moment doen door 5 keer op het versie nummer te klikken.
+
+Deze data wordt niet gedeeld met derde partijen. De data wordt alleen gedeeld met je begeleidster op het moment dat je daar zelf voor kiest door op de delen knop te klikken.
+
+Bij vragen kan je altijd contact opnemen met je begeleidster of kun je contact zoeken via de [website](https://www.praktijkhoogbegaafd.nl).
+
+Om deze keuze terug te draaien kun je op elk moment de app verwijderen of resetten om alle data te verwijderen.
+"""
 
 //      HOMEVIEW
 let START_INTENSITEITEN_ADULT = "Vul je intensiteiten in"
@@ -68,6 +81,7 @@ let DEFS_NAME = "name"
 let DEFS_NOTIFICATIONS_ENABLED = "notsEnabled"
 let DEFS_NOTIFICATIONS = "nots"
 let DEFS_WITH_PHR = "withBegeleidster"
+let DEFS_SHOW_CONSENT = "showConsent"
 
 //TEXTS FOR EMAIL
 let EMAIL_BODY = "In de bijlage zit het verslag van de intensiteiten. Dit is van .. tot en met ..."

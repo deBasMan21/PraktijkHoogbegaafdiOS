@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF119DA928C65D3F0086363E /* ConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF119DA828C65D3F0086363E /* ConsentView.swift */; };
 		EF1DF10527FB55EB0007B195 /* PhriOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF10427FB55EB0007B195 /* PhriOSApp.swift */; };
 		EF1DF10727FB55EB0007B195 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF10627FB55EB0007B195 /* ContentView.swift */; };
 		EF1DF10927FB55F00007B195 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF1DF10827FB55F00007B195 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF119DA828C65D3F0086363E /* ConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentView.swift; sourceTree = "<group>"; };
 		EF1DF10127FB55EB0007B195 /* PhriOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhriOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1DF10427FB55EB0007B195 /* PhriOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhriOSApp.swift; sourceTree = "<group>"; };
 		EF1DF10627FB55EB0007B195 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				EF9AA9F328040B2C00C1DC9F /* NewUserView.swift */,
 				EF9AA9F528040B3B00C1DC9F /* NewUserViewModel.swift */,
 				EF6458DC2816C020009A9179 /* OnboardingView.swift */,
+				EF119DA828C65D3F0086363E /* ConsentView.swift */,
 			);
 			path = NewUser;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				EF9AAA0328045EA300C1DC9F /* BillieMode.swift in Sources */,
 				EF9AA9AF27FB5E3600C1DC9F /* PhrButtonOrange.swift in Sources */,
 				EF9AA9E028018AB400C1DC9F /* EnumExtension.swift in Sources */,
+				EF119DA928C65D3F0086363E /* ConsentView.swift in Sources */,
 				EF1DF13727FB56780007B195 /* HomeViewModel.swift in Sources */,
 				EF9AA9EF2803497700C1DC9F /* SettingsViewModel.swift in Sources */,
 				EF9AA9E32802EA4100C1DC9F /* PdfLogic.swift in Sources */,
