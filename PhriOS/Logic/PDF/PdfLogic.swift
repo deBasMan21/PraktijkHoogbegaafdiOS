@@ -11,7 +11,7 @@ import Charts
 import PDFKit
 import UniformTypeIdentifiers
 
-func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekStatsChild : [Billie : Double]?) -> Data {
+func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekStatsChild : [Billie : Double]?, dateRangeString: String) -> Data {
     let logo = UIImage(named: "Logo")!
     let defs = UserDefaults()
     let adultMode = defs.bool(forKey: "adultMode")
@@ -38,6 +38,10 @@ func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekSta
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 72)
         ]
         
+        let attributesSmall = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 50)
+        ]
+        
         let attributesOrange = [
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 72),
             NSAttributedString.Key.foregroundColor : UIColor(named: PHR_ORANGE)!
@@ -54,9 +58,10 @@ func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekSta
         var columnCount = 0
         var titleCount = 1
         
-        let titleOne = adultMode ? "Volwasenne" : (weekStatsParent != nil ? "Ouder" : "Kind")
+        let titleOne = adultMode ? "Volwassenne" : (weekStatsParent != nil ? "Ouder" : "Kind")
         let titleTwo = "Kind"
         titleOne.draw(at: CGPoint(x: 50, y: logo.size.height), withAttributes: attributesPurple)
+        dateRangeString.draw(at: CGPoint(x: 350, y: logo.size.height + 11), withAttributes: attributesSmall)
         
         for img in images {
             if rowCount == 2 && columnCount == 0{
@@ -73,7 +78,7 @@ func createPDF(images : [UIImage], weekStatsParent : [Billie : Double]?, weekSta
             }
         }
         
-        let weekParentTitle = adultMode ? "Weekstatistieken ouder:" : "Weekstatistieken:"
+        let weekParentTitle = adultMode ? "Weekstatistieken:" : "Weekstatistieken ouder:"
         let weekChildTitle = "Weekstatistieken kind:"
         
         let statsY = (images[0].size.height * CGFloat(images.count / 3)) + logo.size.height + 50 + (75 * CGFloat(titleCount))

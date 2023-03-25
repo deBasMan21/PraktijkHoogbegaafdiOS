@@ -57,7 +57,7 @@ let BILLIES_DESCRIPTION : [Billie : String] = [.Emoto : BILLIE_EMOTO, .Fanti : B
 let BILLIES_MAX_ENTERED = "Je hebt vandaag al 3 keer je intensiteiten ingevuld. Dit is het maximale aantal per dag. Morgen kan je weer invullen!"
 
 //STATIC INFORMATION
-let BEGELEIDSTERS : [String : String] = [
+var BEGELEIDSTERS : [String : String] = [
     "Eveline Eulderink" : "eveline@praktijkhoogbegaafd.nl",
     "Yvonne Duran" : "yvonne@praktijkhoogbegaafd.nl",
     "Sjarai Gelissen" : "sjarai@praktijkhoogbegaafd.nl",
@@ -95,3 +95,27 @@ let PHR_ORANGE = "PhrOrange"
 //NOTIFICATIONS
 let NOTIFICATION_TITLE = "Vul je intensiteiten in!"
 let NOTIFICATION_BODY = "Vergeet niet je intensiteiten in te vullen in de Praktijk Hoogbegaafd app"
+
+func getBegeleidsters() async -> [String: String] {
+    let begeleidsters = await loadJson(fromURLString: "https://www.praktijkhoogbegaafd.nl/begeleidsters.json")
+    BEGELEIDSTERS = begeleidsters
+    return begeleidsters
+}
+
+private func loadJson(fromURLString urlString: String) async -> [String: String] {
+    do {
+        if let url = URL(string: urlString) {
+            let session = URLSession.shared
+            
+            let (data, _) = try await session.data(from: url)
+            let decoder = JSONDecoder()
+            return try decoder.decode([String: String].self, from: data)
+        } else {
+            print("debug: url undefined")
+            return [:]
+        }
+    } catch let error {
+        print("debug: caught error \(error)")
+        return [:]
+    }
+}

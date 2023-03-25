@@ -23,8 +23,8 @@ struct MultiLineChartView : UIViewRepresentable {
         chart.data = addData()
     }
     
-    func createChart(chart: LineChartView) -> LineChartView{
-        chart.chartDescription?.enabled = false
+    func createChart(chart: LineChartView) -> LineChartView {
+        chart.chartDescription.enabled = false
         chart.xAxis.drawGridLinesEnabled = false
         chart.xAxis.drawLabelsEnabled = true
         chart.xAxis.drawAxisLineEnabled = true

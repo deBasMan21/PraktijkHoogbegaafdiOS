@@ -22,6 +22,10 @@ extension SettingsView {
         @Published var notifications : [Date] = [Date(), Date(), Date()]
         @Published var notificationsError = false
         
+        @Published var code: String = ""
+        @Published var isCorrectCode: Bool = false
+        @Published var showWrongCode: Bool = false
+        
         let defs = UserDefaults()
         
         init(){
@@ -39,6 +43,11 @@ extension SettingsView {
             defs.set(name, forKey: DEFS_NAME)
             defs.set(notifications, forKey: DEFS_NOTIFICATIONS)
             defs.set(notificationsEnabled, forKey: DEFS_NOTIFICATIONS_ENABLED)
+        }
+        
+        func updateCode() {
+            defs.set(isCorrectCode, forKey: DEFS_WITH_PHR)
+            withPhr = isCorrectCode
         }
         
         func reset(moc: NSManagedObjectContext) {

@@ -11,6 +11,7 @@ struct SettingsView: View {
     @StateObject var viewModel = ViewModel()
     @Binding var isNew : Bool
     @Environment(\.managedObjectContext) var moc
+    @EnvironmentObject var contentViewModel: ContentView.ViewModel
     
     var body: some View {
         VStack{
@@ -24,7 +25,7 @@ struct SettingsView: View {
                             
                             Menu{
                                 Picker("Selecteer begeleidster", selection: $viewModel.begeleidster) {
-                                    ForEach(BEGELEIDSTERS.sorted(by: <), id: \.key) { key, value in
+                                    ForEach(contentViewModel.begeleidsters.sorted(by: <), id: \.key) { key, value in
                                         Text(key)
                                     }
                                 }.onChange(of: viewModel.begeleidster) {tag in
@@ -35,6 +36,35 @@ struct SettingsView: View {
                                     .bold()
                             }
                         }
+                    }
+                    
+                    if !viewModel.withPhr && !viewModel.isCorrectCode {
+                        VStack{
+                            Text("Ontvangen code:")
+                            
+                            HStack{
+                                SecureField("Code", text: $viewModel.code)
+                                    .keyboardType(.numberPad)
+                                    .multilineTextAlignment(.center)
+                                    .textFieldStyle(.roundedBorder)
+                                    .padding(.trailing)
+                                
+                                Button("Verder", action: {
+                                    if viewModel.code == "0165" {
+                                        viewModel.isCorrectCode = true
+                                        viewModel.code = ""
+                                        viewModel.updateCode()
+                                    } else {
+                                        viewModel.showWrongCode = true
+                                        viewModel.isCorrectCode = false
+                                        viewModel.code = ""
+                                    }
+                                }).buttonStyle(PurpleButton())
+                            }
+                        }.padding()
+                            .alert("Verkeerde code", isPresented: $viewModel.showWrongCode){
+                                Button("Oke", action:{})
+                            }
                     }
                     
                     VStack{

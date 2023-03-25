@@ -14,10 +14,15 @@ extension ContentView {
         @Published var isNew = true
         @Published var showNavBar = true
         @Published var showOnboarding = false
+        @Published var begeleidsters: [String: String] = [:]
         
         init() {
             let defs = UserDefaults()
             isNew = defs.string(forKey: DEFS_BEGELEIDSTER) == nil
+            
+            Task {
+                begeleidsters = await getBegeleidsters()
+            }
         }
     }
 }

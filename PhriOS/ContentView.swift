@@ -44,6 +44,6 @@ struct ContentView: View {
                     }
                 }
             }.navigationBarHidden(!viewModel.showNavBar)
-        }
+        }.environmentObject(viewModel)
     }
 }

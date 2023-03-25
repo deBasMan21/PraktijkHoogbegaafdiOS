@@ -31,6 +31,7 @@ extension NewUserView {
         let defs = UserDefaults()
         
         init() {
+            
             selectedBegeleidster = BEGELEIDSTERS.sorted(by: <).first!.key
             showDisclaimer = true
             

@@ -10,6 +10,7 @@ import ConcentricOnboarding
 
 struct NewUserView: View {
     @StateObject var viewModel = ViewModel()
+    @EnvironmentObject var contentViewModel: ContentView.ViewModel
     @Binding var isNew : Bool
     @Binding var showOnboarding: Bool
     
@@ -95,7 +96,7 @@ struct NewUserView: View {
                                     
                                     Menu{
                                         Picker("Selecteer begeleidster", selection: $viewModel.selectedBegeleidster) {
-                                            ForEach(BEGELEIDSTERS.sorted(by: >), id: \.key) { key, value in
+                                            ForEach(contentViewModel.begeleidsters.sorted(by: >), id: \.key) { key, value in
                                                 Text(key)
                                             }
                                         }

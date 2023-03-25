@@ -43,6 +43,10 @@ extension GraphView {
         let defs = UserDefaults()
         var moc : NSManagedObjectContext? = nil
         
+        private var dateString: String {
+            "\(endDate.addingTimeInterval(60 * 60 * 24 * -7).toString()) t/m \(endDate.toString())"
+        }
+        
         init() {
             adultMode = defs.bool(forKey: DEFS_ADULT_MODE)
             withPhr = defs.bool(forKey: DEFS_WITH_PHR)
@@ -194,7 +198,7 @@ extension GraphView {
                 let parentStats = shareOptions == .both || shareOptions == .parentOnly ? getWeekStats(mode: adultMode ? .adult : .parent) : nil
                 let childStats = shareOptions == .both || shareOptions == .childOnly ? getWeekStats(mode: .child) : nil
                 
-                let pdf = createPDF(images: images, weekStatsParent: parentStats, weekStatsChild: childStats)
+                let pdf = createPDF(images: images, weekStatsParent: parentStats, weekStatsChild: childStats, dateRangeString: dateString)
                 mailData.attachments?.append(AttachmentData(data: pdf, mimeType: "application/pdf", fileName: "verslag.pdf"))
             
                 showMail = true
@@ -243,7 +247,7 @@ extension GraphView {
             let parentStats = shareOptions == .both || shareOptions == .parentOnly ? getWeekStats(mode: adultMode ? .adult : .parent) : nil
             let childStats = shareOptions == .both || shareOptions == .childOnly ? getWeekStats(mode: .child) : nil
             
-            let pdfData = createPDF(images: images, weekStatsParent: parentStats, weekStatsChild: childStats)
+            let pdfData = createPDF(images: images, weekStatsParent: parentStats, weekStatsChild: childStats, dateRangeString: dateString)
             
             let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             
